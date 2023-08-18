@@ -36,22 +36,22 @@ We accept contributions! We strongly encourage researchers to make a pull reques
 
 ## End-to-End Adaptive Computation
 
-Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: AUTHORS (2023) [pdf](https://arxiv.org/pdf/2301.13195.pdf), [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html), [official code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
+Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: Xue et al (2023) [pdf](https://arxiv.org/pdf/2301.13195.pdf), [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html), [official code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
 
 > Extending the ACT method by giving the model a "tape" which contains some inputs which may be useful for encoding as well as the input.
 > At each layer, the model can append a variable number of tape tokens to the input for processing which allows it to regulate how much additional compute we add.
 > The paper shows impressive performs on image classification tasks and the 'parity' task on long sequences.
 
-🌟 PonderNet, DeepMind: Banino et al (2021) [pdf](https://arxiv.org/pdf/2107.05407.pdf), [pytorch code](https://github.com/koayon/ml-replications/tree/main/ponder)
+🌟 **PonderNet, DeepMind: Banino et al (2021)** [pdf](https://arxiv.org/pdf/2107.05407.pdf), [pytorch code](https://github.com/koayon/ml-replications/tree/main/ponder)
 
 > Allows the model to exit after each transformer layer if it's confident in the answer.
 > It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
 
-🌟 Adaptive Computation Time (ACT) for RNNs, Graves (2016) [pdf](https://arxiv.org/pdf/1603.08983.pdf)
+**Adaptive Computation Time (ACT) for RNNs, Google: Graves (2016)** [pdf](https://arxiv.org/pdf/1603.08983.pdf)
 
 > Introduces the ACT approach for models to learn how many computational steps they should take before returning an output. This approach is built on in many later papers.
 > They also present other links from adaptive computation and compression/entropy such that if you had concatenated documents, knowing where more computation was needed might be a good way of knowing where the document boundaries are.
-> The paper is a landmark but the refined ideas can be found in later papers such as PonderNet.
+> This is a landmark paper but the refined ideas can be found in later papers such as PonderNet.
 
 ## Black-box Adaptive Computation
 
@@ -70,20 +70,27 @@ Here we mean techniques that you could use with an already trained model where y
 
 ## Mixture of Experts
 
-🌟 Expert Choice MoEs, Google: Zhou et al (2022) [pdf](https://arxiv.org/pdf/2202.09368.pdf), [blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html), [pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
+🌟 **Expert Choice MoEs, Google: Zhou et al (2022)** [pdf](https://arxiv.org/pdf/2202.09368.pdf), [blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html), [pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
 
 > Introduces the first truly adaptive computation MoE model.
 > In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
 > As well as improving training efficiency, this approach also has the benefits that it helps with load balancing.
 
-Switch Transformers, Google: Fedus et al (2021) [pdf](https://arxiv.org/pdf/2101.03961.pdf), [pytorch code](https://nn.labml.ai/transformers/switch/index.html), [model](https://huggingface.co/docs/transformers/model_doc/switch_transformers)
+**Switch Transformers, Google: Fedus et al (2021)** [pdf](https://arxiv.org/pdf/2101.03961.pdf), [pytorch code](https://nn.labml.ai/transformers/switch/index.html), [model](https://huggingface.co/docs/transformers/model_doc/switch_transformers)
 
 > Simplifies the MoE routing algorithm with top-1 routing. Shows that we can exploit the scaling laws with parameters as well as simply compute and develops distrbuted systems approach to MoE.
 
-🌟 Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (2017) [pdf](https://arxiv.org/pdf/1701.06538.pdf)
+🌟 **Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (2017)**[pdf](https://arxiv.org/pdf/1701.06538.pdf)
 
 > Introduces Mixture of Expert models in their modern form using Sparsely Gated MoE layer and a trainable gating network.
 > They use RNNs as this is pre Transformers Eating The World.
+
+## Tools
+
+**Toolformer, Meta: Schick et al (2023)** [pdf](https://arxiv.org/pdf/2302.04761.pdf) [pdf2](https://arxiv.org/pdf/2305.17126.pdf)
+
+> Trained models to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction
+> Effectively the LMs teach themselves how to use tools.
 
 ## Pre-cursors to Adaptive Computation
 
@@ -95,7 +102,7 @@ Switch Transformers, Google: Fedus et al (2021) [pdf](https://arxiv.org/pdf/2101
 
 ## Open Source Libraries
 
-🌟 DeepSpeed-MoE, Microsoft: Rajbhandari et al (2022) [blog](https://www.microsoft.com/en-us/research/blog/deepspeed-advancing-moe-inference-and-training-to-power-next-generation-ai-scale/), [pdf](https://arxiv.org/pdf/2201.05596.pdf), [code](https://github.com/microsoft/DeepSpeed/tree/master/deepspeed/moe)
+🌟 **DeepSpeed-MoE, Microsoft: Rajbhandari et al (2022)** [blog](https://www.microsoft.com/en-us/research/blog/deepspeed-advancing-moe-inference-and-training-to-power-next-generation-ai-scale/), [pdf](https://arxiv.org/pdf/2201.05596.pdf), [code](https://github.com/microsoft/DeepSpeed/tree/master/deepspeed/moe)
 
 > Training solution and inference solution for distributed MoE models as part of the DeepSpeed library. Improves training efficiency and serving latency.
 > They also present a new MoE architecture PR-MoE which is has more experts in higher layers and a method for distilling expert models into dense 'student models'.
@@ -145,7 +152,7 @@ And please hit the star button to show your appreciation.
 End to End
 
 Universal Transformer, AUTHORS (2018) [code](https://github.com/tensorflow/mesh/blob/master/mesh_tensorflow/transformer/universal_transformer.py) -
-> Extends the idea of ACT to Transformers by using the number of Transformer Layers as the unit of variable compute. Followed up by PonderNet which refines the idea with a system that works better.
+> Extends the idea of ACT to Transformers by using the number of Transformer Layers as the unit of variable compute. Followed up by PonderNet which refines the idea.
 
 SkipNet: Dynamic Routing in CNNs, Wang et al (2017) [pdf](https://arxiv.org/pdf/1711.09485)
 
@@ -164,8 +171,6 @@ A Review of Sparse Expert Models, Fedus et al (2022) [pdf], [video at Stanford],
 
 ---
 Tools
-
-Toolformer [pdf](https://arxiv.org/pdf/2302.04761.pdf) [pdf2](https://arxiv.org/pdf/2305.17126.pdf)
 
 GPT-4 Plugins, OpenAI (2023) [blog], [demo]
 
