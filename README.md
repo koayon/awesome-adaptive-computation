@@ -21,6 +21,10 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 
 `Adaptive Computation` is the ability of a machine learning system to adjust its `function` and `compute budget` for each example. We can think of this as giving models [System 2](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) thinking.
 
+[The Bitter Lesson]() LINK states that the scalable methods that should focus Machine Learning Research on are `Learning` and `Search`. Large pre-trained models focus traditionally on learning at train time and finetuning methods like RLHF are also about learning. Search on the other hand can be thought of as general approaches to get good performance by spending more compute at _inference_ time.
+
+---
+
 In this repo, links are organised by topic and have explanations so you can decide what you would like to read. Especially recommended links are starred 🌟
 
 Star this repository to see the latest developments in this research field.
@@ -78,25 +82,25 @@ And please hit the star button to show your appreciation.
 
 MoE
 
-**Designing Effective Sparse Expert Models, Zoph et al (arXiv 2022)**. [pdf]
+**Designing Effective Sparse Expert Models, Google: Zoph et al (arXiv 2022)**. [pdf]
 
 🌟 **Mixture-of-Experts with Expert Choice Routing, Zhou et al (arXiv 2022) [pdf]
 
-Switch Transformers, Fedus et al (arXiv 2021) [pdf], [code], [model]
+Switch Transformers, Google: Fedus et al (arXiv 2021) [pdf], [code], [model]
 
-🌟 Outrageously Large Neural Networks (aka The Sparse MoE Layer), Shazeer et al (ICLR 2017) [pdf]
+🌟 Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (ICLR 2017) [pdf]
 
 ---
 End to End
 
 Underrated option - Beam Search
 
-🌟 Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), AUTHORS (2023) [pdf](https://arxiv.org/pdf/2301.13195.pdf), [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html), [code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
+🌟 Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: AUTHORS (2023) [pdf](https://arxiv.org/pdf/2301.13195.pdf), [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html), [code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
 
 🌟 PonderNet (2021)
 
-Universal Transformer, ... (2018) - maybe?? Exceeded by Ponder
-> Extends the idea of ACT to Transformers by using the number of Transformer Layers as the unit of variable compute.
+Universal Transformer, AUTHORS (2018) -
+> Extends the idea of ACT to Transformers by using the number of Transformer Layers as the unit of variable compute. Followed up by PonderNet which refines the idea with a system that works better.
 
 SkipNet: Learning Dynamic Routing in Convolutional Networks, Wang et al (2017) [pdf](https://arxiv.org/pdf/1711.09485)
 
@@ -117,38 +121,55 @@ Open Source Systems
 -----
 Review
 
-A Review of Sparse Expert Models in Deep Learning, Fedus et al (2022) [pdf], [video at Stanford]
+A Review of Sparse Expert Models in Deep Learning, Fedus et al (2022) [pdf], [video at Stanford], [podcast]
 
 ---
 Tools
 
 Toolformer
 
-GPT-4 with plugins
+GPT-4 Plugins, OpenAI (2023) [blog], [demo]
 
 ---
 Games
 
-🌟 Cicero
+🌟 Cicero, Meta: AUTHORS (2019) [pdf]
 
-AlphaGo
+AlphaGo [pdf], [film]
 
 ---
 ### Black-box Adaptive Computation
 
-Chain of Thought
+Here we mean techniques that you could use with an already trained model where you get either only the output tokens or you get the final layer logits. No retraining is required and therefore these are promising techniques for people with limited training compute budgets.
 
-Tree of Thought
-
-Debate
+🌟 Speculative Decoding (aka Speculative Sampling), DeepMind: Chen et al (2023) [pdf](https://arxiv.org/pdf/2302.01318.pdf) [pdf2](https://arxiv.org/pdf/2211.17192.pdf) [blog](https://jaykmody.com/blog/speculative-sampling/) [code](https://github.com/jaymody/speculative-sampling)
 
 🌟 FrugalGPT
 
+Tree of Thought
 
+Chain of Thought
 
+Debate
 
+Asking follow ups? (Ofir Press?)
 
+---
+## Benchmarks
 
-Pictures?
+Parity
+
+Complex logic questions
+
+ContextQA location dataset
+
+ARB (DuckAI benchmark)
+
+## Key Researchers
+
+[Noam Shazeer]
+[Switch Guys]
+...
+Google Scholar links
 
  -->
