@@ -47,7 +47,11 @@ Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: AUTHORS 
 > Allows the model to exit after each transformer layer if it's confident in the answer.
 > It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
 
-🌟 Adaptive Computation Time (ACT) for RNNs, Graves (2016)
+🌟 Adaptive Computation Time (ACT) for RNNs, Graves (2016) [pdf](https://arxiv.org/pdf/1603.08983.pdf)
+
+> Introduces the ACT approach for models to learn how many computational steps they should take before returning an output. This approach is built on in many later papers.
+> They also present other links from adaptive computation and compression/entropy such that if you had concatenated documents, knowing where more computation was needed might be a good way of knowing where the document boundaries are.
+> The paper is a landmark but the refined ideas can be found in later papers such as PonderNet.
 
 ## Black-box Adaptive Computation
 
