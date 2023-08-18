@@ -13,6 +13,8 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 - [End-to-End Adaptive Computation](#end-to-end-adaptive-computation)
 - [Black Box Adaptive Computation](#black-box-adaptive-computation)
 - [Mixture of Experts](#mixture-of-experts)
+- [Tools & Agensts](#tools--agents)
+- [Games](#games)
 - [Pre-Cursors](#pre-cursors-to-adaptive-computation)
 - [Open Source Librarues](#open-source-libraries)
 - [AI Safety](#ai-safety)
@@ -85,7 +87,7 @@ Here we mean techniques that you could use with an already trained model where y
 > Introduces Mixture of Expert models in their modern form using Sparsely Gated MoE layer and a trainable gating network.
 > They use RNNs as this is pre Transformers Eating The World.
 
-## Tools
+## Tools & Agents
 
 One way of varying compute is on some tokens calling out to an external API to complete the token.
 
@@ -135,12 +137,6 @@ Beam Search -->
 <!--
 
 ## Survey Papers
-
-## Tools & Agents
-
-
-## Games
-
 -->
 
 <!-- ## Approaches We're Excited To See Explored More
