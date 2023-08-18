@@ -21,7 +21,7 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 
 `Adaptive Computation` is the ability of a machine learning system to adjust its `function` and `compute budget` for each example. We can think of this as giving models [System 2](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) thinking.
 
-[The Bitter Lesson]() LINK states that the scalable methods that should focus Machine Learning Research on are `Learning` and `Search`. Large pre-trained models focus traditionally on `learning` at _train time_; finetuning methods like RLHF are also about `learning`. `Search` on the other hand can be thought of as general approaches to get good performance by spending more compute at _inference_ time.
+[The Bitter Lesson]() LINK states that the scalable methods that should focus Machine Learning Research on are `Learning` and `Search`. Large pre-trained models focus traditionally on `learning` at _train time_; finetuning methods like RLHF are also about `learning`. `Search` on the other hand can be thought of as general approaches to get good performance by spending more compute at _inference time_.
 
 ---
 
@@ -49,7 +49,7 @@ Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: AUTHORS 
 > At each layer, the model can append a variable number of tape tokens to the input for processing which allows it to regulate how much additional compute we add.
 > The paper shows impressive performs on image classification tasks and the 'parity' task on long sequences.
 
-🌟 PonderNet, DeepMind: Banino et al (2021) [pdf](https://arxiv.org/pdf/2107.05407.pdf) [pytorch code](https://github.com/koayon/ml-replications/tree/main/ponder)
+🌟 PonderNet, DeepMind: Banino et al (2021) [pdf](https://arxiv.org/pdf/2107.05407.pdf), [pytorch code](https://github.com/koayon/ml-replications/tree/main/ponder)
 
 > Allows the model to exit after each transformer layer if it's confident in the answer.
 > It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
@@ -58,18 +58,22 @@ Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: AUTHORS 
 
 Here we mean techniques that you could use with an already trained model where you get either only the output tokens or you get the final layer logits. No retraining is required and therefore these are promising techniques for people with limited training compute budgets.
 
-🌟 **Speculative Sampling, DeepMind: Chen et al (2023)** [pdf](https://arxiv.org/pdf/2302.01318.pdf) [pdf2](https://arxiv.org/pdf/2211.17192.pdf) [blog](https://jaykmody.com/blog/speculative-sampling/) [code](https://github.com/jaymody/speculative-sampling)
+🌟 **Speculative Sampling, DeepMind: Chen et al (2023)** [pdf](https://arxiv.org/pdf/2302.01318.pdf), [pdf2](https://arxiv.org/pdf/2211.17192.pdf), [blog](https://jaykmody.com/blog/speculative-sampling/), [code](https://github.com/jaymody/speculative-sampling)
 
 > A smaller model does the autoregressive generation for multiple tokens and then a larger model checks the smaller model against what it would have generated in one go. We accept only the tokens where the two models agree and then the larger model's next token.
 > This gives exactly the same output as the larger model would have but with significantly reduced sampling time.
 
 ## Mixture of Experts
 
-🌟 Expert Choice MoEs, Zhou et al (arXiv 2022) [pdf]
+🌟 Expert Choice MoEs, Google: Zhou et al (2022) [pdf](https://arxiv.org/pdf/2202.09368.pdf), [blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html), [pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
 
-Switch Transformers, Google: Fedus et al (arXiv 2021) [pdf], [code], [model]
+> Introduces the first truly adaptive computation MoE model.
+> In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
+> As well as improving training efficiency, this approach also has the benefits that it helps with load balancing.
 
-🌟 Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (ICLR 2017) [pdf]
+Switch Transformers, Google: Fedus et al (2021) [pdf], [code], [model]
+
+🌟 Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (2017) [pdf]
 
 ## Open Source Libraries
 
