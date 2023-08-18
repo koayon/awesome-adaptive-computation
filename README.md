@@ -22,7 +22,7 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 
 `Adaptive Computation` is the ability of a machine learning system to adjust its `function` and `compute budget` for each example. We can think of this as giving models [System 2](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) thinking.
 
-[The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) LINK states that the scalable methods that should focus Machine Learning Research on are `Learning` and `Search`. Large pre-trained models focus traditionally on `learning` at _train time_; finetuning methods like RLHF are also about `learning`. `Search` on the other hand can be thought of as general approaches to get good performance by spending more compute at _inference time_.
+[The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) states that the scalable methods that should focus Machine Learning Research on are `Learning` and `Search`. Large pre-trained models focus traditionally on `learning` at _train time_; finetuning methods like RLHF are also about `learning`. `Search` on the other hand can be thought of as general approaches to get good performance by spending more compute at _inference time_.
 
 ---
 
@@ -36,7 +36,7 @@ We accept contributions! We strongly encourage researchers to make a pull reques
 
 ## Pre-cursors to Adaptive Computation
 
-**Adaptive Mixtures of Local Experts, Jacobs et al (1991)**. [pdf](https://www.cs.toronto.edu/~hinton/absps/jjnh91.pdf)
+**Adaptive Mixtures of Local Experts, Jacobs et al (1991)** [pdf](https://www.cs.toronto.edu/~hinton/absps/jjnh91.pdf)
 
 > Collaborative, learned Mixture of Experts approaches to handle subsets of the training set are proposed.
 > It's remarkable how close current approaches are to the original gating network.
@@ -132,7 +132,7 @@ MoE
 ---
 End to End
 
-Universal Transformer, AUTHORS (2018) -
+Universal Transformer, AUTHORS (2018) [code](https://github.com/tensorflow/mesh/blob/master/mesh_tensorflow/transformer/universal_transformer.py) -
 > Extends the idea of ACT to Transformers by using the number of Transformer Layers as the unit of variable compute. Followed up by PonderNet which refines the idea with a system that works better.
 
 SkipNet: Dynamic Routing in CNNs, Wang et al (2017) [pdf](https://arxiv.org/pdf/1711.09485)
@@ -153,7 +153,7 @@ A Review of Sparse Expert Models, Fedus et al (2022) [pdf], [video at Stanford],
 ---
 Tools
 
-Toolformer
+Toolformer [pdf](https://arxiv.org/pdf/2302.04761.pdf) [pdf2](https://arxiv.org/pdf/2305.17126.pdf)
 
 GPT-4 Plugins, OpenAI (2023) [blog], [demo]
 
