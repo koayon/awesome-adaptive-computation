@@ -10,10 +10,10 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 - [Awesome Adaptive Computation](#awesome-adaptive-computation)
   - [Contents](#contents)
   - [About](#about)
-- [Pre-Cursors](#pre-cursors-to-adaptive-computation)
 - [End-to-End Adaptive Computation](#end-to-end-adaptive-computation)
 - [Black Box Adaptive Computation](#black-box-adaptive-computation)
 - [Mixture of Experts](#mixture-of-experts)
+- [Pre-Cursors](#pre-cursors-to-adaptive-computation)
 - [Open Source Librarues](#open-source-libraries)
 - [AI Safety](#ai-safety)
 <!--  -->
@@ -34,14 +34,6 @@ We accept contributions! We strongly encourage researchers to make a pull reques
 
 <!-- Ordered by topic, then date published -->
 
-## Pre-cursors to Adaptive Computation
-
-**Adaptive Mixtures of Local Experts, Jacobs et al (1991)** [pdf](https://www.cs.toronto.edu/~hinton/absps/jjnh91.pdf)
-
-> Collaborative, learned Mixture of Experts approaches to handle subsets of the training set are proposed.
-> It's remarkable how close current approaches are to the original gating network.
-> They also show intuitive expert specialisation on the task of vowel discrimination.
-
 ## End-to-End Adaptive Computation
 
 Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: AUTHORS (2023) [pdf](https://arxiv.org/pdf/2301.13195.pdf), [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html), [official code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
@@ -55,6 +47,8 @@ Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: AUTHORS 
 > Allows the model to exit after each transformer layer if it's confident in the answer.
 > It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
 
+🌟 Adaptive Computation Time (ACT) for RNNs, Graves (2016)
+
 ## Black-box Adaptive Computation
 
 Here we mean techniques that you could use with an already trained model where you get either only the output tokens or you get the final layer logits. No retraining is required and therefore these are promising techniques for people with limited training compute budgets.
@@ -63,6 +57,12 @@ Here we mean techniques that you could use with an already trained model where y
 
 > A smaller model does the autoregressive generation for multiple tokens and then a larger model checks the smaller model against what it would have generated in one go. We accept only the tokens where the two models agree and then the larger model's next token.
 > This gives exactly the same output as the larger model would have but with significantly reduced sampling time.
+
+**FrugalGPT, Stanford: Chen et al (2023)** [pdf](https://arxiv.org/pdf/2305.05176.pdf)
+
+> Some approaches for completely black box adaptive computation (i.e. from an API where you don't get logits).
+> They use completion caching and an LLM Cascade strategy where given a prompt they select n models to try sampling with, in order of increasing parameter count. Then the first model is samples and we check the generation with a scoring function. If the generation is rejected then try a more capable model.
+> Interestingly this approach provides some shielding against [inverse scaling](https://arxiv.org/pdf/2306.09479.pdf) problems.
 
 ## Mixture of Experts
 
@@ -80,6 +80,14 @@ Switch Transformers, Google: Fedus et al (2021) [pdf](https://arxiv.org/pdf/2101
 
 > Introduces Mixture of Expert models in their modern form using Sparsely Gated MoE layer and a trainable gating network.
 > They use RNNs as this is pre Transformers Eating The World.
+
+## Pre-cursors to Adaptive Computation
+
+**Adaptive Mixtures of Local Experts, Jacobs et al (1991)** [pdf](https://www.cs.toronto.edu/~hinton/absps/jjnh91.pdf)
+
+> Collaborative, learned Mixture of Experts approaches to handle subsets of the training set are proposed.
+> It's remarkable how close current approaches are to the original gating network.
+> They also show intuitive expert specialisation on the task of vowel discrimination.
 
 ## Open Source Libraries
 
@@ -103,7 +111,11 @@ One way of varying compute is on some tokens calling out to an external API to c
 
 -->
 
-<!-- ## Approaches We're Excited To See Explored More -->
+<!-- ## Approaches We're Excited To See Explored More
+
+- Applying our own inductive bias to models by using Mixture of heterogenuous experts e.g. some experts which are themselves parallelised more than others.
+-
+-->
 
 ## AI Safety
 
@@ -125,10 +137,6 @@ And please hit the star button to show your appreciation.
 
 <!-- Soon:
 
-MoE
-
-**Designing Effective Sparse Expert Models, Google: Zoph et al (arXiv 2022)**. [pdf]
-
 ---
 End to End
 
@@ -139,7 +147,7 @@ SkipNet: Dynamic Routing in CNNs, Wang et al (2017) [pdf](https://arxiv.org/pdf/
 
 Spatially Adaptive Computation Time for Residual Networks ???
 
-🌟 Adaptive Computation Time (ACT) for RNNs, Graves (2016)
+
 
 Conditional Computation: Programmable Modulation of Deep Networks, Bengio et al. (2013)
 
@@ -167,8 +175,6 @@ AlphaGo [pdf], [film]
 ---
 
 Black box
-
-🌟 FrugalGPT
 
 Tree of Thought
 
