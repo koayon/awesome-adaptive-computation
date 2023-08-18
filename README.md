@@ -87,6 +87,10 @@ Here we mean techniques that you could use with an already trained model where y
 
 ## Tools
 
+**ChatGPT Plugins, OpenAI (2023)** [blog](https://openai.com/blog/chatgpt-plugins), [demo](https://chat.openai.com/?model=gpt-4)
+
+> GPT-4 has access to plugins for tasks where it would be better suited to call an API. Examples include Code Interpreter, web browser and Wolfram Alpha.
+
 **Toolformer, Meta: Schick et al (2023)** [pdf](https://arxiv.org/pdf/2302.04761.pdf) [pdf2](https://arxiv.org/pdf/2305.17126.pdf)
 
 > Trained models to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction
@@ -169,10 +173,6 @@ Review
 
 A Review of Sparse Expert Models, Fedus et al (2022) [pdf], [video at Stanford], [podcast]
 
----
-Tools
-
-GPT-4 Plugins, OpenAI (2023) [blog], [demo]
 
 ---
 Games
