@@ -8,14 +8,15 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 ## Contents
 
 - [Awesome Adaptive Computation](#awesome-adaptive-computation)
-- [Contents](#contents)
-- [About](#about)
+  - [Contents](#contents)
+  - [About](#about)
 - [Pre-Cursors](#pre-cursors-to-adaptive-computation)
-  <!-- - [Algorithm](#algorithm) -->
-  <!-- - [System](#system)
-  - [Application](#application) -->
-  <!-- - [Open-Source System](#open-source-system) -->
+- [End-to-End Adaptive Computation](#end-to-end-adaptive-computation)
+- [Black Box Adaptive Computation](#black-box-adaptive-computation)
+- [Mixture of Experts](#mixture-of-experts)
+- [Open Source Librarues](#open-source-libraries)
 - [AI Safety](#ai-safety)
+<!--  -->
 
 ### About
 
@@ -164,6 +165,8 @@ Games
 AlphaGo [pdf], [film]
 
 ---
+
+Black box
 
 🌟 FrugalGPT
 
