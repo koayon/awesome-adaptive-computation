@@ -87,6 +87,8 @@ Here we mean techniques that you could use with an already trained model where y
 
 ## Tools
 
+One way of varying compute is on some tokens calling out to an external API to complete the token.
+
 **ChatGPT Plugins, OpenAI (2023)** [blog](https://openai.com/blog/chatgpt-plugins), [demo](https://chat.openai.com/?model=gpt-4)
 
 > GPT-4 has access to plugins for tasks where it would be better suited to call an API. Examples include Code Interpreter, web browser and Wolfram Alpha.
@@ -104,6 +106,10 @@ Here we mean techniques that you could use with an already trained model where y
 > It's remarkable how close current approaches are to the original gating network.
 > They also show intuitive expert specialisation on the task of vowel discrimination.
 
+**Conditional Computation, Bengio et al. (2016)** [pdf](https://arxiv.org/pdf/1511.06297.pdf)
+
+> They use Reinforcement Learning to train a policy gradient to decide which parts of the network to activate, in effect learning a dropout policy.
+
 ## Open Source Libraries
 
 🌟 **DeepSpeed-MoE, Microsoft: Rajbhandari et al (2022)** [blog](https://www.microsoft.com/en-us/research/blog/deepspeed-advancing-moe-inference-and-training-to-power-next-generation-ai-scale/), [pdf](https://arxiv.org/pdf/2201.05596.pdf), [code](https://github.com/microsoft/DeepSpeed/tree/master/deepspeed/moe)
@@ -120,7 +126,7 @@ Beam Search -->
 ## Survey Papers
 
 ## Tools & Agents
-One way of varying compute is on some tokens calling out to an external API to complete the token.
+
 
 ## Games
 
@@ -161,10 +167,6 @@ Universal Transformer, AUTHORS (2018) [code](https://github.com/tensorflow/mesh/
 SkipNet: Dynamic Routing in CNNs, Wang et al (2017) [pdf](https://arxiv.org/pdf/1711.09485)
 
 Spatially Adaptive Computation Time for Residual Networks ???
-
-
-
-Conditional Computation: Programmable Modulation of Deep Networks, Bengio et al. (2013)
 
 The Early Exit Dilemma in Neural Network Training
 
