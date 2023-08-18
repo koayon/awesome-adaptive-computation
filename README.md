@@ -21,7 +21,7 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 
 `Adaptive Computation` is the ability of a machine learning system to adjust its `function` and `compute budget` for each example. We can think of this as giving models [System 2](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) thinking.
 
-[The Bitter Lesson]() LINK states that the scalable methods that should focus Machine Learning Research on are `Learning` and `Search`. Large pre-trained models focus traditionally on `learning` at _train time_; finetuning methods like RLHF are also about `learning`. `Search` on the other hand can be thought of as general approaches to get good performance by spending more compute at _inference time_.
+[The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) LINK states that the scalable methods that should focus Machine Learning Research on are `Learning` and `Search`. Large pre-trained models focus traditionally on `learning` at _train time_; finetuning methods like RLHF are also about `learning`. `Search` on the other hand can be thought of as general approaches to get good performance by spending more compute at _inference time_.
 
 ---
 
@@ -71,9 +71,14 @@ Here we mean techniques that you could use with an already trained model where y
 > In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
 > As well as improving training efficiency, this approach also has the benefits that it helps with load balancing.
 
-Switch Transformers, Google: Fedus et al (2021) [pdf], [code], [model]
+Switch Transformers, Google: Fedus et al (2021) [pdf](https://arxiv.org/pdf/2101.03961.pdf), [pytorch code](https://nn.labml.ai/transformers/switch/index.html), [model](https://huggingface.co/docs/transformers/model_doc/switch_transformers)
+
+> Simplifies the MoE routing algorithm with top-1 routing. Shows that we can exploit the scaling laws with parameters as well as simply compute and develops distrbuted systems approach to MoE.
 
 🌟 Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (2017) [pdf]
+
+> Introduces Mixture of Expert models in their modern form using Sparsely Gated MoE layer and a trainable gating network.
+> They use RNNs as this is pre Transformers Eating The World.
 
 ## Open Source Libraries
 
