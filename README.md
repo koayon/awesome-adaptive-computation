@@ -21,7 +21,7 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 
 `Adaptive Computation` is the ability of a machine learning system to adjust its `function` and `compute budget` for each example. We can think of this as giving models [System 2](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) thinking.
 
-[The Bitter Lesson]() LINK states that the scalable methods that should focus Machine Learning Research on are `Learning` and `Search`. Large pre-trained models focus traditionally on learning at train time and finetuning methods like RLHF are also about learning. Search on the other hand can be thought of as general approaches to get good performance by spending more compute at _inference_ time.
+[The Bitter Lesson]() LINK states that the scalable methods that should focus Machine Learning Research on are `Learning` and `Search`. Large pre-trained models focus traditionally on `learning` at _train time_; finetuning methods like RLHF are also about `learning`. `Search` on the other hand can be thought of as general approaches to get good performance by spending more compute at _inference_ time.
 
 ---
 
@@ -41,24 +41,22 @@ We accept contributions! We strongly encourage researchers to make a pull reques
 > It's remarkable how close current approaches are to the original gating network.
 > They also show intuitive expert specialisation on the task of vowel discrimination.
 
+<!-- Chain of Thought
+
+Beam Search -->
+
 <!--
-### Mixture of Experts
 
+## Survey Papers
 
-### End-to-End Adaptive Computation
-
-### Black-box Adaptive Computation
-
-### Survey Papers
-
-### Agents & Tools
+## Tools & Agents
 One way of varying compute is on some tokens calling out to an external API to complete the token.
 
-### Games
+## Games
 
-### Open Source Libraries -->
+-->
 
-<!-- ### Approaches We're Excited To See Explored More -->
+<!-- ## Approaches We're Excited To See Explored More -->
 
 ## AI Safety
 
@@ -84,44 +82,26 @@ MoE
 
 **Designing Effective Sparse Expert Models, Google: Zoph et al (arXiv 2022)**. [pdf]
 
-🌟 **Mixture-of-Experts with Expert Choice Routing, Zhou et al (arXiv 2022) [pdf]
-
-Switch Transformers, Google: Fedus et al (arXiv 2021) [pdf], [code], [model]
-
-🌟 Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (ICLR 2017) [pdf]
-
 ---
 End to End
-
-Underrated option - Beam Search
-
-🌟 Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: AUTHORS (2023) [pdf](https://arxiv.org/pdf/2301.13195.pdf), [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html), [code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
-
-🌟 PonderNet (2021)
 
 Universal Transformer, AUTHORS (2018) -
 > Extends the idea of ACT to Transformers by using the number of Transformer Layers as the unit of variable compute. Followed up by PonderNet which refines the idea with a system that works better.
 
-SkipNet: Learning Dynamic Routing in Convolutional Networks, Wang et al (2017) [pdf](https://arxiv.org/pdf/1711.09485)
+SkipNet: Dynamic Routing in CNNs, Wang et al (2017) [pdf](https://arxiv.org/pdf/1711.09485)
 
 Spatially Adaptive Computation Time for Residual Networks ???
 
-🌟 Adaptive Computation Time (ACT) for Recurrent Neural Networks, Graves (2016)
+🌟 Adaptive Computation Time (ACT) for RNNs, Graves (2016)
 
 Conditional Computation: Programmable Modulation of Deep Networks, Bengio et al. (2013)
 
 The Early Exit Dilemma in Neural Network Training
 
 -----
-
-Open Source Systems
-
-🌟 DeepSpeed-MoE, Rajbhandari et al (2022) [blog], [pdf], [code], [video from TIMESTAMP]
-
------
 Review
 
-A Review of Sparse Expert Models in Deep Learning, Fedus et al (2022) [pdf], [video at Stanford], [podcast]
+A Review of Sparse Expert Models, Fedus et al (2022) [pdf], [video at Stanford], [podcast]
 
 ---
 Tools
@@ -138,21 +118,14 @@ Games
 AlphaGo [pdf], [film]
 
 ---
-### Black-box Adaptive Computation
-
-Here we mean techniques that you could use with an already trained model where you get either only the output tokens or you get the final layer logits. No retraining is required and therefore these are promising techniques for people with limited training compute budgets.
-
-🌟 Speculative Decoding (aka Speculative Sampling), DeepMind: Chen et al (2023) [pdf](https://arxiv.org/pdf/2302.01318.pdf) [pdf2](https://arxiv.org/pdf/2211.17192.pdf) [blog](https://jaykmody.com/blog/speculative-sampling/) [code](https://github.com/jaymody/speculative-sampling)
 
 🌟 FrugalGPT
 
 Tree of Thought
 
-Chain of Thought
+Asking follow ups? (Ofir Press?)
 
 Debate
-
-Asking follow ups? (Ofir Press?)
 
 ---
 ## Benchmarks
@@ -165,11 +138,6 @@ ContextQA location dataset
 
 ARB (DuckAI benchmark)
 
-## Key Researchers
+Citation
 
-[Noam Shazeer]
-[Switch Guys]
-...
-Google Scholar links
-
- -->
+-->
