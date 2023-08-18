@@ -105,6 +105,10 @@ One way of varying compute is on some tokens calling out to an external API to c
 > The first AI to beat humans at Texas Hold Em Poker (heads up).
 > An important part of the approach was in computing real-time responses to opponent moves, spending more compute on less obvious moves.
 
+**AlphaGo/AlphaZero: DeepMind, Silver et al (2016)** [pdf](https://storage.googleapis.com/deepmind-media/alphago/AlphaGoNaturePaper.pdf), [pdf2](https://www.nature.com/articles/nature24270.epdf) [film](https://www.youtube.com/watch?v=WXuK6gekU1Y) [blog](https://www.deepmind.com/research/highlighted-research/alphago)
+
+> This result needs no introduction. In terms of Adaptive Computation, they the depth of the tree search was allowed to be variable.
+
 ## Pre-cursors to Adaptive Computation
 
 **Adaptive Mixtures of Local Experts, Jacobs et al (1991)** [pdf](https://www.cs.toronto.edu/~hinton/absps/jjnh91.pdf)
