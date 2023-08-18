@@ -49,6 +49,11 @@ Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: AUTHORS 
 > At each layer, the model can append a variable number of tape tokens to the input for processing which allows it to regulate how much additional compute we add.
 > The paper shows impressive performs on image classification tasks and the 'parity' task on long sequences.
 
+🌟 PonderNet, DeepMind: Banino et al (2021) [pdf](https://arxiv.org/pdf/2107.05407.pdf) [pytorch code](https://github.com/koayon/ml-replications/tree/main/ponder)
+
+> Allows the model to exit after each transformer layer if it's confident in the answer.
+> It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
+
 ## Black-box Adaptive Computation
 
 Here we mean techniques that you could use with an already trained model where you get either only the output tokens or you get the final layer logits. No retraining is required and therefore these are promising techniques for people with limited training compute budgets.
