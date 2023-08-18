@@ -98,6 +98,13 @@ One way of varying compute is on some tokens calling out to an external API to c
 > Trained models to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction
 > Effectively the LMs teach themselves how to use tools.
 
+## Games
+
+🌟 **Libratus: heads-up no-limit poker, Meta: Brown and Sandholm (2017)** [pdf](https://www.science.org/doi/epdf/10.1126/science.aao1733) [pdf2](https://arxiv.org/pdf/1705.02955.pdf) [video](https://www.youtube.com/watch?v=2dX0lwaQRX0)
+
+> The first AI to beat humans at Texas Hold Em Poker (heads up).
+> An important part of the approach was in computing real-time responses to opponent moves, spending more compute on less obvious moves.
+
 ## Pre-cursors to Adaptive Computation
 
 **Adaptive Mixtures of Local Experts, Jacobs et al (1991)** [pdf](https://www.cs.toronto.edu/~hinton/absps/jjnh91.pdf)
@@ -175,13 +182,6 @@ Review
 
 A Review of Sparse Expert Models, Fedus et al (2022) [pdf], [video at Stanford], [podcast]
 
-
----
-Games
-
-🌟 Cicero, Meta: AUTHORS (2019) [pdf]
-
-AlphaGo [pdf], [film]
 
 ---
 
