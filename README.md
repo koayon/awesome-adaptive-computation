@@ -41,6 +41,35 @@ We accept contributions! We strongly encourage researchers to make a pull reques
 > It's remarkable how close current approaches are to the original gating network.
 > They also show intuitive expert specialisation on the task of vowel discrimination.
 
+## End-to-End Adaptive Computation
+
+Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: AUTHORS (2023) [pdf](https://arxiv.org/pdf/2301.13195.pdf), [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html), [official code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
+
+> Extending the ACT method by giving the model a "tape" which contains some inputs which may be useful for encoding as well as the input.
+> At each layer, the model can append a variable number of tape tokens to the input for processing which allows it to regulate how much additional compute we add.
+> The paper shows impressive performs on image classification tasks and the 'parity' task on long sequences.
+
+## Black-box Adaptive Computation
+
+Here we mean techniques that you could use with an already trained model where you get either only the output tokens or you get the final layer logits. No retraining is required and therefore these are promising techniques for people with limited training compute budgets.
+
+🌟 **Speculative Sampling, DeepMind: Chen et al (2023)** [pdf](https://arxiv.org/pdf/2302.01318.pdf) [pdf2](https://arxiv.org/pdf/2211.17192.pdf) [blog](https://jaykmody.com/blog/speculative-sampling/) [code](https://github.com/jaymody/speculative-sampling)
+
+> A smaller model does the autoregressive generation for multiple tokens and then a larger model checks the smaller model against what it would have generated in one go. We accept only the tokens where the two models agree and then the larger model's next token.
+> This gives exactly the same output as the larger model would have but with significantly reduced sampling time.
+
+## Mixture of Experts
+
+🌟 Expert Choice MoEs, Zhou et al (arXiv 2022) [pdf]
+
+Switch Transformers, Google: Fedus et al (arXiv 2021) [pdf], [code], [model]
+
+🌟 Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (ICLR 2017) [pdf]
+
+## Open Source Libraries
+
+🌟 DeepSpeed-MoE, Rajbhandari et al (2022) [blog], [pdf], [code], [video from TIMESTAMP]
+
 <!-- Chain of Thought
 
 Beam Search -->
