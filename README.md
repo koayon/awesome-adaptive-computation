@@ -75,14 +75,17 @@ Switch Transformers, Google: Fedus et al (2021) [pdf](https://arxiv.org/pdf/2101
 
 > Simplifies the MoE routing algorithm with top-1 routing. Shows that we can exploit the scaling laws with parameters as well as simply compute and develops distrbuted systems approach to MoE.
 
-🌟 Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (2017) [pdf]
+🌟 Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (2017) [pdf](https://arxiv.org/pdf/1701.06538.pdf)
 
 > Introduces Mixture of Expert models in their modern form using Sparsely Gated MoE layer and a trainable gating network.
 > They use RNNs as this is pre Transformers Eating The World.
 
 ## Open Source Libraries
 
-🌟 DeepSpeed-MoE, Rajbhandari et al (2022) [blog], [pdf], [code], [video from TIMESTAMP]
+🌟 DeepSpeed-MoE, Microsoft: Rajbhandari et al (2022) [blog](https://www.microsoft.com/en-us/research/blog/deepspeed-advancing-moe-inference-and-training-to-power-next-generation-ai-scale/), [pdf](https://arxiv.org/pdf/2201.05596.pdf), [code](https://github.com/microsoft/DeepSpeed/tree/master/deepspeed/moe)
+
+> Training solution and inference solution for distributed MoE models as part of the DeepSpeed library. Improves training efficiency and serving latency.
+> They also present a new MoE architecture PR-MoE which is has more experts in higher layers and a method for distilling expert models into dense 'student models'.
 
 <!-- Chain of Thought
 
