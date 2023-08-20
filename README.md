@@ -11,11 +11,11 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
   - [Contents](#contents)
   - [About](#about)
 - [End-to-End Adaptive Computation](#end-to-end-adaptive-computation)
-- [Black Box Adaptive Computation](#black-box-adaptive-computation)
+- [Adaptive Computation For Black-Box Models](#adaptive-computation-for-black-box-models)
 - [Mixture of Experts](#mixture-of-experts)
 - [Tools & Agensts](#tools--agents)
 - [Games](#games)
-- [Pre-Cursors](#pre-cursors-to-adaptive-computation)
+- [Pre-Cursors To Adaptive Computation](#pre-cursors-to-adaptive-computation)
 - [Open Source Librarues](#open-source-libraries)
 - [AI Safety](#ai-safety)
 <!--  -->
@@ -23,6 +23,8 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 ### About
 
 `Adaptive Computation` is the ability of a machine learning system to adjust its `function` and `compute budget` for each example. We can think of this as giving models [System 2](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) thinking.
+
+Adaptive Computation techniques include decoupling model capacity and model compute with mixture of experts, saving compute on easy inputs via early exiting, and devoting modality-specific layers to different tokens with heterogeneous experts.
 
 [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) states that the scalable methods that should focus Machine Learning Research on are `Learning` and `Search`. Large pre-trained models focus traditionally on `learning` at _train time_; finetuning methods like RLHF are also about `learning`. `Search` on the other hand can be thought of as general approaches to get good performance by spending more compute at _inference time_.
 
@@ -38,7 +40,7 @@ We accept contributions! We strongly encourage researchers to make a pull reques
 
 ## End-to-End Adaptive Computation
 
-Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: Xue et al (2023) [pdf](https://arxiv.org/pdf/2301.13195.pdf), [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html), [official code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
+**Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: Xue et al (2023)** [pdf](https://arxiv.org/pdf/2301.13195.pdf), [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html), [official code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
 
 > Extending the ACT method by giving the model a "tape" which contains some inputs which may be useful for encoding as well as the input.
 > At each layer, the model can append a variable number of tape tokens to the input for processing which allows it to regulate how much additional compute we add.
@@ -49,15 +51,18 @@ Adaptive Computation with Elastic Input Sequence (AdaTape-ViT), Google: Xue et a
 > Allows the model to exit after each transformer layer if it's confident in the answer.
 > It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
 
+<!-- > Follow-up work in [PABEE]() suggests in addition to the speed benefits, there's also improved performance due to lower risk of "overthinking".
+> Another way to put this is that later layers don't need to be able to handle easy inputs (which won't be) -->
+
 **Adaptive Computation Time (ACT) for RNNs, Google: Graves (2016)** [pdf](https://arxiv.org/pdf/1603.08983.pdf)
 
 > Introduces the ACT approach for models to learn how many computational steps they should take before returning an output. This approach is built on in many later papers.
 > They also present other links from adaptive computation and compression/entropy such that if you had concatenated documents, knowing where more computation was needed might be a good way of knowing where the document boundaries are.
 > This is a landmark paper but the refined ideas can be found in later papers such as PonderNet.
 
-## Black-box Adaptive Computation
+## Adaptive Computation for Black-box models
 
-Here we mean techniques that you could use with an already trained model where you get either only the output tokens or you get the final layer logits. No retraining is required and therefore these are promising techniques for people with limited training compute budgets.
+Here we explore techniques that you could use with an already trained model where you get either only the output tokens or you get the final layer logits. No retraining is required and therefore these are promising techniques for people with limited training compute budgets.
 
 🌟 **Speculative Sampling, DeepMind: Chen et al (2023)** [pdf](https://arxiv.org/pdf/2302.01318.pdf), [pdf2](https://arxiv.org/pdf/2211.17192.pdf), [blog](https://jaykmody.com/blog/speculative-sampling/), [code](https://github.com/jaymody/speculative-sampling)
 
@@ -70,7 +75,11 @@ Here we mean techniques that you could use with an already trained model where y
 > They use completion caching and an LLM Cascade strategy where given a prompt they select n models to try sampling with, in order of increasing parameter count. Then the first model is samples and we check the generation with a scoring function. If the generation is rejected then try a more capable model.
 > Interestingly this approach provides some shielding against [inverse scaling](https://arxiv.org/pdf/2306.09479.pdf) problems.
 
-## Mixture of Experts
+## Mixture of Experts (Sparse MoE)
+
+The MoE paradigm uses a routing layer to choose a limited number of parameters to apply to a given input rather than using all the available parameters. This conditional computation allows us to disentangle scale the model capacity without scaling the compute required for each forward pass.
+This is useful because bigger models are more sample efficient and more compute efficient to train.
+MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
 
 🌟 **Expert Choice MoEs, Google: Zhou et al (2022)** [pdf](https://arxiv.org/pdf/2202.09368.pdf), [blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html), [pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
 
@@ -95,19 +104,20 @@ One way of varying compute is on some tokens calling out to an external API to c
 
 > GPT-4 has access to plugins for tasks where it would be better suited to call an API. Examples include Code Interpreter, web browser and Wolfram Alpha.
 
-**Toolformer, Meta: Schick et al (2023)** [pdf](https://arxiv.org/pdf/2302.04761.pdf) [pdf2](https://arxiv.org/pdf/2305.17126.pdf)
+**Toolformer, Meta: Schick et al (2023)** [pdf](https://arxiv.org/pdf/2302.04761.pdf), [pdf2](https://arxiv.org/pdf/2305.17126.pdf)
 
 > Trained models to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction
 > Effectively the LMs teach themselves how to use tools.
+> In the limit case of this we simply require LMs/agents to be able to ask the right questions, know where to ask them and possibly be able to interpret the answers they receieve. In other words, we offload the actual computation to external APIs (which may themselves be ML models) and might be able to use much smaller main models.
 
 ## Games
 
-🌟 **Libratus: heads-up no-limit poker, Meta: Brown and Sandholm (2017)** [pdf](https://www.science.org/doi/epdf/10.1126/science.aao1733) [pdf2](https://arxiv.org/pdf/1705.02955.pdf) [video](https://www.youtube.com/watch?v=2dX0lwaQRX0)
+🌟 **Libratus: heads-up no-limit poker, Meta: Brown and Sandholm (2017)** [pdf](https://www.science.org/doi/epdf/10.1126/science.aao1733), [pdf2](https://arxiv.org/pdf/1705.02955.pdf), [video](https://www.youtube.com/watch?v=2dX0lwaQRX0)
 
 > The first AI to beat humans at Texas Hold Em Poker (heads up).
 > An important part of the approach was in computing real-time responses to opponent moves, spending more compute on less obvious moves.
 
-**AlphaGo/AlphaZero: DeepMind, Silver et al (2016)** [pdf](https://storage.googleapis.com/deepmind-media/alphago/AlphaGoNaturePaper.pdf), [pdf2](https://www.nature.com/articles/nature24270.epdf) [film](https://www.youtube.com/watch?v=WXuK6gekU1Y) [blog](https://www.deepmind.com/research/highlighted-research/alphago)
+**AlphaGo/AlphaZero: DeepMind, Silver et al (2016)** [pdf](https://storage.googleapis.com/deepmind-media/alphago/AlphaGoNaturePaper.pdf), [pdf2](https://www.nature.com/articles/nature24270.epdf), [film](https://www.youtube.com/watch?v=WXuK6gekU1Y), [blog](https://www.deepmind.com/research/highlighted-research/alphago)
 
 > This result needs no introduction. In terms of Adaptive Computation, they the depth of the tree search was allowed to be variable.
 
@@ -171,6 +181,10 @@ End to End
 Universal Transformer, AUTHORS (2018) [code](https://github.com/tensorflow/mesh/blob/master/mesh_tensorflow/transformer/universal_transformer.py) -
 > Extends the idea of ACT to Transformers by using the number of Transformer Layers as the unit of variable compute. Followed up by PonderNet which refines the idea.
 
+PABEE
+
+F-PABEE
+
 SkipNet: Dynamic Routing in CNNs, Wang et al (2017) [pdf](https://arxiv.org/pdf/1711.09485)
 
 Spatially Adaptive Computation Time for Residual Networks ???
@@ -182,7 +196,6 @@ Review
 
 A Review of Sparse Expert Models, Fedus et al (2022) [pdf], [video at Stanford], [podcast]
 
-
 ---
 
 Black box
@@ -191,7 +204,7 @@ Tree of Thought
 
 Asking follow ups? (Ofir Press?)
 
-Debate
+Debate, Self-Critique
 
 ---
 ## Benchmarks
