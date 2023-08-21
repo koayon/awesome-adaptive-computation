@@ -101,6 +101,11 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 
 One way of varying compute is on some tokens calling out to an external API to complete the token.
 
+🌟 **LLM-Powered Autonomous Agents, OpenAI: Lilian Weng (2023)** [blog](https://lilianweng.github.io/posts/2023-06-23-agent/)
+
+> An overview of agents as general problem-solvers powered by LLMs such as [AutoGPT](https://github.com/Significant-Gravitas/Auto-GPT) and [GPT-Engineer](https://github.com/AntonOsika/gpt-engineer)
+> Agents typically can act within the world are are augmented with the ability to do explicit long term planning (via decomposing goals into subgoals and learning from its mistakes), long-term memory (via a vector database) and tool use (calling external APIs).
+
 **ChatGPT Plugins, OpenAI (2023)** [blog](https://openai.com/blog/chatgpt-plugins), [demo](https://chat.openai.com/?model=gpt-4)
 
 > GPT-4 has access to plugins for tasks where it would be better suited to call an API. Examples include Code Interpreter, web browser and Wolfram Alpha.
