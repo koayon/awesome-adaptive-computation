@@ -95,12 +95,11 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 
 <!-- Task MoE & Meta equivalents -->
 
-<!-- No Token Left Behind, Meta (2022) [pdf](https://arxiv.org/abs/2207.04672), [code](https://github.com/facebookresearch/fairseq/tree/nllb)
+No Language Left Behind, Meta (2022) [pdf](https://arxiv.org/abs/2207.04672), [code](https://github.com/facebookresearch/fairseq/tree/nllb)
 
 > Translation is a natural setting for MoEs since it's clear that most things learned from English to Chinese translation will not be applicable to French to German translation but there are some overlaps in computation that we want for some translation tasks.
 > So MoE has great inductive biases to allow this model to scale to translation for even extremely low-resource languages.
-
- -->
+> This may be a natural environment for task/document-level rather than token-level routing
 
 **Switch Transformers, Google: Fedus et al (2021)** [pdf](https://arxiv.org/pdf/2101.03961.pdf), [review paper](https://arxiv.org/pdf/2209.01667.pdf), [pytorch code](https://nn.labml.ai/transformers/switch/index.html), [model](https://huggingface.co/docs/transformers/model_doc/switch_transformers)
 
