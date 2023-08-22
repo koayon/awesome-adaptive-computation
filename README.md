@@ -18,7 +18,6 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 - [Pre-Cursors To Adaptive Computation](#pre-cursors-to-adaptive-computation)
 - [Open Source Librarues](#open-source-libraries)
 - [AI Safety](#ai-safety)
-<!--  -->
 
 ### About
 
@@ -40,7 +39,7 @@ We accept contributions! We strongly encourage researchers to make a pull reques
 
 ## Early Exit: End-to-End Adaptive Computation
 
-**AdaTape - Adaptive Computation with Elastic Input Sequence, Google: Xue et al (2023)** [pdf](https://arxiv.org/pdf/2301.13195.pdf), [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html), [official jax code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
+**AdaTape, Google: Xue et al (2023)** [pdf](https://arxiv.org/pdf/2301.13195.pdf), [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html), [official jax code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
 
 > Extending the ACT method by giving the model a "tape" which contains some inputs which may be useful for encoding as well as the input.
 > At each layer, the model can append a variable number of tape tokens to the input for processing which allows it to regulate how much additional compute we add.
@@ -50,10 +49,14 @@ We accept contributions! We strongly encourage researchers to make a pull reques
 
 > Allows the model to exit after each transformer layer if it's confident in the answer.
 > It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
-> Refines the ACT transformer implementation from [Universal Transformers](https://arxiv.org/pdf/1807.03819.pdf)
+> Refines the ACT transformer implementation from [Universal Transformers](https://arxiv.org/pdf/1807.03819.pdf), a Turing complete version of Transformers.
 
 <!-- > Follow-up work in [PABEE]() suggests in addition to the speed benefits, there's also improved performance due to lower risk of "overthinking".
 > Another way to put this is that later layers don't need to be able to handle easy inputs (which won't be) -->
+
+<!-- **SkipNet: Dynamic Routing in CNNs, Wang et al (2017)** [pdf](https://arxiv.org/pdf/1711.09485)
+> Early exiting but instead of necessarily exiting you can jump ahead n number of layers. Intuitively this seems harder to train but it has potentially good inductive biases - it allows us to have later layers do computation that we want for all inputs rather than having the earlier layers be that.
+-->
 
 **Adaptive Computation Time (ACT) for RNNs, Google: Graves (2016)** [pdf](https://arxiv.org/pdf/1603.08983.pdf)
 
@@ -67,14 +70,19 @@ Here we explore techniques that you could use with an already trained model wher
 
 🌟 **Speculative Sampling, DeepMind: Chen et al (2023)** [pdf](https://arxiv.org/pdf/2302.01318.pdf), [pdf2](https://arxiv.org/pdf/2211.17192.pdf), [blog](https://jaykmody.com/blog/speculative-sampling/), [pytorch code](https://github.com/jaymody/speculative-sampling)
 
-> A smaller model does the autoregressive generation for multiple tokens and then a larger model checks the smaller model against what it would have generated in one go. We accept only the tokens where the two models agree and then the larger model's next token.
+> A smaller model does the autoregressive generation for multiple tokens and then a larger model checks the smaller model against what it would have generated in one go. We accept only the tokens where the two models agree (by some acceptance criteria) and then the larger model's next token.
 > This gives exactly the same output as the larger model would have but with significantly reduced sampling time.
 
 **FrugalGPT, Stanford: Chen et al (2023)** [pdf](https://arxiv.org/pdf/2305.05176.pdf)
 
 > Some approaches for completely black box adaptive computation (i.e. from an API where you don't get logits).
-> They use completion caching and an LLM Cascade strategy where given a prompt they select n models to try sampling with, in order of increasing parameter count. Then the first model is samples and we check the generation with a scoring function. If the generation is rejected then try a more capable model.
+> They use an LLM Cascade strategy where given a prompt they select n models to try sampling with, in order of increasing parameter count. Then the first model is samples and we check the generation with a scoring function. If the generation is rejected then try a more capable model.
 > Interestingly this approach provides some shielding against [inverse scaling](https://arxiv.org/pdf/2306.09479.pdf) problems.
+> They also use completion caching.
+
+<!-- Debate
+
+Iterative Self-Critique -->
 
 ## Mixture of Experts (Sparse MoE)
 
@@ -88,14 +96,35 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 > In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
 > As well as improving training efficiency, this approach also has the benefits that it helps with load balancing and eliminates the need for auxiliary loss functions.
 
-**Switch Transformers, Google: Fedus et al (2021)** [pdf](https://arxiv.org/pdf/2101.03961.pdf), [pytorch code](https://nn.labml.ai/transformers/switch/index.html), [model](https://huggingface.co/docs/transformers/model_doc/switch_transformers)
+<!-- Task MoE & Meta equivalents -->
 
-> Simplifies the MoE routing algorithm with top-1 routing. Shows that we can exploit the scaling laws with parameters as well as simply compute and develops distrbuted systems approach to MoE.
+<!-- No Token Left Behind, Meta (2022) [pdf](https://arxiv.org/abs/2207.04672), [code](https://github.com/facebookresearch/fairseq/tree/nllb)
+
+> Translation is a natural setting for MoEs since it's clear that most things learned from English to Chinese translation will not be applicable to French to German translation but there are some overlaps in computation that we want for some translation tasks.
+> So MoE has great inductive biases to allow this model to scale to translation for even extremely low-resource languages.
+
+ -->
+
+**Switch Transformers, Google: Fedus et al (2021)** [pdf](https://arxiv.org/pdf/2101.03961.pdf), [review paper](https://arxiv.org/pdf/2209.01667.pdf), [pytorch code](https://nn.labml.ai/transformers/switch/index.html), [model](https://huggingface.co/docs/transformers/model_doc/switch_transformers)
+
+> Simplifies the MoE routing algorithm with top-1 routing. Shows that we can exploit the scaling laws with parameters as well as simply compute and develops distrbuted systems approach to MoE
 
 🌟 **Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (2017)**[pdf](https://arxiv.org/pdf/1701.06538.pdf)
 
 > Introduces Mixture of Expert models in their modern form using Sparsely Gated MoE layer and a trainable gating network.
 > They use RNNs as this is pre Transformers Eating The World.
+
+<!-- ## Continual Learning
+
+**Lifelong-MoE, Google DeepMind: Chen et al (2023)** [pdf](https://arxiv.org/pdf/2305.12281.pdf)
+
+> Trains a language model for multiple tasks by training for one task, freezing these weights and then adding some additional layers which can help to train the next task (in combination with the frozen layers)
+> This treats pretrained weights more like an API (which you can use but not edit) when training a model to do a new task. This helps to eliminate the catastrophic forgetting that can happen with naive finetuning.
+
+**MuNet, Google: Gesmundo et al (2022)** [pdf](https://arxiv.org/pdf/2205.10937.pdf), [pdf2], [pdf3](https://arxiv.org/pdf/2209.14745.pdf), [code](https://github.com/google-research/google-research/tree/master/muNet)
+
+> Defines an evolutionary algorithm which adds different tasks onto an existing base model by inserting adapter layers, changing hyperparameters, freezing layers, copying layers to retrain etc.
+> An interesting sketch of what Adaptive Computation could look like in the future. -->
 
 ## Tools & Agents
 
@@ -109,6 +138,10 @@ One way of varying compute is on some tokens calling out to an external API to c
 **ChatGPT Plugins, OpenAI (2023)** [blog](https://openai.com/blog/chatgpt-plugins), [demo](https://chat.openai.com/?model=gpt-4)
 
 > GPT-4 has access to plugins for tasks where it would be better suited to call an API. Examples include Code Interpreter, web browser and Wolfram Alpha.
+
+<!-- RETRO, DeepMind:
+> k-Nearest Neighbour approaches
+ -->
 
 **Toolformer, Meta: Schick et al (2023)** [pdf](https://arxiv.org/pdf/2302.04761.pdf), [pdf2](https://arxiv.org/pdf/2305.17126.pdf)
 
@@ -129,15 +162,29 @@ One way of varying compute is on some tokens calling out to an external API to c
 
 ## Pre-cursors to Adaptive Computation
 
+**Conditional Computation, Bengio et al. (2016)** [pdf](https://arxiv.org/pdf/1511.06297.pdf)
+
+> They use Reinforcement Learning to train a policy gradient to decide which parts of the network to activate, in effect learning a dropout policy for sparsity.
+
 **Adaptive Mixtures of Local Experts, Jacobs et al (1991)** [pdf](https://www.cs.toronto.edu/~hinton/absps/jjnh91.pdf)
 
 > Collaborative, learned Mixture of Experts approaches to handle subsets of the training set are proposed.
 > It's remarkable how close current approaches are to the original gating network.
 > They also show intuitive expert specialisation on the task of vowel discrimination.
 
-**Conditional Computation, Bengio et al. (2016)** [pdf](https://arxiv.org/pdf/1511.06297.pdf)
+<!-- ## Other
 
-> They use Reinforcement Learning to train a policy gradient to decide which parts of the network to activate, in effect learning a dropout policy.
+**FLOPs are all you need, Emin Orhan (2023)** [blog](https://severelytheoretical.wordpress.com/2023/08/14/flops-are-all-you-need-a-conjecture-about-what-really-makes-deep-learning-work/)
+
+> Short post detailing how the success of deep learning models is very correlated with the amount of compute that they use per parameter efficiently and how they share parameters.
+
+Tree of Thought
+
+Beam Search
+
+Lottery Tickets: if we prune we really do get sparsity but the problem is that the sparsity is not useful to us on modern hardware. We need block sparsity to take advantage of this. In the future it might be possible to use less structured sparsity and then this will become very relevant again.
+
+-->
 
 ## Open Source Libraries
 
@@ -146,19 +193,33 @@ One way of varying compute is on some tokens calling out to an external API to c
 > Training solution and inference solution for distributed MoE models as part of the DeepSpeed library. Improves training efficiency and serving latency.
 > They also present a new MoE architecture PR-MoE which is has more experts in higher layers and a method for distilling expert models into dense 'student models'.
 
-<!-- Chain of Thought
+<!-- Sten (2022) [pdf](https://arxiv.org/pdf/2304.07613.pdf)
+> PyTorch implementation of efficient, unstructured sparsity linear algebra operations with gradients.
 
-Beam Search -->
+-->
 
 <!--
+## Benchmarks
 
-## Survey Papers
+Parity
+
+Complex logic questions
+
+ContextQA location dataset
+
+ARB (DuckAI benchmark)
+
+Agents benchmarks
+
+Sparsity May Cry (SMC)
+
 -->
 
 <!-- ## Approaches We're Excited To See Explored More
 
-- Applying our own inductive bias to models by using Mixture of heterogenuous experts e.g. some experts which are themselves parallelised more than others. More generally experts which themselves vary in computational cost and expert structure.
-- Independent training for different parts of the model and then combining the parts together and training for longer for the routing mechanism to learn the strengths of a new expert.
+- Applying our own inductive bias to models by using Mixture of heterogenuous experts e.g. some experts which are themselves parallelised more than others. More generally experts which themselves vary in computational cost and expert structure like [AutoMoE](https://arxiv.org/pdf/2210.07535.pdf)
+- Current approaches to sparsity are mainly transformer with some sparsity added on the margin. Transformers have worked so well and people are generally leaving them alone and messing with everything else around them - we're interested in paradigm shift approaches which are completely sparse and move further away from the transformer.
+- When we have early exiting we essentially have to train classifiers for each layer in addition to the main model so we have additional overhead for training which is going to save us compute at inference tine. Are there principled ways of early exiting at train time as well so that we don't have to learn very much from easy tokens?
 -->
 
 ## AI Safety
@@ -170,7 +231,6 @@ For problems where we're concerned about systems failing by not being able to do
 However, for problems where we're concerned about systems being deceptive or mesa-optimising increasing the ammount of inference-time compute increases their ability to do so. Here the failure is not a "mistake" but entirely intentional from the system's perspective.
 
 <br>
-<br>
 
 ---
 
@@ -178,51 +238,3 @@ However, for problems where we're concerned about systems being deceptive or mes
 
 Thanks for reading, if you have any suggestions or corrections please submit a pull request!
 And please hit the star button to show your appreciation.
-
-<!-- Soon:
-
----
-End to End
-
-Universal Transformer, AUTHORS (2018) [code](https://github.com/tensorflow/mesh/blob/master/mesh_tensorflow/transformer/universal_transformer.py) -
-> Extends the idea of ACT to Transformers by using the number of Transformer Layers as the unit of variable compute. Followed up by PonderNet which refines the idea.
-
-PABEE
-
-F-PABEE
-
-SkipNet: Dynamic Routing in CNNs, Wang et al (2017) [pdf](https://arxiv.org/pdf/1711.09485)
-
-Spatially Adaptive Computation Time for Residual Networks ???
-
-The Early Exit Dilemma in Neural Network Training
-
------
-Review
-
-A Review of Sparse Expert Models, Fedus et al (2022) [pdf], [video at Stanford], [podcast]
-
----
-
-Black box
-
-Tree of Thought
-
-Asking follow ups? (Ofir Press?)
-
-Debate, Self-Critique
-
----
-## Benchmarks
-
-Parity
-
-Complex logic questions
-
-ContextQA location dataset
-
-ARB (DuckAI benchmark)
-
-Citation
-
--->
