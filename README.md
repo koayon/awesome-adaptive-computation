@@ -92,20 +92,25 @@ The MoE paradigm uses a routing layer to choose a limited number of parameters t
 This is useful because bigger models are more sample efficient and more compute efficient to train.
 MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
 
+**AutoMoE, UBC/Microsoft: Jawahar et al (2023)** [pdf](https://arxiv.org/pdf/2210.07535.pdf) [code](https://github.com/microsoft/AutoMoE)
+
+> One of the promises of MoE is being able to apply different amounts of compute to each token - this has been achieved by different tokens being processed and dropped by different numbers of experts per layer but AutoMoE also uses differently sized experts to achieve more heterogeneity.
+> They perform an Architectural search for optimal architectures given computational constraints.
+
 🌟 **Expert Choice MoEs, Google: Zhou et al (2022)** [pdf](https://arxiv.org/pdf/2202.09368.pdf), [blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html), [pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
 
 > Introduces a principled, truly adaptive computation MoE model.
 > In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
 > As well as improving training efficiency, this approach also has the benefits that it helps with load balancing and eliminates the need for auxiliary loss functions.
 
-Task Level MoEs, Various (2022) [DeMix pdf](https://arxiv.org/pdf/2108.05036.pdf), [Task-MoE pdf](https://arxiv.org/pdf/2110.03742.pdf)
+**Task Level MoEs, Various (2022)** [DeMix pdf](https://arxiv.org/pdf/2108.05036.pdf), [Task-MoE pdf](https://arxiv.org/pdf/2110.03742.pdf)
 
 > Instead of routing each token separately these approaches use the same Expert for entire documents based on the task (which is supplied to the network).
 > Instead of learning the routing, we supply the routing based on what we know about the tasks inducing our own inductive bias.
 > Also note that this offers memory footprint benefits at inference time - if inference is for a limited set of tasks, we only need these enough GPU memory for these experts.
 > [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D) is a follow-up which uses ensembling approaches from multiple LMs trained independently in a continual learning approach [code](https://github.com/hadasah/btm)
 
-No Language Left Behind, Meta (2022) [pdf](https://arxiv.org/abs/2207.04672), [code](https://github.com/facebookresearch/fairseq/tree/nllb)
+**No Language Left Behind, Meta (2022)** [pdf](https://arxiv.org/abs/2207.04672), [code](https://github.com/facebookresearch/fairseq/tree/nllb)
 
 > Translation is a natural setting for MoEs since it's clear that most things learned from English to Chinese translation will not be applicable to French to German translation but there are some overlaps in computation that we want for some translation tasks.
 > So MoE has great inductive biases to allow this model to scale to translation for even extremely low-resource languages.
@@ -227,9 +232,9 @@ Sparsity May Cry (SMC)
 
 <!-- ## Approaches We're Excited To See Explored More
 
-- Applying our own inductive bias to models by using Mixture of heterogenuous experts e.g. some experts which are themselves parallelised more than others. More generally experts which themselves vary in computational cost and expert structure like [AutoMoE](https://arxiv.org/pdf/2210.07535.pdf)
-- Current approaches to sparsity are mainly transformer with some sparsity added on the margin. Transformers have worked so well and people are generally leaving them alone and messing with everything else around them - we're interested in paradigm shift approaches which are completely sparse and move further away from the transformer.
 - When we have early exiting we essentially have to train classifiers for each layer in addition to the main model so we have additional overhead for training which is going to save us compute at inference tine. Are there principled ways of early exiting at train time as well so that we don't have to learn very much from easy tokens?
+
+- Current approaches to sparsity are mainly transformer with some sparsity added on the margin. Transformers have worked so well and people are generally leaving them alone and messing with everything else around them - we're interested in paradigm shift approaches which are completely sparse and move further away from the transformer.
 -->
 
 ## AI Safety
