@@ -49,11 +49,14 @@ We accept contributions! We strongly encourage researchers to make a pull reques
 
 > Allows the model to exit after each transformer layer if it's confident in the answer.
 > It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
-> Refines the ACT transformer implementation from [Universal Transformers](https://arxiv.org/pdf/1807.03819.pdf), a Turing complete version of Transformers.
+> This refines the ACT transformer implementation from [Universal Transformers](https://arxiv.org/pdf/1807.03819.pdf), a Turing complete version of Transformers.
 > This can also be combined with [SkipNet](<[pdf](https://arxiv.org/pdf/1711.09485)>) ideas where we instead of exiting directly, skip to the final few layers to allow our universal computation (applied to all inputs) to be at the end as well as the start of the network.
 
-<!-- > Follow-up work in [PABEE]() suggests in addition to the speed benefits, there's also improved performance due to lower risk of "overthinking".
-> Another way to put this is that later layers don't need to be able to handle easy inputs (which won't be) -->
+**PaBEE, DeepMind: Zhou et al (2020)** [pdf](https://arxiv.org/pdf/2006.04152.pdf) [official PyTorch code](https://github.com/huggingface/transformers/tree/main/examples/research_projects/bert-loses-patience)
+
+> Introduces an approach to early stopping where instead of looking at a learned confidence that the layer can exit, instead looks at the output class if we were to exit and exits if the outputs are the same over multiple layers.
+> Interestingly they suggest that the reason for this isn't just speed but they suggest that early stopping will improve performance due to lower risk of "overthinking" (analogously to stopping training earlier to prevent overfitting).
+> [F-PaBEE](https://arxiv.org/pdf/2305.11916.pdf) prevents a slightly more flexible approach based on similarlity scores.
 
 **Adaptive Computation Time (ACT) for RNNs, Google: Graves (2016)** [pdf](https://arxiv.org/pdf/1603.08983.pdf)
 
@@ -87,19 +90,18 @@ The MoE paradigm uses a routing layer to choose a limited number of parameters t
 This is useful because bigger models are more sample efficient and more compute efficient to train.
 MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
 
-Task Level MoEs, Various (2022) [DeMix pdf](https://arxiv.org/pdf/2108.05036.pdf), [Task-MoE pdf](https://arxiv.org/pdf/2110.03742.pdf)
-
-> Instead of routing each token separately these approaches use the same Expert for entire documents based on the task (which is supplied to the network).
-> Instead of learning the routing, we supply the routing based on what we know about the tasks inducing our own inductive bias.
-> [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D) is a follow-up which uses ensembling approaches from multiple LMs trained independently in a continual learning approach [code](https://github.com/hadasah/btm)
-
 🌟 **Expert Choice MoEs, Google: Zhou et al (2022)** [pdf](https://arxiv.org/pdf/2202.09368.pdf), [blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html), [pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
 
 > Introduces a principled, truly adaptive computation MoE model.
 > In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
 > As well as improving training efficiency, this approach also has the benefits that it helps with load balancing and eliminates the need for auxiliary loss functions.
 
-<!-- Task MoE & Meta equivalents -->
+Task Level MoEs, Various (2022) [DeMix pdf](https://arxiv.org/pdf/2108.05036.pdf), [Task-MoE pdf](https://arxiv.org/pdf/2110.03742.pdf)
+
+> Instead of routing each token separately these approaches use the same Expert for entire documents based on the task (which is supplied to the network).
+> Instead of learning the routing, we supply the routing based on what we know about the tasks inducing our own inductive bias.
+> Also note that this offers memory footprint benefits at inference time - if inference is for a limited set of tasks, we only need these enough GPU memory for these experts.
+> [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D) is a follow-up which uses ensembling approaches from multiple LMs trained independently in a continual learning approach [code](https://github.com/hadasah/btm)
 
 No Language Left Behind, Meta (2022) [pdf](https://arxiv.org/abs/2207.04672), [code](https://github.com/facebookresearch/fairseq/tree/nllb)
 
