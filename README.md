@@ -169,11 +169,13 @@ One way of varying compute is on some tokens calling out to an external API to c
 > It's remarkable how close current approaches are to the original gating network.
 > They also show intuitive expert specialisation on the task of vowel discrimination.
 
-<!-- ## Other
+## Other
 
 **FLOPs are all you need, Emin Orhan (2023)** [blog](https://severelytheoretical.wordpress.com/2023/08/14/flops-are-all-you-need-a-conjecture-about-what-really-makes-deep-learning-work/)
 
 > Short post detailing how the success of deep learning models is very correlated with the amount of compute that they use per parameter efficiently and how they share parameters.
+
+<!--
 
 Tree of Thought
 
