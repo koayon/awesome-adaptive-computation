@@ -87,6 +87,12 @@ The MoE paradigm uses a routing layer to choose a limited number of parameters t
 This is useful because bigger models are more sample efficient and more compute efficient to train.
 MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
 
+Task Level MoEs, Various (2022) [DeMix pdf](https://arxiv.org/pdf/2108.05036.pdf), [Task-MoE pdf](https://arxiv.org/pdf/2110.03742.pdf)
+
+> Instead of routing each token separately these approaches use the same Expert for entire documents based on the task (which is supplied to the network).
+> Instead of learning the routing, we supply the routing based on what we know about the tasks inducing our own inductive bias.
+> [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D) is a follow-up which uses ensembling approaches from multiple LMs trained independently in a continual learning approach [code](https://github.com/hadasah/btm)
+
 🌟 **Expert Choice MoEs, Google: Zhou et al (2022)** [pdf](https://arxiv.org/pdf/2202.09368.pdf), [blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html), [pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
 
 > Introduces a principled, truly adaptive computation MoE model.
@@ -181,6 +187,8 @@ Tree of Thought
 Beam Search
 
 Lottery Tickets: if we prune we really do get sparsity but the problem is that the sparsity is not useful to us on modern hardware. We need block sparsity to take advantage of this. In the future it might be possible to use less structured sparsity and then this will become very relevant again.
+
+Dynamic Neural Networks Survey - Review Paper [pdf](https://arxiv.org/pdf/2102.04906.pdf)
 
 -->
 
