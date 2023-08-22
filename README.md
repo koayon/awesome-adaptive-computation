@@ -92,7 +92,7 @@ The MoE paradigm uses a routing layer to choose a limited number of parameters t
 This is useful because bigger models are more sample efficient and more compute efficient to train.
 MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
 
-**AutoMoE, UBC/Microsoft: Jawahar et al (2023)** [pdf](https://arxiv.org/pdf/2210.07535.pdf) [code](https://github.com/microsoft/AutoMoE)
+**AutoMoE, UBC/Microsoft: Jawahar et al (2023)** [pdf](https://arxiv.org/pdf/2210.07535.pdf), [code](https://github.com/microsoft/AutoMoE)
 
 > One of the promises of MoE is being able to apply different amounts of compute to each token - this has been achieved by different tokens being processed and dropped by different numbers of experts per layer but AutoMoE also uses differently sized experts to achieve more heterogeneity.
 > They perform an Architectural search for optimal architectures given computational constraints.
