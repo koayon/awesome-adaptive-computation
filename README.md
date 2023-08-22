@@ -10,16 +10,16 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 - [Awesome Adaptive Computation](#awesome-adaptive-computation)
   - [Contents](#contents)
   - [About](#about)
+- [Mixture of Experts](#mixture-of-experts-sparse-moe)
 - [Early Exit](#early-exit-end-to-end-adaptive-computation)
 - [Adaptive Computation For Black-Box Models](#adaptive-computation-for-black-box-models)
-- [Mixture of Experts](#mixture-of-experts-sparse-moe)
 - [Continual Learning](#continual-learning)
 - [Tools & Agensts](#tools--agents)
 - [Games](#games)
 - [Pre-Cursors To Adaptive Computation](#pre-cursors-to-adaptive-computation)
-- [Other](#other)
 - [Open Source Librarues](#open-source-libraries)
 - [AI Safety](#ai-safety)
+- [Other](#other)
 
 ### About
 
@@ -38,6 +38,59 @@ Star this repository to see the latest developments in this research field.
 We accept contributions! We strongly encourage researchers to make a pull request with papers, approaches and explanations that they feel others in the community would benefit from 🤗
 
 <!-- Ordered by topic, then date published -->
+
+## Mixture of Experts (Sparse MoE)
+
+The MoE paradigm uses a routing layer to choose a limited number of parameters to apply to a given input rather than using all the available parameters. This conditional computation allows us to disentangle scale the model capacity without scaling the compute required for each forward pass.
+This is useful because bigger models are more sample efficient and more compute efficient to train.
+MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
+
+**AutoMoE, UBC/Microsoft: Jawahar et al (2023)**
+[pdf](https://arxiv.org/pdf/2210.07535.pdf),
+[official PyTorch code](https://github.com/microsoft/AutoMoE)
+
+> One of the promises of MoE is being able to apply different amounts of compute to each token - this has been achieved by different tokens being processed and dropped by different numbers of experts per layer but AutoMoE also uses differently sized experts to achieve more heterogeneity.
+> They perform an Architectural search for optimal architectures given computational constraints.
+
+🌟 **Expert Choice MoEs, Google: Zhou et al (2022)**
+[pdf](https://arxiv.org/pdf/2202.09368.pdf),
+[blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html),
+[pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
+
+> Introduces a principled, truly adaptive computation MoE model.
+> In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
+> As well as improving training efficiency, this approach also has the benefits that it helps with load balancing and eliminates the need for auxiliary loss functions.
+
+🌟 **Task Level MoEs, Various (2022)**
+[DeMix pdf](https://arxiv.org/pdf/2108.05036.pdf),
+[Task-MoE pdf](https://arxiv.org/pdf/2110.03742.pdf)
+
+> Instead of routing each token separately these approaches use the same Expert for entire documents based on the task (which is supplied to the network).
+> Instead of learning the routing, we supply the routing based on what we know about the tasks inducing our own inductive bias.
+> Also note that this offers memory footprint benefits at inference time - if inference is for a limited set of tasks, we only need these enough GPU memory for these experts.
+> [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D) is a follow-up which uses ensembling approaches from multiple LMs trained independently in a continual learning approach [code](https://github.com/hadasah/btm)
+
+**No Language Left Behind, Meta (2022)**
+[pdf](https://arxiv.org/abs/2207.04672),
+[official PyTorch code](https://github.com/facebookresearch/fairseq/tree/nllb)
+
+> Translation is a natural setting for MoEs since it's clear that most things learned from English to Chinese translation will not be applicable to French to German translation but there are some overlaps in computation that we want for some translation tasks.
+> So MoE has great inductive biases to allow this model to scale to translation for even extremely low-resource languages.
+> This may be a natural environment for task/document-level rather than token-level routing
+
+**Switch Transformers, Google: Fedus et al (2021)**
+[pdf](https://arxiv.org/pdf/2101.03961.pdf),
+[review paper](https://arxiv.org/pdf/2209.01667.pdf),
+[pytorch code](https://nn.labml.ai/transformers/switch/index.html),
+[model](https://huggingface.co/docs/transformers/model_doc/switch_transformers)
+
+> Simplifies the MoE routing algorithm with top-1 routing. Shows that we can exploit the scaling laws with parameters as well as simply compute and develops distrbuted systems approach to MoE
+
+🌟 **Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (2017)**
+[pdf](https://arxiv.org/pdf/1701.06538.pdf)
+
+> Introduces Mixture of Expert models in their modern form using Sparsely Gated MoE layer and a trainable gating network.
+> They use RNNs as this is pre Transformers Eating The World.
 
 ## Early Exit: End-to-End Adaptive Computation
 
@@ -98,59 +151,6 @@ Here we explore techniques that you could use with an already trained model wher
 <!-- Debate
 
 Iterative Self-Critique -->
-
-## Mixture of Experts (Sparse MoE)
-
-The MoE paradigm uses a routing layer to choose a limited number of parameters to apply to a given input rather than using all the available parameters. This conditional computation allows us to disentangle scale the model capacity without scaling the compute required for each forward pass.
-This is useful because bigger models are more sample efficient and more compute efficient to train.
-MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
-
-**AutoMoE, UBC/Microsoft: Jawahar et al (2023)**
-[pdf](https://arxiv.org/pdf/2210.07535.pdf),
-[official PyTorch code](https://github.com/microsoft/AutoMoE)
-
-> One of the promises of MoE is being able to apply different amounts of compute to each token - this has been achieved by different tokens being processed and dropped by different numbers of experts per layer but AutoMoE also uses differently sized experts to achieve more heterogeneity.
-> They perform an Architectural search for optimal architectures given computational constraints.
-
-🌟 **Expert Choice MoEs, Google: Zhou et al (2022)**
-[pdf](https://arxiv.org/pdf/2202.09368.pdf),
-[blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html),
-[pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
-
-> Introduces a principled, truly adaptive computation MoE model.
-> In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
-> As well as improving training efficiency, this approach also has the benefits that it helps with load balancing and eliminates the need for auxiliary loss functions.
-
-🌟 **Task Level MoEs, Various (2022)**
-[DeMix pdf](https://arxiv.org/pdf/2108.05036.pdf),
-[Task-MoE pdf](https://arxiv.org/pdf/2110.03742.pdf)
-
-> Instead of routing each token separately these approaches use the same Expert for entire documents based on the task (which is supplied to the network).
-> Instead of learning the routing, we supply the routing based on what we know about the tasks inducing our own inductive bias.
-> Also note that this offers memory footprint benefits at inference time - if inference is for a limited set of tasks, we only need these enough GPU memory for these experts.
-> [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D) is a follow-up which uses ensembling approaches from multiple LMs trained independently in a continual learning approach [code](https://github.com/hadasah/btm)
-
-**No Language Left Behind, Meta (2022)**
-[pdf](https://arxiv.org/abs/2207.04672),
-[official PyTorch code](https://github.com/facebookresearch/fairseq/tree/nllb)
-
-> Translation is a natural setting for MoEs since it's clear that most things learned from English to Chinese translation will not be applicable to French to German translation but there are some overlaps in computation that we want for some translation tasks.
-> So MoE has great inductive biases to allow this model to scale to translation for even extremely low-resource languages.
-> This may be a natural environment for task/document-level rather than token-level routing
-
-**Switch Transformers, Google: Fedus et al (2021)**
-[pdf](https://arxiv.org/pdf/2101.03961.pdf),
-[review paper](https://arxiv.org/pdf/2209.01667.pdf),
-[pytorch code](https://nn.labml.ai/transformers/switch/index.html),
-[model](https://huggingface.co/docs/transformers/model_doc/switch_transformers)
-
-> Simplifies the MoE routing algorithm with top-1 routing. Shows that we can exploit the scaling laws with parameters as well as simply compute and develops distrbuted systems approach to MoE
-
-🌟 **Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (2017)**
-[pdf](https://arxiv.org/pdf/1701.06538.pdf)
-
-> Introduces Mixture of Expert models in their modern form using Sparsely Gated MoE layer and a trainable gating network.
-> They use RNNs as this is pre Transformers Eating The World.
 
 ## Continual Learning
 
@@ -229,6 +229,30 @@ One way of varying compute is on some tokens calling out to an external API to c
 > It's remarkable how close current approaches are to the original gating network.
 > They also show intuitive expert specialisation on the task of vowel discrimination.
 
+## Open Source Libraries
+
+🌟 **DeepSpeed-MoE, Microsoft: Rajbhandari et al (2022)**
+[blog](https://www.microsoft.com/en-us/research/blog/deepspeed-advancing-moe-inference-and-training-to-power-next-generation-ai-scale/),
+[pdf](https://arxiv.org/pdf/2201.05596.pdf),
+[official code](https://github.com/microsoft/DeepSpeed/tree/master/deepspeed/moe)
+
+> Training solution and inference solution for distributed MoE models as part of the DeepSpeed library. Improves training efficiency and serving latency.
+> They also present a new MoE architecture PR-MoE which is has more experts in higher layers and a method for distilling expert models into dense 'student models'.
+
+<!-- Sten (2022) [pdf](https://arxiv.org/pdf/2304.07613.pdf)
+> PyTorch implementation of efficient, unstructured sparsity linear algebra operations with gradients.
+
+-->
+
+## AI Safety
+
+With adaptive computation, we want models to use more compute on harder problems.
+
+For problems where we're concerned about systems failing by not being able to do sufficient computation then Adaptive Computation is very positive for Alignment. We should expect fewer mistakes from a model utilising Adaptive Computation, even on more difficult problems.
+Additionally, many papers show that systems with Adaptive Computation are less susceptible to Adversarial Attacks.
+
+However, for problems where we're concerned about systems being deceptive or mesa-optimising increasing the ammount of inference-time compute increases their ability to do so. Here the failure is not a "mistake" but entirely intentional from the system's perspective.
+
 ## Other
 
 **FLOPs are all you need, Emin Orhan (2023)**
@@ -245,21 +269,6 @@ Beam Search
 Lottery Tickets: if we prune we really do get sparsity but the problem is that the sparsity is not useful to us on modern hardware. We need block sparsity to take advantage of this. In the future it might be possible to use less structured sparsity and then this will become very relevant again.
 
 Dynamic Neural Networks Survey - Review Paper [pdf](https://arxiv.org/pdf/2102.04906.pdf)
-
--->
-
-## Open Source Libraries
-
-🌟 **DeepSpeed-MoE, Microsoft: Rajbhandari et al (2022)**
-[blog](https://www.microsoft.com/en-us/research/blog/deepspeed-advancing-moe-inference-and-training-to-power-next-generation-ai-scale/),
-[pdf](https://arxiv.org/pdf/2201.05596.pdf),
-[official code](https://github.com/microsoft/DeepSpeed/tree/master/deepspeed/moe)
-
-> Training solution and inference solution for distributed MoE models as part of the DeepSpeed library. Improves training efficiency and serving latency.
-> They also present a new MoE architecture PR-MoE which is has more experts in higher layers and a method for distilling expert models into dense 'student models'.
-
-<!-- Sten (2022) [pdf](https://arxiv.org/pdf/2304.07613.pdf)
-> PyTorch implementation of efficient, unstructured sparsity linear algebra operations with gradients.
 
 -->
 
@@ -286,14 +295,6 @@ Sparsity May Cry (SMC)
 
 - Current approaches to sparsity are mainly transformer with some sparsity added on the margin. Transformers have worked so well and people are generally leaving them alone and messing with everything else around them - we're interested in paradigm shift approaches which are completely sparse and move further away from the transformer.
 -->
-
-## AI Safety
-
-With adaptive computation, we want models to use more compute on harder problems.
-
-For problems where we're concerned about systems failing by not being able to do sufficient computation then Adaptive Computation is very positive for Alignment. We should expect fewer mistakes from a model utilising Adaptive Computation, even on more difficult problems.
-
-However, for problems where we're concerned about systems being deceptive or mesa-optimising increasing the ammount of inference-time compute increases their ability to do so. Here the failure is not a "mistake" but entirely intentional from the system's perspective.
 
 <br>
 
