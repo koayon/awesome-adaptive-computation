@@ -50,13 +50,10 @@ We accept contributions! We strongly encourage researchers to make a pull reques
 > Allows the model to exit after each transformer layer if it's confident in the answer.
 > It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
 > Refines the ACT transformer implementation from [Universal Transformers](https://arxiv.org/pdf/1807.03819.pdf), a Turing complete version of Transformers.
+> This can also be combined with [SkipNet](<[pdf](https://arxiv.org/pdf/1711.09485)>) ideas where we instead of exiting directly, skip to the final few layers to allow our universal computation (applied to all inputs) to be at the end as well as the start of the network.
 
 <!-- > Follow-up work in [PABEE]() suggests in addition to the speed benefits, there's also improved performance due to lower risk of "overthinking".
 > Another way to put this is that later layers don't need to be able to handle easy inputs (which won't be) -->
-
-<!-- **SkipNet: Dynamic Routing in CNNs, Wang et al (2017)** [pdf](https://arxiv.org/pdf/1711.09485)
-> Early exiting but instead of necessarily exiting you can jump ahead n number of layers. Intuitively this seems harder to train but it has potentially good inductive biases - it allows us to have later layers do computation that we want for all inputs rather than having the earlier layers be that.
--->
 
 **Adaptive Computation Time (ACT) for RNNs, Google: Graves (2016)** [pdf](https://arxiv.org/pdf/1603.08983.pdf)
 
@@ -116,7 +113,7 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 
 ## Continual Learning
 
-**Lifelong-MoE, Google DeepMind: Chen et al (2023)** [pdf](https://arxiv.org/pdf/2305.12281.pdf)
+🌟 **Lifelong-MoE, Google DeepMind: Chen et al (2023)** [pdf](https://arxiv.org/pdf/2305.12281.pdf)
 
 > Trains a language model for multiple tasks by training for one task, freezing these weights and then adding some additional layers which can help to train the next task (in combination with the frozen layers)
 > This treats pretrained weights more like an API (which you can use but not edit) when training a model to do a new task. This helps to eliminate the catastrophic forgetting that can happen with naive finetuning.
