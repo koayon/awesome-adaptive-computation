@@ -121,7 +121,7 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 > In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
 > As well as improving training efficiency, this approach also has the benefits that it helps with load balancing and eliminates the need for auxiliary loss functions.
 
-**Task Level MoEs, Various (2022)**
+🌟 **Task Level MoEs, Various (2022)**
 [DeMix pdf](https://arxiv.org/pdf/2108.05036.pdf),
 [Task-MoE pdf](https://arxiv.org/pdf/2110.03742.pdf)
 
@@ -282,7 +282,7 @@ Sparsity May Cry (SMC)
 
 <!-- ## Approaches We're Excited To See Explored More
 
-- When we have early exiting we essentially have to train classifiers for each layer in addition to the main model so we have additional overhead for training which is going to save us compute at inference tine. Are there principled ways of early exiting at train time as well so that we don't have to learn very much from easy tokens?
+- When we have early exiting we essentially have to train classifiers for each layer in addition to the main model so we have additional overhead for training which is going to save us compute at inference tine. Are there better, more principled ways of early exiting at train time as well so that we don't have to learn very much from easy tokens?
 
 - Current approaches to sparsity are mainly transformer with some sparsity added on the margin. Transformers have worked so well and people are generally leaving them alone and messing with everything else around them - we're interested in paradigm shift approaches which are completely sparse and move further away from the transformer.
 -->
