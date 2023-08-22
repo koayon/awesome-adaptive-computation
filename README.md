@@ -121,6 +121,11 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 > Trains a language model for multiple tasks by training for one task, freezing these weights and then adding some additional layers which can help to train the next task (in combination with the frozen layers)
 > This treats pretrained weights more like an API (which you can use but not edit) when training a model to do a new task. This helps to eliminate the catastrophic forgetting that can happen with naive finetuning.
 
+**MuNet, Google: Gesmundo et al (2022)** [pdf](https://arxiv.org/pdf/2205.10937.pdf), [pdf2], [pdf3](https://arxiv.org/pdf/2209.14745.pdf), [code](https://github.com/google-research/google-research/tree/master/muNet)
+
+> Defines an evolutionary algorithm which adds different tasks onto an existing base model by inserting adapter layers, changing hyperparameters, freezing layers, copying layers to retrain etc.
+> An interesting sketch of what Adaptive Computation could look like in the future.
+
 ## Tools & Agents
 
 One way of varying compute is on some tokens calling out to an external API to complete the token.
