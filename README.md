@@ -58,9 +58,7 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 [pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
 
 > Introduces a principled, truly adaptive computation MoE model.
-
 > In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
-
 > As well as improving training efficiency, this approach also has the benefits that it helps with load balancing and eliminates the need for auxiliary loss functions.
 
 🌟 **Task Level MoEs, Various (2022)**
