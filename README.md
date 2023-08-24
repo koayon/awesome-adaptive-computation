@@ -29,7 +29,7 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 
 Adaptive Computation techniques include **Mixture of Experts** (decoupling model capacity and model compute) and **Early Exiting** (saving compute on easy inputs) as well as sampling techniques.
 
-[The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) states that the two general methods to utilise large amounts of compute are `Learning` and `Search`. Large pre-trained models focus traditionally on `learning` at _train time_; finetuning methods like RLHF are also about `learning`. `Search` on the other hand can be thought of as general approaches to get good performance by (adaptively) spending more compute at _inference time_.
+<!-- [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) states that the two general methods to utilise large amounts of compute are `Learning` and `Search`. Whilst large pre-trained models focus on `learning` at _train time_, Adaptive Computation is about spending more compute at inference time with mechanisms similar to `Search`. -->
 
 ---
 
@@ -61,7 +61,7 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 🌟 **Expert Choice MoEs, Google: Zhou et al (2022)**
 [pdf](https://arxiv.org/pdf/2202.09368.pdf),
 [blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html),
-[pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
+[PyTorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
 
 > Introduces a principled, truly compute-adaptive MoE model.
 > In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
@@ -88,7 +88,7 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 **Switch Transformers, Google: Fedus et al (2021)**
 [pdf](https://arxiv.org/pdf/2101.03961.pdf),
 [review paper](https://arxiv.org/pdf/2209.01667.pdf),
-[pytorch code](https://nn.labml.ai/transformers/switch/index.html),
+[PyTorch code](https://nn.labml.ai/transformers/switch/index.html),
 [model](https://huggingface.co/docs/transformers/model_doc/switch_transformers)
 
 > Simplifies the MoE routing algorithm with top-1 routing. Shows that we can exploit the scaling laws with parameters as well as simply compute and develops distrbuted systems approach to MoE
@@ -116,7 +116,7 @@ Early Exit approaches ask if we get the output of a neural network without going
 
 🌟 **PonderNet, DeepMind: Banino et al (2021)**
 [pdf](https://arxiv.org/pdf/2107.05407.pdf),
-[pytorch code](https://github.com/koayon/ml-replications/tree/main/ponder)
+[PyTorch code](https://github.com/koayon/ml-replications/tree/main/ponder)
 
 > Allows the model to exit after each transformer layer if it's confident in the answer.
 > It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
@@ -145,7 +145,7 @@ For black box pre-trained models, perhaps those behind an API, there are some te
 [pdf](https://arxiv.org/pdf/2302.01318.pdf),
 [pdf2](https://arxiv.org/pdf/2211.17192.pdf),
 [blog](https://jaykmody.com/blog/speculative-sampling/),
-[pytorch code](https://github.com/jaymody/speculative-sampling)
+[PyTorch code](https://github.com/jaymody/speculative-sampling)
 
 > A smaller model generates multiple tokens autoregressively and then a larger model checks the smaller model against what it would have generated (all in one go). We accept only the tokens where the two models agree (by some acceptance criteria) and then the larger model's next token.
 > This gives exactly the same output as the larger model would have but with significantly reduced sampling time.
@@ -179,7 +179,7 @@ Iterative Self-Critique -->
 [pdf2](https://arxiv.org/pdf/2205.12755.pdf),
 [pdf3](https://arxiv.org/pdf/2209.14745.pdf),
 [pdf4](https://arxiv.org/pdf/2302.02721.pdf),
-[official code](https://github.com/google-research/google-research/tree/master/muNet)
+[official jax code](https://github.com/google-research/google-research/tree/master/muNet)
 
 > Defines an evolutionary algorithm which adds different tasks onto an existing base model by (1) inserting adapter layers, (2) changing hyperparameters, (3) freezing layers and (4) copying layers to retrain.
 > An interesting sketch of what Adaptive Computation could look like in the future.
@@ -248,7 +248,7 @@ One way of varying compute is on some tokens calling out to an external API for 
 🌟 **DeepSpeed-MoE, Microsoft: Rajbhandari et al (2022)**
 [blog](https://www.microsoft.com/en-us/research/blog/deepspeed-advancing-moe-inference-and-training-to-power-next-generation-ai-scale/),
 [pdf](https://arxiv.org/pdf/2201.05596.pdf),
-[official code](https://github.com/microsoft/DeepSpeed/tree/master/deepspeed/moe)
+[official PyTorch code](https://github.com/microsoft/DeepSpeed/tree/master/deepspeed/moe)
 
 > Training and inference solution for distributed MoE models.
 > They also present a new MoE architecture PR-MoE which has more experts in higher layers and a method for distilling expert models into dense 'student models'.
