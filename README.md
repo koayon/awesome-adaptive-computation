@@ -17,7 +17,7 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 - [Tools & Agensts](#tools--agents)
 - [Games](#games)
 - [Pre-Cursors To Adaptive Computation](#pre-cursors-to-adaptive-computation)
-- [Open Source Librarues](#open-source-libraries)
+- [Open Source Libraries](#open-source-libraries)
 - [AI Safety](#ai-safety)
 - [Other](#other)
 
