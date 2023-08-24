@@ -23,11 +23,13 @@ Awesome Adaptive Computation is a curated list of Adaptive Computation papers, m
 
 ### About
 
-`Adaptive Computation` is the ability of a machine learning system to adjust its `function` and `compute budget` for each example. We can think of this as giving models [System 2](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) thinking.
+`Adaptive Computation` is the ability of a machine learning system to adjust its `function` and `compute budget` for each example.
 
-Adaptive Computation techniques include decoupling model capacity and model compute with mixture of experts, saving compute on easy inputs via early exiting, and devoting modality-specific layers to different tokens with heterogeneous experts.
+<!-- We can think of this as giving models a [System 2](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) mode. -->
 
-[The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) states that the scalable methods that should focus Machine Learning Research on are `Learning` and `Search`. Large pre-trained models focus traditionally on `learning` at _train time_; finetuning methods like RLHF are also about `learning`. `Search` on the other hand can be thought of as general approaches to get good performance by spending more compute at _inference time_.
+Adaptive Computation techniques include **Mixture of Experts** (decoupling model capacity and model compute) and **Early Exiting** (saving compute on easy inputs) as well as sampling techniques.
+
+[The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) states that the two general methods to utilise large amounts of compute are `Learning` and `Search`. Large pre-trained models focus traditionally on `learning` at _train time_; finetuning methods like RLHF are also about `learning`. `Search` on the other hand can be thought of as general approaches to get good performance by (adaptively) spending more compute at _inference time_.
 
 ---
 
@@ -35,21 +37,25 @@ In this repo, links are organised by topic and have explanations so you can deci
 
 Star this repository to see the latest developments in this research field.
 
-We accept contributions! We strongly encourage researchers to make a pull request with papers, approaches and explanations that they feel others in the community would benefit from 🤗
+We accept contributions! We strongly encourage researchers & practitioners to make pull requests with papers, approaches and explanations that they feel others in the community would benefit from 🤗
 
 <!-- Ordered by topic, then date published -->
 
 ## Mixture of Experts (Sparse MoE)
 
-The MoE paradigm uses a routing layer to choose a limited number of parameters to apply to a given input rather than using all the available parameters. This conditional computation allows us to disentangle scale the model capacity without scaling the compute required for each forward pass.
+The MoE paradigm uses a routing layer to choose a limited number of parameters to apply to a given input rather than using all the available parameters.
+
+This conditional computation allows us model capacity to increase without also scaling the compute required for each forward pass.
 This is useful because bigger models are more sample efficient and more compute efficient to train.
+
 MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
 
 **AutoMoE, UBC/Microsoft: Jawahar et al (2023)**
 [pdf](https://arxiv.org/pdf/2210.07535.pdf),
 [official PyTorch code](https://github.com/microsoft/AutoMoE)
 
-> One of the promises of MoE is being able to apply different amounts of compute to each token - this has been achieved by different tokens being processed and dropped by different numbers of experts per layer but AutoMoE also uses differently sized experts to achieve more heterogeneity.
+> One of the promises of MoE is being able to apply different amounts of compute to each token.
+> Generally, this has been achieved by different tokens being processed and dropped by different numbers of experts per layer. AutoMoE also uses differently sized experts to achieve more heterogeneity.
 > They perform an Architectural search for optimal architectures given computational constraints.
 
 🌟 **Expert Choice MoEs, Google: Zhou et al (2022)**
@@ -57,7 +63,7 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 [blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html),
 [pytorch code](https://github.com/koayon/ml-replications/blob/main/mixture_of_experts/expert_choice_layer.py)
 
-> Introduces a principled, truly adaptive computation MoE model.
+> Introduces a principled, truly compute-adaptive MoE model.
 > In traditional MoE models the tokens select the top experts that they would most like to be processed by. In Expert Choice routing however, the experts choose the top tokens that they would like to process. Hence multiple experts can pick the same token and give it lots of compute, and similarly all experts can ignore a token so it is skipped for that layer.
 > As well as improving training efficiency, this approach also has the benefits that it helps with load balancing and eliminates the need for auxiliary loss functions.
 
@@ -66,7 +72,7 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 [Task-MoE pdf](https://arxiv.org/pdf/2110.03742.pdf)
 
 > Instead of routing each token separately these approaches use the same Expert for entire documents based on the task (which is supplied to the network).
-> Instead of learning the routing, we supply the routing based on what we know about the tasks inducing our own inductive bias.
+> Instead of learning the routing, we supply the routing based on what we know about the tasks, inducing our own inductive bias.
 > Also note that this offers memory footprint benefits at inference time - if inference is for a limited set of tasks, we only need these enough GPU memory for these experts.
 > [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D) is a follow-up which uses ensembling approaches from multiple LMs trained independently in a continual learning approach [code](https://github.com/hadasah/btm)
 
@@ -74,9 +80,10 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 [pdf](https://arxiv.org/abs/2207.04672),
 [official PyTorch code](https://github.com/facebookresearch/fairseq/tree/nllb)
 
-> Translation is a natural setting for MoEs since it's clear that most things learned from English to Chinese translation will not be applicable to French to German translation but there are some overlaps in computation that we want for some translation tasks.
-> So MoE has great inductive biases to allow this model to scale to translation for even extremely low-resource languages.
-> This may be a natural environment for task/document-level rather than token-level routing
+> Translation is a natural setting for MoEs - some but not all of the parameters for English to Chinese translation be relevant in English to French translation as well. But using all of the English to Chinese knowledge might confuse the model.
+> MoE therefore has useful inductive biases to allow this model to use only the relevant parts.
+> Here the researchers show that the MoE approach scales even for extremely low-resource languages.
+> Translation may be a natural environment for task/document-level rather than token-level routing.
 
 **Switch Transformers, Google: Fedus et al (2021)**
 [pdf](https://arxiv.org/pdf/2101.03961.pdf),
@@ -90,17 +97,21 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 [pdf](https://arxiv.org/pdf/1701.06538.pdf)
 
 > Introduces Mixture of Expert models in their modern form using Sparsely Gated MoE layer and a trainable gating network.
-> They use RNNs as this is pre Transformers Eating The World.
+> They use RNNs as this is pre "Transformers Eating The World".
+
+<!-- A Noam Shazeer, Geoff Hinton collab - two true legends of Deep Learning -->
 
 ## Early Exit: End-to-End Adaptive Computation
+
+Early Exit approaches ask if we get the output of a neural network without going through all the layers, particularly if faced with an easier example. This is typically done by learning an exit probability at each layer.
 
 **AdaTape, Google: Xue et al (2023)**
 [pdf](https://arxiv.org/pdf/2301.13195.pdf),
 [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html),
 [official jax code](https://github.com/google-research/scenic/blob/main/scenic/projects/adatape/adatape_vit/adatape_vit.py)
 
-> Extending the ACT method by giving the model a "tape" which contains some inputs which may be useful for encoding as well as the input.
-> At each layer, the model can append a variable number of tape tokens to the input for processing which allows it to regulate how much additional compute we add.
+> Extends the ACT method by giving the model a "tape" which contains some additional inputs which may be useful for encoding.
+> For each token the model may append a variable number of tape tokens to the input, which allows it to regulate how much additional compute we add.
 > The paper shows impressive performs on image classification tasks and the 'parity' task on long sequences.
 
 🌟 **PonderNet, DeepMind: Banino et al (2021)**
@@ -109,27 +120,26 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 
 > Allows the model to exit after each transformer layer if it's confident in the answer.
 > It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
-> This refines the ACT transformer implementation from [Universal Transformers](https://arxiv.org/pdf/1807.03819.pdf), a Turing complete version of Transformers.
-> This can also be combined with [SkipNet](<[pdf](https://arxiv.org/pdf/1711.09485)>) ideas where we instead of exiting directly, skip to the final few layers to allow our universal computation (applied to all inputs) to be at the end as well as the start of the network.
+> This can also be combined with the [SkipNet](<[pdf](https://arxiv.org/pdf/1711.09485)>) paradigm where we instead of exiting directly, skip to the final few layers to allow our universal computation (applied to all inputs) to be at the end as well as the start of the network.
+
+<!-- > This refines the ACT transformer implementation from [Universal Transformers](https://arxiv.org/pdf/1807.03819.pdf), a Turing complete version of Transformers. -->
 
 **PaBEE, DeepMind: Zhou et al (2020)**
 [pdf](https://arxiv.org/pdf/2006.04152.pdf),
 [official PyTorch code](https://github.com/huggingface/transformers/tree/main/examples/research_projects/bert-loses-patience)
 
-> Introduces an approach to early stopping where instead of looking at a learned confidence that the layer can exit, instead looks at the output class if we were to exit and exits if the outputs are the same over multiple layers.
-> Interestingly they suggest that the reason for this isn't just speed but they suggest that early stopping will improve performance due to lower risk of "overthinking" (analogously to stopping training earlier to prevent overfitting).
+> Introduces Patient Early Stopping. Whilst ACT has a learned exit probability, PABEE instead looks at the output class if it _were_ to exit. We exit if the intermediate outputs are the same over multiple layers.
+> Interestingly they suggest that the reason for this isn't just speed; they suggest that early stopping will _improve_ performance due to lower risk of "overthinking" (analogously to stopping training earlier to prevent overfitting).
 > [F-PaBEE](https://arxiv.org/pdf/2305.11916.pdf) prevents a slightly more flexible approach based on similarlity scores.
 
 **Adaptive Computation Time (ACT) for RNNs, Google: Graves (2016)**
 [pdf](https://arxiv.org/pdf/1603.08983.pdf)
 
-> Introduces the ACT approach for models to learn how many computational steps they should take before returning an output. This approach is built on in many later papers.
-> They also present other links from adaptive computation and compression/entropy such that if you had concatenated documents, knowing where more computation was needed might be a good way of knowing where the document boundaries are.
-> This is a landmark paper but the refined ideas can be found in later papers such as PonderNet.
+> Introduces the ACT approach for models to learn how many computational steps they should take before returning an output. This approach is built on and refined in many later papers such as PonderNet.
 
 ## Adaptive Computation for Black-box models
 
-Here we explore techniques that you could use with an already trained model where you get either only the output tokens or you get the final layer logits. No retraining is required and therefore these are promising techniques for people with limited training compute budgets.
+For black box pre-trained models, perhaps those behind an API, there are some techniques for using Adaptive Computation. These are promising techniques for those with limited compute budgets.
 
 🌟 **Speculative Sampling, DeepMind: Chen et al (2023)**
 [pdf](https://arxiv.org/pdf/2302.01318.pdf),
@@ -137,14 +147,18 @@ Here we explore techniques that you could use with an already trained model wher
 [blog](https://jaykmody.com/blog/speculative-sampling/),
 [pytorch code](https://github.com/jaymody/speculative-sampling)
 
-> A smaller model does the autoregressive generation for multiple tokens and then a larger model checks the smaller model against what it would have generated in one go. We accept only the tokens where the two models agree (by some acceptance criteria) and then the larger model's next token.
+> A smaller model generates multiple tokens autoregressively and then a larger model checks the smaller model against what it would have generated (all in one go). We accept only the tokens where the two models agree (by some acceptance criteria) and then the larger model's next token.
 > This gives exactly the same output as the larger model would have but with significantly reduced sampling time.
+> This takes advantage of the fact that we can parallelise evaluation whilst generation happens token by token.
+
+<!-- The general principle here is that it's easier to evaluate than to generate. -->
 
 **FrugalGPT, Stanford: Chen et al (2023)**
 [pdf](https://arxiv.org/pdf/2305.05176.pdf)
 
-> Some approaches for completely black box adaptive computation (i.e. from an API where you don't get logits).
-> They use an LLM Cascade strategy where given a prompt they select n models to try sampling with, in order of increasing parameter count. Then the first model is samples and we check the generation with a scoring function. If the generation is rejected then try a more capable model.
+> Details various approaches for fully black box adaptive computation (i.e. from an API where you don't even get logits).
+> They use an LLM Cascade strategy where given a prompt they select n models to try sampling with, in order of increasing parameter count. The first model samples and we check the generation with a scoring function.
+> If the generation is rejected then we generate with a more capable model. We continue this process until we accept the generation or are using the largest model.
 > Interestingly this approach provides some shielding against [inverse scaling](https://arxiv.org/pdf/2306.09479.pdf) problems.
 > They also use completion caching.
 
@@ -167,12 +181,12 @@ Iterative Self-Critique -->
 [pdf4](https://arxiv.org/pdf/2302.02721.pdf),
 [official code](https://github.com/google-research/google-research/tree/master/muNet)
 
-> Defines an evolutionary algorithm which adds different tasks onto an existing base model by inserting adapter layers, changing hyperparameters, freezing layers, copying layers to retrain etc.
+> Defines an evolutionary algorithm which adds different tasks onto an existing base model by (1) inserting adapter layers, (2) changing hyperparameters, (3) freezing layers and (4) copying layers to retrain.
 > An interesting sketch of what Adaptive Computation could look like in the future.
 
 ## Tools & Agents
 
-One way of varying compute is on some tokens calling out to an external API to complete the token.
+One way of varying compute is on some tokens calling out to an external API for parts of completions.
 
 🌟 **LLM-Powered Autonomous Agents, OpenAI: Lilian Weng (2023)**
 [blog](https://lilianweng.github.io/posts/2023-06-23-agent/)
@@ -196,7 +210,7 @@ One way of varying compute is on some tokens calling out to an external API to c
 
 > Trained models to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction
 > Effectively the LMs teach themselves how to use tools.
-> In the limit case of this we simply require LMs/agents to be able to ask the right questions, know where to ask them and possibly be able to interpret the answers they receieve. In other words, we offload the actual computation to external APIs (which may themselves be ML models) and might be able to use much smaller main models.
+> In the limit case of this we simply require LMs/agents to be able to ask the right questions, know where to ask them and possibly be able to interpret the answers they receieve. In other words, we offload the actual computation to external APIs (which may themselves be ML models) and use much smaller base models.
 
 ## Games
 
@@ -236,8 +250,8 @@ One way of varying compute is on some tokens calling out to an external API to c
 [pdf](https://arxiv.org/pdf/2201.05596.pdf),
 [official code](https://github.com/microsoft/DeepSpeed/tree/master/deepspeed/moe)
 
-> Training solution and inference solution for distributed MoE models as part of the DeepSpeed library. Improves training efficiency and serving latency.
-> They also present a new MoE architecture PR-MoE which is has more experts in higher layers and a method for distilling expert models into dense 'student models'.
+> Training and inference solution for distributed MoE models.
+> They also present a new MoE architecture PR-MoE which has more experts in higher layers and a method for distilling expert models into dense 'student models'.
 
 <!-- Sten (2022) [pdf](https://arxiv.org/pdf/2304.07613.pdf)
 > PyTorch implementation of efficient, unstructured sparsity linear algebra operations with gradients.
@@ -246,12 +260,14 @@ One way of varying compute is on some tokens calling out to an external API to c
 
 ## AI Safety
 
-With adaptive computation, we want models to use more compute on harder problems.
+With adaptive computation, models can choose to use more compute on harder problems.
 
 For problems where we're concerned about systems failing by not being able to do sufficient computation then Adaptive Computation is very positive for Alignment. We should expect fewer mistakes from a model utilising Adaptive Computation, even on more difficult problems.
-Additionally, many papers show that systems with Adaptive Computation are less susceptible to Adversarial Attacks.
+Additionally, [Adaptive Computation based systems are less susceptible to Adversarial Attacks](https://arxiv.org/pdf/2210.10253.pdf).
+That is to say Adaptive Computation makes models more `robust`.
 
 However, for problems where we're concerned about systems being deceptive or mesa-optimising increasing the ammount of inference-time compute increases their ability to do so. Here the failure is not a "mistake" but entirely intentional from the system's perspective.
+Inference-time search is one way that a model could implement [deceptive alignment](https://arxiv.org/pdf/1906.01820.pdf) for example.
 
 ## Other
 
