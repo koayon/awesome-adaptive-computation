@@ -58,6 +58,11 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 > Generally, this has been achieved by different tokens being processed and dropped by different numbers of experts per layer. AutoMoE also uses differently sized experts to achieve more heterogeneity.
 > They perform an Architectural search for optimal architectures given computational constraints.
 
+<!-- Soft Merging of Experts [pdf](https://arxiv.org/pdf/2306.03745.pdf)
+> Takes the opposite approach to Soft-MoE and averages the EXPERT weights rather than the tokens.
+> In a way this is much more principled especially given [Task Vector](https://github.com/mlfoundations/task_vectors) type approaches which show that adding (or generally linear combinations) of adapters produce models with both skills.
+> But at the same time, it doesn't seem ideal for the hardware - for every forward pass the weights are different so we need to communicate the new weights between our devices and we can't do batching.  -->
+
 🌟 **Expert Choice MoEs, Google: Zhou et al (2022)**
 [pdf](https://arxiv.org/pdf/2202.09368.pdf),
 [blog](https://ai.googleblog.com/2022/11/mixture-of-experts-with-expert-choice.html),
@@ -244,6 +249,13 @@ One way of varying compute is on some tokens calling out to an external API for 
 > They also show intuitive expert specialisation on the task of vowel discrimination.
 
 ## Open Source Libraries
+
+**git_theta, UNC: Kandpal et al (2023)**
+[pdf](https://arxiv.org/pdf/2306.04529.pdf),
+[official framework-agnostic code](https://github.com/r-three/git-theta/)
+
+> A git extension which allows tracking and merging changes to model checkpoints like git does with code. With git_theta you can see diffs in parameter groups and merge model finetuning branches with merging approaches.
+> It's also efficient with low-rank changes to parameter groups.
 
 🌟 **DeepSpeed-MoE, Microsoft: Rajbhandari et al (2022)**
 [blog](https://www.microsoft.com/en-us/research/blog/deepspeed-advancing-moe-inference-and-training-to-power-next-generation-ai-scale/),
