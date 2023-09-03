@@ -50,6 +50,8 @@ This is useful because bigger models are more sample efficient and more compute 
 
 MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
 
+<!-- Soft-MoE -->
+
 **AutoMoE, UBC/Microsoft: Jawahar et al (2023)**
 [pdf](https://arxiv.org/pdf/2210.07535.pdf),
 [official PyTorch code](https://github.com/microsoft/AutoMoE)
@@ -80,6 +82,10 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 > Instead of learning the routing, we supply the routing based on what we know about the tasks, inducing our own inductive bias.
 > Also note that this offers memory footprint benefits at inference time - if inference is for a limited set of tasks, we only need these enough GPU memory for these experts.
 > [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D) is a follow-up which uses ensembling approaches from multiple LMs trained independently in a continual learning approach [code](https://github.com/hadasah/btm)
+
+<!-- There are possibly additional benefits to combining task and token level experts. We could input a task and use this to decide which routers that we want to use in our MoE layers see [Multi-gate](https://dl.acm.org/doi/pdf/10.1145/3219819.3220007).
+Alternatively we could concatenate task information to the input of the router network so it can use it if it wants.
+It's not clear whether having inductive bias would be better.  -->
 
 **No Language Left Behind, Meta (2022)**
 [pdf](https://arxiv.org/abs/2207.04672),
