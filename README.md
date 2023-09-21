@@ -289,6 +289,11 @@ Inference-time search is one way that a model could implement [deceptive alignme
 
 > Short post detailing how the success of deep learning models is very correlated with the amount of compute that they use per parameter efficiently and how they share parameters.
 
+**Review Paper: Dynamic Neural Networks Survey (2022)**
+[pdf](https://arxiv.org/pdf/2102.04906.pdf)
+
+> A review of Adaptive Computation approaches
+
 <!--
 
 Tree of Thought
