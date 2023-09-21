@@ -97,6 +97,13 @@ It's not clear whether having inductive bias would be better.  -->
 
 > Simplifies the MoE routing algorithm with top-1 routing. Shows that we can exploit the scaling laws with parameters as well as simply compute and develops distrbuted systems approach to MoE
 
+**WideNet (Go Wider Instead of Deeper), NUS: Xue et al (2021)**
+[pdf](https://arxiv.org/pdf/2107.11817.pdf)
+
+> Suggests a parameter sharing approach using a single layer of multiple MoEs repeated multiple times as transformer blocks.
+> This results in a deep model which has O(expert_num) instead of O(layer_depth) parameters.
+> They achieve SoTA results with fewer parameters than previous models
+
 🌟 **Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (2017)**
 [pdf](https://arxiv.org/pdf/1701.06538.pdf)
 
