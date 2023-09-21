@@ -50,8 +50,6 @@ This is useful because bigger models are more sample efficient and more compute 
 
 MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
 
-<!-- Soft-MoE -->
-
 **AutoMoE, UBC/Microsoft: Jawahar et al (2023)**
 [pdf](https://arxiv.org/pdf/2210.07535.pdf),
 [official PyTorch code](https://github.com/microsoft/AutoMoE)
@@ -59,11 +57,6 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 > One of the promises of MoE is being able to apply different amounts of compute to each token.
 > Generally, this has been achieved by different tokens being processed and dropped by different numbers of experts per layer. AutoMoE also uses differently sized experts to achieve more heterogeneity.
 > They perform an Architectural search for optimal architectures given computational constraints.
-
-<!-- Soft Merging of Experts [pdf](https://arxiv.org/pdf/2306.03745.pdf)
-> Takes the opposite approach to Soft-MoE and averages the EXPERT weights rather than the tokens.
-> In a way this is much more principled especially given [Task Vector](https://github.com/mlfoundations/task_vectors) type approaches which show that adding (or generally linear combinations) of adapters produce models with both skills.
-> But at the same time, it doesn't seem ideal for the hardware - for every forward pass the weights are different so we need to communicate the new weights between our devices and we can't do batching.  -->
 
 🌟 **Expert Choice MoEs, Google: Zhou et al (2022)**
 [pdf](https://arxiv.org/pdf/2202.09368.pdf),
@@ -81,7 +74,7 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 > Instead of routing each token separately these approaches use the same Expert for entire documents based on the task (which is supplied to the network).
 > Instead of learning the routing, we supply the routing based on what we know about the tasks, inducing our own inductive bias.
 > Also note that this offers memory footprint benefits at inference time - if inference is for a limited set of tasks, we only need these enough GPU memory for these experts.
-> [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D) is a follow-up which uses ensembling approaches from multiple LMs trained independently in a continual learning approach [code](https://github.com/hadasah/btm)
+> [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D) and [c-BTM](https://arxiv.org/pdf/2303.14177.pdf) are follow-ups which use ensembling approaches from multiple LMs trained independently in a continual learning approach [code](https://github.com/kernelmachine/cbtm)
 
 <!-- There are possibly additional benefits to combining task and token level experts. We could input a task and use this to decide which routers that we want to use in our MoE layers see [Multi-gate](https://dl.acm.org/doi/pdf/10.1145/3219819.3220007).
 Alternatively we could concatenate task information to the input of the router network so it can use it if it wants.
@@ -133,8 +126,6 @@ Early Exit approaches ask if we get the output of a neural network without going
 > It introduces a stable probabilistic policy for halting which provides low-variance unbiased gradient updates.
 > This can also be combined with the [SkipNet](<[pdf](https://arxiv.org/pdf/1711.09485)>) paradigm where we instead of exiting directly, skip to the final few layers to allow our universal computation (applied to all inputs) to be at the end as well as the start of the network.
 
-<!-- > This refines the ACT transformer implementation from [Universal Transformers](https://arxiv.org/pdf/1807.03819.pdf), a Turing complete version of Transformers. -->
-
 **PaBEE, DeepMind: Zhou et al (2020)**
 [pdf](https://arxiv.org/pdf/2006.04152.pdf),
 [official PyTorch code](https://github.com/huggingface/transformers/tree/main/examples/research_projects/bert-loses-patience)
@@ -150,7 +141,7 @@ Early Exit approaches ask if we get the output of a neural network without going
 
 ## Adaptive Computation for Black-box models
 
-For black box pre-trained models, perhaps those behind an API, there are some techniques for using Adaptive Computation. These are promising techniques for those with limited compute budgets.
+For black box pre-trained models, perhaps those behind an API, there are some techniques for using Adaptive Computation. These are promising techniques for those with limited compute budgets. Prompting techniques including Iterative Self-Critique, Chain of Thought and Tree of Thought can also be used to provide increased performance for Black-box models.
 
 🌟 **Speculative Sampling, DeepMind: Chen et al (2023)**
 [pdf](https://arxiv.org/pdf/2302.01318.pdf),
@@ -175,9 +166,13 @@ For black box pre-trained models, perhaps those behind an API, there are some te
 
 <!-- Debate
 
-Iterative Self-Critique -->
+Iterative Self-Critique (mentioned above)
+
+Chain/Tree of Thought-->
 
 ## Continual Learning
+
+<!-- C-BTM: Cluster Branch Train Merge, UWash/Meta: Gururangan et al (2023) [pdf](https://arxiv.org/pdf/2303.14177.pdf) -->
 
 🌟 **Lifelong-MoE, Google DeepMind: Chen et al (2023)**
 [pdf](https://arxiv.org/pdf/2305.12281.pdf)
@@ -301,8 +296,6 @@ Tree of Thought
 Beam Search
 
 Lottery Tickets: if we prune we really do get sparsity but the problem is that the sparsity is not useful to us on modern hardware. We need block sparsity to take advantage of this. In the future it might be possible to use less structured sparsity and then this will become very relevant again.
-
-Dynamic Neural Networks Survey - Review Paper [pdf](https://arxiv.org/pdf/2102.04906.pdf)
 
 -->
 
