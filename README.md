@@ -50,6 +50,14 @@ This is useful because bigger models are more sample efficient and more compute 
 
 MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
 
+**MoV/MoLoRA, Cohere For AI: Zadouri et al (2023)**
+[pdf](https://arxiv.org/pdf/2309.05444.pdf),
+[official Jax code](https://github.com/for-ai/parameter-efficient-moe)
+
+> Introduces parameter efficient MoE models where instead of routing between entire FFN layers, we route between adapters such as LoRAs or $(IA)^3$ with the same base model.
+> This allows for much of the benefits of the (Soft) MoE paradigm but without the huge memory footprint (particularly compared to previous upscaling methods).
+> The [HydraMoE](https://github.com/SkunkworksAI/hydra-moe) project also take a similar approach.
+
 🌟 **Soft-MoE, Google DeepMind: Puigcerver et al (2023)**
 [pdf](https://arxiv.org/pdf/2308.00951.pdf),
 [pytorch code](https://github.com/fkodom/soft-mixture-of-experts/blob/main/soft_mixture_of_experts/soft_moe.py)
