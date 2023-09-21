@@ -70,7 +70,7 @@ MoE models are also useful for compartmentalising knowledge and avoiding negativ
 
 > Takes the opposite approach to Soft-MoE and averages the Expert weights rather than the tokens.
 > This is interesting given that model merging approaches which show that linear combinations of models can perform well on tasks that either model was trained for.
-> The disadvantages of this approach are that if we want to have different weights for each token and each batch then the averaging operation can become prohibitively expensive (similar to forward passes on all experts and ensembling) so the method relies on a Task-MoE approach of picking the same expert configuration on a per-example rather than a per-token basis.
+> Note here the averaging operation can become prohibitively expensive if we different experts for each token (similar FLOPs to forward passes on all experts and ensembling). Hence the method relies on a Task-MoE approach of picking the same expert configuration on a per-example rather than a per-token basis.
 
 **AutoMoE, UBC/Microsoft: Jawahar et al (2023)**
 [pdf](https://arxiv.org/pdf/2210.07535.pdf),
