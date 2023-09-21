@@ -50,6 +50,14 @@ This is useful because bigger models are more sample efficient and more compute 
 
 MoE models are also useful for compartmentalising knowledge and avoiding negative interference from irrelevant computation.
 
+🌟 **Soft-MoE, Google DeepMind: Puigcerver et al (2023)**
+[pdf](https://arxiv.org/pdf/2308.00951.pdf),
+[pytorch code](https://github.com/fkodom/soft-mixture-of-experts/blob/main/soft_mixture_of_experts/soft_moe.py)
+
+> Instead of Sparse MoE models, they allow each expert to using its router to select weights for a weighted average of input tokens that it wants to process.
+> They show SoTA results on Image recognition tasks.
+> Note since the approach relies on Expert Choice, it doesn't yet generalise to autoregressive generation.
+
 **AutoMoE, UBC/Microsoft: Jawahar et al (2023)**
 [pdf](https://arxiv.org/pdf/2210.07535.pdf),
 [official PyTorch code](https://github.com/microsoft/AutoMoE)
