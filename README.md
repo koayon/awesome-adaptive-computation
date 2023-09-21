@@ -321,6 +321,13 @@ Inference-time search is one way that a model could implement [deceptive alignme
 
 ## Other
 
+**Sparse Scaling Laws, DeepMind: Frantar et al 2023**
+[pdf](https://arxiv.org/pdf/2309.08520.pdf)
+
+> Scaling laws paper in the style of the [Chinchilla paper](https://arxiv.org/pdf/2203.15556.pdf).
+> Details the optimal sparsity for a model given the inference FLOPs and training budget.
+> They suggest that sparsity is especially important for larger models when seeing diminishing returns past Chinchilla optimality.
+
 **FLOPs are all you need, Emin Orhan (2023)**
 [blog](https://severelytheoretical.wordpress.com/2023/08/14/flops-are-all-you-need-a-conjecture-about-what-really-makes-deep-learning-work/)
 
@@ -329,7 +336,7 @@ Inference-time search is one way that a model could implement [deceptive alignme
 **Review Paper: Dynamic Neural Networks Survey (2022)**
 [pdf](https://arxiv.org/pdf/2102.04906.pdf)
 
-> A review of Adaptive Computation approaches
+> A review of Adaptive Computation approaches.
 
 <!--
 
