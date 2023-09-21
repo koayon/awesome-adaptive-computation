@@ -134,6 +134,14 @@ Early Exit approaches ask if we get the output of a neural network without going
 > Interestingly they suggest that the reason for this isn't just speed; they suggest that early stopping will _improve_ performance due to lower risk of "overthinking" (analogously to stopping training earlier to prevent overfitting).
 > [F-PaBEE](https://arxiv.org/pdf/2305.11916.pdf) prevents a slightly more flexible approach based on similarlity scores.
 
+**Universal Transformer, Google: Dehghani et al (2019)**
+[pdf](https://arxiv.org/pdf/1807.03819.pdf)
+
+> Reuses the transformer block recurrently across multiple layers with an ACT-like halting mechanism.
+> This results in a transformer which can perform as well as RNNs on the tasks where RNNs succeed like length extrapolation.
+> Here we combine the parallelizability and low bottleneck of Transformers with the recurrent inductive bias of RNNs for SoTA results on lengthy tasks.
+> Universal Transformers can also be shown to be Turing-complete.
+
 **Adaptive Computation Time (ACT) for RNNs, Google: Graves (2016)**
 [pdf](https://arxiv.org/pdf/1603.08983.pdf)
 
