@@ -122,9 +122,10 @@ It's not clear whether having inductive bias would be better.  -->
 **WideNet (Go Wider Instead of Deeper), NUS: Xue et al (2021)**
 [pdf](https://arxiv.org/pdf/2107.11817.pdf)
 
-> Suggests a parameter sharing approach using a single layer of multiple MoEs repeated multiple times as transformer blocks.
+> Suggests a parameter sharing approach using a single layer of multiple MoEs repeated multiple times as transformer blocks (similar to the Universal Transformer but with MoEs).
 > This results in a deep model which has O(expert_num) instead of O(layer_depth) parameters.
-> They achieve SoTA results with fewer parameters than previous models
+> They achieve SoTA results with fewer parameters than previous models.
+> More recently, Apple's [One Wide Feedforward paper](https://arxiv.org/pdf/2309.01826.pdf) details the amount of redundancy across layers. This suggests this approach is increasingly fruitful for on-device models.
 
 🌟 **Outrageously Large Neural Networks (aka The Sparse MoE Layer), Google: Shazeer et al (2017)**
 [pdf](https://arxiv.org/pdf/1701.06538.pdf)
