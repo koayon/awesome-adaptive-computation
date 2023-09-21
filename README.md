@@ -168,8 +168,7 @@ Early Exit approaches ask if we get the output of a neural network without going
 [pdf](https://arxiv.org/pdf/1807.03819.pdf)
 
 > Reuses the transformer block recurrently across multiple layers with an ACT-like halting mechanism.
-> This results in a transformer which can perform as well as RNNs on the tasks where RNNs succeed like length extrapolation.
-> Here we combine the parallelizability and low bottleneck of Transformers with the recurrent inductive bias of RNNs for SoTA results on lengthy tasks.
+> RNNs can be better than transformers at length extrapolation but here we get the best of the Transformer (training parallelizability) and the best of the RNN (recurrent inductive bias).
 > Universal Transformers can also be shown to be Turing-complete.
 
 **Adaptive Computation Time (ACT) for RNNs, Google: Graves (2016)**
