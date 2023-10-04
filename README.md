@@ -180,6 +180,8 @@ Early Exit approaches ask if we get the output of a neural network without going
 
 For black box pre-trained models, perhaps those behind an API, there are some techniques for using Adaptive Computation. These are promising techniques for those with limited compute budgets. Prompting techniques including Iterative Self-Critique, Chain of Thought and Tree of Thought can also be used to provide increased performance for Black-box models.
 
+<!-- Contrastive Decoding -->
+
 🌟 **Speculative Sampling, DeepMind: Chen et al (2023)**
 [pdf](https://arxiv.org/pdf/2302.01318.pdf),
 [pdf2](https://arxiv.org/pdf/2211.17192.pdf),
@@ -201,15 +203,17 @@ For black box pre-trained models, perhaps those behind an API, there are some te
 > Interestingly this approach provides some shielding against [inverse scaling](https://arxiv.org/pdf/2306.09479.pdf) problems.
 > They also use completion caching.
 
-<!-- Debate
+<!--
+Prompting Strategies:
+- Debate
+- Iterative Self-Critique (mentioned above)
+- Chain/Tree of Thought
+- Chain of Verification
 
-Iterative Self-Critique (mentioned above)
-
-Chain/Tree of Thought-->
+- Beam Search
+-->
 
 ## Continual Learning
-
-<!-- C-BTM: Cluster Branch Train Merge, UWash/Meta: Gururangan et al (2023) [pdf](https://arxiv.org/pdf/2303.14177.pdf) -->
 
 🌟 **Lifelong-MoE, Google DeepMind: Chen et al (2023)**
 [pdf](https://arxiv.org/pdf/2305.12281.pdf)
@@ -339,10 +343,6 @@ Inference-time search is one way that a model could implement [deceptive alignme
 > A review of Adaptive Computation approaches.
 
 <!--
-
-Tree of Thought
-
-Beam Search
 
 Lottery Tickets: if we prune we really do get sparsity but the problem is that the sparsity is not useful to us on modern hardware. We need block sparsity to take advantage of this. In the future it might be possible to use less structured sparsity and then this will become very relevant again.
 
