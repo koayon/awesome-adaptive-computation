@@ -443,7 +443,7 @@ example.
 
 ## Other
 
-**Sparse Scaling Laws, DeepMind: Frantar et al 2023**
+**Sparse Scaling Laws, DeepMind: Frantar et al (2023)**
 [pdf](https://arxiv.org/pdf/2309.08520.pdf)
 
 > Scaling laws paper in the style of the
