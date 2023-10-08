@@ -150,6 +150,13 @@ It's not clear whether having inductive bias would be better.  -->
 > approach scales even for extremely low-resource languages. Translation may be
 > a natural environment for task/document-level rather than token-level routing.
 
+**Hash Routing, Meta: Roller et al (2021)**
+[pdf](https://browse.arxiv.org/pdf/2106.04426.pdf)
+
+> Uses a static rather than fixed routing per input token and shows similar
+> results to more principled routing methods in some regimes. Suggests that
+> previous routing methods may be somewhat underoptimised.
+
 **Switch Transformers, Google: Fedus et al (2021)**
 [pdf](https://arxiv.org/pdf/2101.03961.pdf),
 [review paper](https://arxiv.org/pdf/2209.01667.pdf),
