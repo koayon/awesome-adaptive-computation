@@ -250,9 +250,10 @@ typically done by learning an exit probability at each layer.
 
 For black box pre-trained models, perhaps those behind an API, there are some
 techniques for using Adaptive Computation. These are promising techniques for
-those with limited compute budgets. Prompting techniques including Iterative
-Self-Critique, Chain of Thought and Tree of Thought can also be used to provide
-increased performance for Black-box models.
+those with limited compute budgets.
+
+Prompting techniques such as Iterative Self-Critique, Chain of Thought and Tree
+of Thought can also be used to improve performance for Black-box models.
 
 <!-- Contrastive Decoding -->
 
