@@ -9,7 +9,7 @@ models, explainers and libraries for Machine Learning.
 ## Contents
 
 - [Contents](#contents)
-  - [About](#about)
+- [About](#about)
 - [Mixture of Experts (Sparse MoE)](#mixture-of-experts-sparse-moe)
 - [Early Exit: End-to-End Adaptive Computation](#early-exit-end-to-end-adaptive-computation)
 - [Adaptive Computation for Black-box models](#adaptive-computation-for-black-box-models)
@@ -21,7 +21,7 @@ models, explainers and libraries for Machine Learning.
 - [AI Safety](#ai-safety)
 - [Other](#other)
 
-### About
+## About
 
 `Adaptive Computation` is the ability of a machine learning system to adjust its
 `function` and `compute budget` for each example.
@@ -154,7 +154,7 @@ It's not clear whether having inductive bias would be better.  -->
 
 > Uses a static rather than fixed routing per input token and shows similar
 > results to more principled routing methods in some regimes. Suggests that
-> previous routing methods may be somewhat underoptimised.
+> previous routing methods may be somewhat under-optimised.
 
 **Switch Transformers, Google: Fedus et al (2021)**
 [pdf](https://arxiv.org/pdf/2101.03961.pdf),
@@ -164,7 +164,7 @@ It's not clear whether having inductive bias would be better.  -->
 
 > Simplifies the MoE routing algorithm with top-1 routing. Shows that we can
 > exploit the scaling laws with parameters as well as simply compute and
-> develops distrbuted systems approach to MoE
+> develops distributed systems approach to MoE
 
 **WideNet (Go Wider Instead of Deeper), NUS: Xue et al (2021)**
 [pdf](https://arxiv.org/pdf/2107.11817.pdf)
@@ -228,7 +228,7 @@ typically done by learning an exit probability at each layer.
 > stopping will _improve_ performance due to lower risk of "overthinking"
 > (analogously to stopping training earlier to prevent overfitting).
 > [F-PaBEE](https://arxiv.org/pdf/2305.11916.pdf) prevents a slightly more
-> flexible approach based on similarlity scores.
+> flexible approach based on similarity scores.
 
 **Universal Transformer, Google: Dehghani et al (2019)**
 [pdf](https://arxiv.org/pdf/1807.03819.pdf)
@@ -333,7 +333,7 @@ parts of completions.
 > [AutoGPT](https://github.com/Significant-Gravitas/Auto-GPT) and
 > [GPT-Engineer](https://github.com/AntonOsika/gpt-engineer) Agents typically
 > can act within the world are are augmented with the ability to do explicit
-> long term planning (via decomposing goals into subgoals and learning from its
+> long term planning (via decomposing goals into sub-goals and learning from its
 > mistakes), long-term memory (via a vector database) and tool use (calling
 > external APIs).
 
@@ -356,7 +356,7 @@ parts of completions.
 > to pass, and how to best incorporate the results into future token prediction
 > Effectively the LMs teach themselves how to use tools. In the limit case of
 > this we simply require LMs/agents to be able to ask the right questions, know
-> where to ask them and possibly be able to interpret the answers they receieve.
+> where to ask them and possibly be able to interpret the answers they receive.
 > In other words, we offload the actual computation to external APIs (which may
 > themselves be ML models) and use much smaller base models.
 
