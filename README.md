@@ -8,16 +8,15 @@ models, explainers and libraries for Machine Learning.
 
 ## Contents
 
-- [Awesome Adaptive Computation](#awesome-adaptive-computation)
-  - [Contents](#contents)
+- [Contents](#contents)
   - [About](#about)
-- [Mixture of Experts](#mixture-of-experts-sparse-moe)
-- [Early Exit](#early-exit-end-to-end-adaptive-computation)
-- [Adaptive Computation For Black-Box Models](#adaptive-computation-for-black-box-models)
+- [Mixture of Experts (Sparse MoE)](#mixture-of-experts-sparse-moe)
+- [Early Exit: End-to-End Adaptive Computation](#early-exit-end-to-end-adaptive-computation)
+- [Adaptive Computation for Black-box models](#adaptive-computation-for-black-box-models)
 - [Continual Learning](#continual-learning)
-- [Tools & Agensts](#tools--agents)
+- [Tools \& Agents](#tools--agents)
 - [Games](#games)
-- [Pre-Cursors To Adaptive Computation](#pre-cursors-to-adaptive-computation)
+- [Pre-cursors to Adaptive Computation](#pre-cursors-to-adaptive-computation)
 - [Open Source Libraries](#open-source-libraries)
 - [AI Safety](#ai-safety)
 - [Other](#other)
@@ -382,6 +381,14 @@ parts of completions.
 
 ## Pre-cursors to Adaptive Computation
 
+**Attention and The Transformer, Vaswani et al (2017)**
+[pdf](https://arxiv.org/pdf/1706.03762.pdf)
+[pdf2](https://arxiv.org/pdf/1409.0473.pdf)
+
+> Although we don't normally think of it this way, attention can be viewed as a
+> conditional computation mechanism. The matrix which is applied to the input is
+> dependant on the incoming data.
+
 **Conditional Computation, Bengio et al. (2016)**
 [pdf](https://arxiv.org/pdf/1511.06297.pdf)
 
@@ -435,7 +442,7 @@ even on more difficult problems. Additionally,
 That is to say Adaptive Computation makes models more `robust`.
 
 However, for problems where we're concerned about systems being deceptive or
-mesa-optimising increasing the ammount of inference-time compute increases their
+mesa-optimising increasing the amount of inference-time compute increases their
 ability to do so. Here the failure is not a "mistake" but entirely intentional
 from the system's perspective. Inference-time search is one way that a model
 could implement [deceptive alignment](https://arxiv.org/pdf/1906.01820.pdf) for
