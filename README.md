@@ -252,8 +252,13 @@ For black box pre-trained models, perhaps those behind an API, there are some
 techniques for using Adaptive Computation. These are promising techniques for
 those with limited compute budgets.
 
-Prompting techniques such as Iterative Self-Critique, Chain of Thought and Tree
-of Thought can also be used to improve performance for Black-box models.
+Prompting techniques such as
+[Reflexion](https://browse.arxiv.org/pdf/2303.11366.pdf),
+[Debate](https://browse.arxiv.org/pdf/2305.14325.pdf),
+[Chain of Thought](https://browse.arxiv.org/pdf/2201.11903.pdf),
+[Tree of Thought](https://browse.arxiv.org/pdf/2305.10601.pdf) and
+[Chain of Verification](https://browse.arxiv.org/pdf/2309.11495.pdf) can also be
+used to improve performance for Black-box models.
 
 <!-- Contrastive Decoding -->
 
@@ -286,16 +291,6 @@ of Thought can also be used to improve performance for Black-box models.
 > provides some shielding against
 > [inverse scaling](https://arxiv.org/pdf/2306.09479.pdf) problems. They also
 > use completion caching.
-
-<!--
-Prompting Strategies:
-- Debate
-- Iterative Self-Critique (mentioned above)
-- Chain/Tree of Thought
-- Chain of Verification
-
-- Beam Search
--->
 
 ## Continual Learning
 
