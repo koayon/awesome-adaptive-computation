@@ -292,6 +292,14 @@ used to improve performance for Black-box models.
 > [inverse scaling](https://arxiv.org/pdf/2306.09479.pdf) problems. They also
 > use completion caching.
 
+**Beam Search, Google: Sutskever et al (2014)**
+[pdf](https://browse.arxiv.org/pdf/1409.3215.pdf)
+
+> Beam search allows LMs to see the probability of choosing a few tokens at a
+> time before selecting one by building out a tree. Increasing the number of
+> beams increases the number of options explored downstream and hence the amount
+> of compute per token.
+
 ## Continual Learning
 
 🌟 **Lifelong-MoE, Google DeepMind: Chen et al (2023)**
