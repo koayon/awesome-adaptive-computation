@@ -260,7 +260,16 @@ Prompting techniques such as
 [Chain of Verification](https://browse.arxiv.org/pdf/2309.11495.pdf) can also be
 used to improve performance for Black-box models.
 
-<!-- Contrastive Decoding -->
+🌟 **Contrastive Decoding, Stanford: Li et al (2022)**
+[pdf](https://arxiv.org/pdf/2210.15097.pdf),
+[pdf2](https://arxiv.org/pdf/2309.09117.pdf)
+
+> A small helper model generates tokens alongside the main model. Tokens are
+> up-weighted if the large model finds them proportionally much more plausible
+> than the small model. This approach improves the quality of open-ended
+> generations and reasoning ability. To extend this method towards additionally
+> adaptive computation, smaller contrastive models could be applied
+> conditionally depending on the input.
 
 🌟 **Speculative Sampling, DeepMind: Chen et al (2023)**
 [pdf](https://arxiv.org/pdf/2302.01318.pdf),
@@ -381,7 +390,7 @@ parts of completions.
 [blog](https://www.deepmind.com/research/highlighted-research/alphago)
 
 > This result needs no introduction. In terms of Adaptive Computation, they the
-> depth of the tree search was allowed to be variable.
+> depth of the Monte Carlo Tree Search (MCTS) was allowed to be variable.
 
 ## Pre-cursors to Adaptive Computation
 
