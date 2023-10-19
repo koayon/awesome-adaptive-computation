@@ -283,7 +283,10 @@ used to improve performance for Black-box models.
 > acceptance criteria) and then the larger model's next token. This gives
 > exactly the same output as the larger model would have but with significantly
 > reduced sampling time. This takes advantage of the fact that we can
-> parallelise evaluation whilst generation happens token by token.
+> parallelise evaluation whilst generation happens token by token. Additionally
+> [Online Speculative Decoding](https://arxiv.org/pdf/2310.07177.pdf) suggests
+> we can use any excess compute (at inference time) to retrain the small model
+> online on the query distribution with teacher-student distillation.
 
 <!-- The general principle here is that it's easier to evaluate than to generate. -->
 
@@ -493,6 +496,8 @@ Lottery Tickets: if we prune we really do get sparsity but the problem is that t
 
 <!--
 ## Benchmarks
+
+All the usual benchmarks apply but ones that are especially suited to Adaptive Computation methods include:
 
 Parity
 
