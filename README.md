@@ -59,6 +59,16 @@ bigger models are more sample efficient and more compute efficient to train.
 MoE models are also useful for compartmentalising knowledge and avoiding
 negative interference from irrelevant computation.
 
+**SparseMixer - Sparse Backpropagation for MoE Training, Microsoft: Liu et al
+(2023)** [pdf](https://arxiv.org/pdf/2310.00811.pdf),
+
+> One of the most important parts of an MoE is the router which allows the
+> experts to specialise well. Unfortunately, typical MoE training gives
+> suboptimal routers as suggested by Hash routers performing almost as well as
+> more principled routing mechanisms. This paper suggests the reason is due to
+> MoE training ignoring parts of the gradient and suggests a midpoint-rule based
+> gradient approximation which substantially improves training.
+
 **MoV/MoLoRA, Cohere For AI: Zadouri et al (2023)**
 [pdf](https://arxiv.org/pdf/2309.05444.pdf),
 [official Jax code](https://github.com/for-ai/parameter-efficient-moe)
