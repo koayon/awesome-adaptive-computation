@@ -206,6 +206,17 @@ Early Exit approaches ask if we get the output of a neural network without going
 through all the layers, particularly if faced with an easier example. This is
 typically done by learning an exit probability at each layer.
 
+**Sparse Universal Transformer (SUT), MILA: Tan et al (2023)**
+[pdf](https://arxiv.org/pdf/2310.07096.pdf)
+
+> Combines the Universal Transformer approach (RNN with transformer blocks) with
+> the Mixture of Experts paradigm (multiple experts instead of a single FFN
+> layer). They also use a new stick-breaking-based dynamic halting mechanism.
+> This brings all the benefits of Sparse MoEs (such as less inference compute
+> whilst having a lot of parameters) and the benefits of Universal Transformer
+> (parameter efficiency, Turing-completeness and generalization ability)
+> together.
+
 **AdaTape, Google: Xue et al (2023)**
 [pdf](https://arxiv.org/pdf/2301.13195.pdf),
 [blog](https://ai.googleblog.com/2023/08/adatape-foundation-model-with-adaptive.html),
