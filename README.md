@@ -11,6 +11,7 @@ models, explainers and libraries for Machine Learning.
 - [Contents](#contents)
 - [About](#about)
 - [Mixture of Experts (Sparse MoE)](#mixture-of-experts-sparse-moe)
+- [Other Modular Architectures](#other-modular-architectures)
 - [Early Exit: End-to-End Adaptive Computation](#early-exit-end-to-end-adaptive-computation)
 - [Adaptive Computation for Black-box models](#adaptive-computation-for-black-box-models)
 - [Continual Learning](#continual-learning)
@@ -80,16 +81,6 @@ negative interference from irrelevant computation.
 > previous upscaling methods). The
 > [HydraMoE](https://github.com/SkunkworksAI/hydra-moe) project also take a
 > similar approach.
-
-🌟 **Soft-MoE, Google DeepMind: Puigcerver et al (2023)**
-[pdf](https://arxiv.org/pdf/2308.00951.pdf),
-[pytorch code](https://github.com/fkodom/soft-mixture-of-experts/blob/main/soft_mixture_of_experts/soft_moe.py)
-
-> Instead of Sparse MoE models, they allow each expert to using its router to
-> select weights for a weighted average of input tokens that it wants to
-> process. They show SoTA results on Image recognition tasks. Note since the
-> approach relies on Expert Choice, it doesn't yet generalise to autoregressive
-> generation.
 
 **Soft Merging of Experts (SMEAR), UNC: Zadouri et al (2023)**
 [pdf](https://arxiv.org/pdf/2306.03745.pdf)
@@ -196,6 +187,18 @@ Shazeer et al (2017)** [pdf](https://arxiv.org/pdf/1701.06538.pdf)
 > "Transformers Eating The World".
 
 <!-- A Noam Shazeer, Geoff Hinton collab - two true legends of Deep Learning -->
+
+## Other Modular Architectures
+
+🌟 **Soft-MoE, Google DeepMind: Puigcerver et al (2023)**
+[pdf](https://arxiv.org/pdf/2308.00951.pdf),
+[pytorch code](https://github.com/fkodom/soft-mixture-of-experts/blob/main/soft_mixture_of_experts/soft_moe.py)
+
+> Instead of Sparse MoE models, they allow each expert to using its router to
+> select weights for a weighted average of input tokens that it wants to
+> process. They show SoTA results on Image recognition tasks. Note since the
+> approach relies on Expert Choice, it doesn't yet generalise to autoregressive
+> generation.
 
 ## Early Exit: End-to-End Adaptive Computation
 
