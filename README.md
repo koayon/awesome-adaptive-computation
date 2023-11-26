@@ -218,6 +218,15 @@ typically done by learning an exit probability at each layer.
 > performs on image classification tasks and the 'parity' task on long
 > sequences.
 
+**Dataset Pruning Using Early Exit Networks, Görmez et al (2023)**
+[pdf](https://openreview.net/pdf?id=Kh114370zL)
+
+> Early Exit Networks naturally learn which input examples are "easy" (can be
+> exited early) or "difficult" (require all the layers of the network). The
+> authors use this property to prune datasets to use for training and
+> finetuning. The algorithm EEPrune achieves SOTA performance for dataset
+> pruning in some regimes.
+
 🌟 **PonderNet, DeepMind: Banino et al (2021)**
 [pdf](https://arxiv.org/pdf/2107.05407.pdf),
 [PyTorch code](https://github.com/koayon/ml-replications/tree/main/ponder)
@@ -496,12 +505,12 @@ example.
 > correlated with the amount of compute that they use per parameter efficiently
 > and how they share parameters.
 
-**Review Paper: Dynamic Neural Networks Survey (2022)**
+**Review Paper: Dynamic Neural Networks Survey, Han et al (2022)**
 [pdf](https://arxiv.org/pdf/2102.04906.pdf)
 
 > A review of Adaptive Computation approaches.
 
-**Scaling Scaling Laws with Board Games (2021)**
+**Scaling Scaling Laws with Board Games, Andy Jones (2021)**
 [pdf](https://arxiv.org/pdf/2104.03113.pdf)
 
 > [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
