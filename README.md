@@ -501,6 +501,16 @@ example.
 
 > A review of Adaptive Computation approaches.
 
+**Scaling Scaling Laws with Board Games (2021)**
+[pdf](https://arxiv.org/pdf/2104.03113.pdf)
+
+> [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
+> suggests that there are two general techniques that work well in Machine
+> Learning - search and learning. This paper suggests that these can be traded
+> off against one another - that is, instead of additional learning you could
+> add capable search to achieve similar performance. We can trade off train-time
+> and test-time compute depending on our requirements.
+
 <!--
 
 Lottery Tickets: if we prune we really do get sparsity but the problem is that the sparsity is not useful to us on modern hardware. We need block sparsity to take advantage of this. In the future it might be possible to use less structured sparsity and then this will become very relevant again.
