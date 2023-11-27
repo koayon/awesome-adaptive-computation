@@ -190,6 +190,23 @@ Shazeer et al (2017)** [pdf](https://arxiv.org/pdf/1701.06538.pdf)
 
 ## Other Modular Architectures
 
+🌟 **Fast FeedForward (FFF), ETH Zurich: Belcak et al (2023)**
+[pdf1](https://arxiv.org/pdf/2308.14711.pdf),
+[pdf2](https://arxiv.org/pdf/2311.10770.pdf),
+[official pytorch code1](https://github.com/pbelcak/fastfeedforward),
+[official pytorch code2](https://github.com/pbelcak/UltraFastBERT),
+[pytorch code](https://github.com/sap-ient-ai/FFF)
+
+> Instead of the usual FeedForward Network, the authors propose a balanced tree
+> structure where depending on your path through the tree, a different function
+> is applied to the input. Inputs go either left or right through the tree
+> depending on the result of a dot product with a learned discriminating vector.
+> This approach results in encouraging performance with somewhat limited
+> inference FLOPs but high training FLOPs and unstructured inference sparsity
+> which must be applied sequentially which falls foul of the
+> [Hardware Lottery](https://arxiv.org/pdf/2009.06489.pdf) and doesn't
+> parallelise nicely on GPUs.
+
 🌟 **Soft-MoE, Google DeepMind: Puigcerver et al (2023)**
 [pdf](https://arxiv.org/pdf/2308.00951.pdf),
 [pytorch code](https://github.com/fkodom/soft-mixture-of-experts/blob/main/soft_mixture_of_experts/soft_moe.py)
@@ -344,6 +361,8 @@ used to improve performance for Black-box models.
 > time before selecting one by building out a tree. Increasing the number of
 > beams increases the number of options explored downstream and hence the amount
 > of compute per token.
+
+<!-- Test-Time Compute is the System 2. We want to convert time to think into better outputs. We want to do structured reasoning over trees of possibilities. We want to convert time into better accuracy so when you think for longer, you get monotonically more accurate outputs.  -->
 
 ## Continual Learning
 
