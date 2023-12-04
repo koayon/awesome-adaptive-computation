@@ -60,6 +60,19 @@ bigger models are more sample efficient and more compute efficient to train.
 MoE models are also useful for compartmentalising knowledge and avoiding
 negative interference from irrelevant computation.
 
+**QMoE, ISTA: Frantar & Alistarh (2023)**
+[pdf](https://arxiv.org/pdf/2310.16795.pdf)
+[code](https://github.com/IST-DASLab/qmoe)
+
+> Generally MoEs require larger footprints but fewer FLOPs compared to a dense
+> model of which achieves similar performance. In the quest to reduce the memory
+> footprint, we might seek to perform quantisation. The authors present a
+> compression method which takes advantage of the inherent sparsity to compress
+> the model at a 20x compression rate whilst retaining most performance. This
+> compresses each fp16 weight to the equivalent of less than one bit. For the
+> first time it's possible to run a trillion parameter model on consumer
+> hardware.
+
 **SparseMixer - Sparse Backpropagation for MoE Training, Microsoft: Liu et al
 (2023)** [pdf](https://arxiv.org/pdf/2310.00811.pdf),
 
@@ -190,7 +203,7 @@ Shazeer et al (2017)** [pdf](https://arxiv.org/pdf/1701.06538.pdf)
 
 ## Other Modular Architectures
 
-🌟 **Fast FeedForward (FFF), ETH Zurich: Belcak et al (2023)**
+**Fast FeedForward (FFF), ETH Zurich: Belcak et al (2023)**
 [pdf1](https://arxiv.org/pdf/2308.14711.pdf),
 [pdf2](https://arxiv.org/pdf/2311.10770.pdf),
 [official pytorch code1](https://github.com/pbelcak/fastfeedforward),
