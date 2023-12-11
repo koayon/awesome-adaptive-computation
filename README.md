@@ -59,6 +59,8 @@ bigger models are more sample efficient and more compute efficient to train.
 
 MoE models are also useful for compartmentalising knowledge and avoiding
 negative interference from irrelevant computation.
+[Mixtral-8x7B](https://huggingface.co/mistralai/Mixtral-8x7B-v0.1) is an
+open-weights MoE model which is comparable to much larger models.
 
 **QMoE, ISTA: Frantar & Alistarh (2023)**
 [pdf](https://arxiv.org/pdf/2310.16795.pdf)
