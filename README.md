@@ -62,6 +62,12 @@ negative interference from irrelevant computation.
 [Mixtral-8x7B](https://huggingface.co/mistralai/Mixtral-8x7B-v0.1) is an
 open-weights MoE model which is comparable to much larger models.
 
+**Mixtral of Experts, Mixtral (2024)**
+[pdf](https://arxiv.org/pdf/2401.04088.pdf)
+[official code](https://github.com/mistralai/mistral-src)
+
+> The paper describing Mixtral's State of Art LLM based on the MoE paradigm.
+
 **QMoE, ISTA: Frantar & Alistarh (2023)**
 [pdf](https://arxiv.org/pdf/2310.16795.pdf)
 [code](https://github.com/IST-DASLab/qmoe)
