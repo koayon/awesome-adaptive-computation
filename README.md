@@ -73,7 +73,7 @@ open-weights MoE model which is comparable to much larger models.
 
 > The authors combine the MoE paradigm with a recent SSM-based architecture
 > Mamba. Mamba provides Transformer-like performance and scaling properties
-> whilst reducing the Quadratic Attention bottleneck allowing for much larger
+> whilst using a sub-quadratic attention variant allowing for much larger
 > sequence lengths. Here we see that this architecture can additionally be
 > combined with MoEs to increase performance, similarly to MoEs for transformers
 > or RNNs previously.
