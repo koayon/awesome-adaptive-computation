@@ -68,6 +68,24 @@ open-weights MoE model which is comparable to much larger models.
 
 > The paper describing Mixtral's State of Art LLM based on the MoE paradigm.
 
+**Offloading for Fast MoE Inference, Moscow: Eliseev & Mazur (2023)**
+[pdf](https://arxiv.org/pdf/2312.17238.pdf)
+[official code](https://github.com/dvmazur/mixtral-offloading)
+
+> Despite some open-weights MoEs being available, they are not the most popular
+> models used for inference due to the large memory footprint required at
+> inference time. To address this the authors propose architecture-aware
+> quantisation, an LRU cache for experts (to exploit the fact that experts are
+> more likely than chance to repeat for two adjacent tokens) and a speculative
+> expert loading algorithm. Since the inputs (x) to each layer only differ
+> iteratively by a small amount (due to the residual stream carrying information
+> from layer to layer), they note that by applying the routing function for the
+> subsequent layer at the current layer, you can get a good guess for which
+> experts to load. The upshot of this is that MoE models, like Mixtral, can be
+> run on consumer grade hardware with much increased generation speed. This is a
+> huge win for inference efficiency in the memory constrained and single batch
+> regime.
+
 **QMoE, ISTA: Frantar & Alistarh (2023)**
 [pdf](https://arxiv.org/pdf/2310.16795.pdf)
 [code](https://github.com/IST-DASLab/qmoe)
