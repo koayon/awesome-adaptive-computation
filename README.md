@@ -425,6 +425,15 @@ used to improve performance for Black-box models.
 > model to do a new task. This helps to eliminate the catastrophic forgetting
 > that can happen with naive finetuning.
 
+**Sparse Upcycling, Google Research: Komatsuzaki et al (2023)**
+[pdf](https://arxiv.org/pdf/2212.05055.pdf)
+
+> Shows that you can use an pre-trained dense model checkpoints as an
+> initialisation for training sparse MoEs. This reduces the overall compute
+> budget needed and reduces the sunk costs for already trained models. Sparse
+> upcycling can be viewed as an efficient form of finetuning which converts a
+> pretrained dense model to a sparse model for inference.
+
 **MuNet, Google: Gesmundo et al (2022-23)**
 [pdf](https://arxiv.org/pdf/2205.10937.pdf),
 [pdf2](https://arxiv.org/pdf/2205.12755.pdf),
