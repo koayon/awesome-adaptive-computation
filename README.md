@@ -62,6 +62,11 @@ negative interference from irrelevant computation.
 [Mixtral-8x7B](https://huggingface.co/mistralai/Mixtral-8x7B-v0.1) is an
 open-weights MoE model which is comparable to much larger models. Google DeepMind similarly show that their [Gemini 1.5 Pro](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf) based on an MoE architecture is competitive with their much larger Gemini 1 Ultra.
 
+**MoEs for Deep-RL, Google DeepMind: Obando-Ceron et al (2024)**
+[pdf](https://arxiv.org/pdf/2402.08609.pdf)
+
+> The authors show that MoEs can be used to improve the sample efficiency of popular RL systems such as DQN and Rainbow. The authors show that using MoEs (in particular the SoftMoE variant) improves the ultimate performance of the RL systems. Previously, scaling up the underlying models in RL systems was often wasteful in parameters, but the authors show using MoEs they can get predictable performance improvements with scale. This suggests that scaling laws for Deep RL systems could be possible.
+
 **Mixtral of Experts, Mixtral (2024)**
 [pdf](https://arxiv.org/pdf/2401.04088.pdf)
 [official code](https://github.com/mistralai/mistral-src)
