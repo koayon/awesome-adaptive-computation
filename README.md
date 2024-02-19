@@ -67,6 +67,13 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 
 > The authors show that MoEs can be used to improve the sample efficiency of popular RL systems such as DQN and Rainbow. The authors show that using MoEs (in particular the SoftMoE variant) improves the ultimate performance of the RL systems. Previously, scaling up the underlying models in RL systems was often wasteful in parameters, but the authors show using MoEs they can get predictable performance improvements with scale. This suggests that scaling laws for Deep RL systems could be possible.
 
+*MoE-LLaVA, Peking University: Lin et al (2024)**
+[pdf](https://arxiv.org/pdf/2401.15947.pdf)
+[code](https://github.com/PKU-YuanGroup/MoE-LLaVA)
+
+
+> Whilst MoEs have had much success in ViTs and LLMs, the authors also show that they can be effective in LVLMs (Large Vision Language Models). By exploiting the sparsity and increased parameter count of MoEs whilst maintaining FLOPs, we get the expected boost in both performance and hallucination avoidance.
+
 **Mixtral of Experts, Mixtral (2024)**
 [pdf](https://arxiv.org/pdf/2401.04088.pdf)
 [official code](https://github.com/mistralai/mistral-src)
