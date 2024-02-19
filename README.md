@@ -60,7 +60,7 @@ bigger models are more sample efficient and more compute efficient to train.
 MoE models are also useful for compartmentalising knowledge and avoiding
 negative interference from irrelevant computation.
 [Mixtral-8x7B](https://huggingface.co/mistralai/Mixtral-8x7B-v0.1) is an
-open-weights MoE model which is comparable to much larger models.
+open-weights MoE model which is comparable to much larger models. Google DeepMind similarly show that their [Gemini 1.5 Pro](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf) based on an MoE architecture is competitive with their much larger Gemini 1 Ultra.
 
 **Mixtral of Experts, Mixtral (2024)**
 [pdf](https://arxiv.org/pdf/2401.04088.pdf)
