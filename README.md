@@ -96,7 +96,7 @@ open-weights MoE model which is comparable to much larger models.
 > huge win for inference efficiency in the memory constrained and single batch
 > regime.
 
-**QMoE, ISTA: Frantar & Alistarh (2023)**
+🌟 **QMoE, ISTA: Frantar & Alistarh (2023)**
 [pdf](https://arxiv.org/pdf/2310.16795.pdf)
 [code](https://github.com/IST-DASLab/qmoe)
 
