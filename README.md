@@ -67,6 +67,11 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 
 > The authors show that MoEs can be used to improve the sample efficiency of popular RL systems such as DQN and Rainbow. The authors show that using MoEs (in particular the SoftMoE variant) improves the ultimate performance of the RL systems. Previously, scaling up the underlying models in RL systems was often wasteful in parameters, but the authors show using MoEs they can get predictable performance improvements with scale. This suggests that scaling laws for Deep RL systems could be possible.
 
+🌟 **Routers in Vision MoEs, DeepMind: Liu et al (2024)**
+[pdf](https://arxiv.org/pdf/2401.15969.pdf)
+
+> Compares the performance of different routing mechanisms in MoEs trained on Vision tasks. They show that Language Model routers can adapt well to Vision and that for Vision tasks (where the task isn't autoregressive), Soft MoE outperforms. They also reframe some previous routing methods mathematically to more clearly detail the differences. Worth a read for anyone deciding which MoE approach to choose for their application.
+
 **MoE-LLaVA, Peking University: Lin et al (2024)**
 [pdf](https://arxiv.org/pdf/2401.15947.pdf)
 [code](https://github.com/PKU-YuanGroup/MoE-LLaVA)
@@ -123,7 +128,8 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 > hardware.
 
 **SparseMixer - Sparse Backpropagation for MoE Training, Microsoft: Liu et al
-(2023)** [pdf](https://arxiv.org/pdf/2310.00811.pdf),
+(2023)**
+[pdf](https://arxiv.org/pdf/2310.00811.pdf)
 
 > One of the most important parts of an MoE is the router which allows the
 > experts to specialise well. Unfortunately, typical MoE training gives
