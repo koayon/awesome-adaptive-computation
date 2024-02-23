@@ -595,6 +595,11 @@ example.
 
 ## Other
 
+**Buffer Overflow in MoEs, DeepMind: Hayes et al (2024)**
+[pdf](https://arxiv.org/pdf/2402.05526.pdf)
+
+> Typically with token choice routing methods in MoEs, there are implicitly cross-batch dependencies (i.e. the same token could be routed to different experts if in it's batch most of the other tokens also wanted to go to its preferred expert). The authors show that this batch dependency can be used as an attack surface. They present a few solutions - mostly this shouldn't be a problem if batch sizes are very large (as in inference in a big AI lab) but it's an interesting one to watch out for. We might expect ML systems security to be an increasingly large field of research.
+
 **Sparse Scaling Laws, DeepMind: Frantar et al (2023)**
 [pdf](https://arxiv.org/pdf/2309.08520.pdf)
 
