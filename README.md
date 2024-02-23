@@ -79,15 +79,17 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 
 > The paper describing Mixtral's State of Art LLM based on the MoE paradigm.
 
-**MoE Mamba, IDEAS NCBR: Pioro et al (2024)**
-[pdf](https://arxiv.org/pdf/2401.04081.pdf)
+**BlackMamba (MoE-Mamba), Zyphra: Anthony et al (2024)**
+[pdf](https://arxiv.org/pdf/2402.01771.pdf)
+[code](https://github.com/Zyphra/BlackMamba)
+[models](https://huggingface.co/Zyphra)
 
 > The authors combine the MoE paradigm with a recent SSM-based architecture
 > Mamba. Mamba provides Transformer-like performance and scaling properties
 > whilst using a sub-quadratic attention variant allowing for much larger
 > sequence lengths. Here we see that this architecture can additionally be
 > combined with MoEs to increase performance, similarly to MoEs for transformers
-> or RNNs previously. For a general explainer on Mamba see [here](https://www.kolaayonrinde.com/blog/2024/02/11/mamba.html)
+> or RNNs previously. For a general explainer on Mamba see [here](https://www.kolaayonrinde.com/blog/2024/02/11/mamba.html).
 
 🌟 **Offloading for Fast MoE Inference, Moscow: Eliseev & Mazur (2023)**
 [pdf](https://arxiv.org/pdf/2312.17238.pdf)
