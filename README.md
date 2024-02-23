@@ -107,7 +107,7 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 > experts to load. The upshot of this is that MoE models, like Mixtral, can be
 > run on consumer grade hardware with much increased generation speed. This is a
 > huge win for inference efficiency in the memory constrained and single batch
-> regime.
+> regime. [MoE-Infinity](https://arxiv.org/pdf/2401.14361.pdf) is a similar offloading paradigm with code [here](https://github.com/TorchMoE/MoE-Infinity)
 
 🌟 **QMoE, ISTA: Frantar & Alistarh (2023)**
 [pdf](https://arxiv.org/pdf/2310.16795.pdf)
