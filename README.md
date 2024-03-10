@@ -67,6 +67,11 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 
 > The authors show that MoEs can be used to improve the sample efficiency of popular RL systems such as DQN and Rainbow. The authors show that using MoEs (in particular the SoftMoE variant) improves the ultimate performance of the RL systems. Previously, scaling up the underlying models in RL systems was often wasteful in parameters, but the authors show using MoEs they can get predictable performance improvements with scale. This suggests that scaling laws for Deep RL systems could be possible.
 
+**MoE Design Choices, EPFL: Fan et al (2024)**
+[pdf](https://arxiv.org/pdf/2402.13089.pdf)
+
+> The authors ablate some decision decisions for MoEs and shows the benefits of compared to vanilla transformers. They unfortunately only study very small models and so similar analysis for larger models could likely be useful for the community.
+
 🌟 **Routers in Vision MoEs, DeepMind: Liu et al (2024)**
 [pdf](https://arxiv.org/pdf/2401.15969.pdf)
 
