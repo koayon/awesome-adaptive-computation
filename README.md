@@ -556,6 +556,15 @@ parts of completions.
 
 ## Open Source Libraries
 
+**DSPy, Stanford: Kandpal et al (2023)**
+[pdf](https://arxiv.org/pdf/2310.03714.pdf),
+[code](https://github.com/stanfordnlp/dspy)
+
+> A framework which allows AI engineers to build LLM pipelines in code. Here we can also
+> algorithmically optimize LM prompts and weights using their compilation tools. Within
+> this framework pipelines are written like PyTorch code and engineers can write control
+> flows to allow for Adaptive Computation.
+
 **git_theta, UNC: Kandpal et al (2023)**
 [pdf](https://arxiv.org/pdf/2306.04529.pdf),
 [official framework-agnostic code](https://github.com/r-three/git-theta/)
