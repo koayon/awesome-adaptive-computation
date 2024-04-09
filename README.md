@@ -383,6 +383,17 @@ Prompting techniques such as
 [Chain of Verification](https://browse.arxiv.org/pdf/2309.11495.pdf) can also be
 used to improve performance for Black-box models.
 
+🌟 **Martian LLM Router, Martian: Hu et al (2024)**
+[pdf](https://arxiv.org/pdf/2403.12031.pdf),
+[blog](https://withmartian.com/)
+
+> Martian provide the first LLM router, which dynamically routes queries
+> to the best LLM in real-time, to achieve higher performance and lower cost
+> than any individual API. They're able to choose models which might be better
+> at a single task and to route away from powerful expensive models when a cheaper
+> one will suffice. In order to choose which model to use, they use a new interpretability
+> technique known as [model mapping](https://blog.withmartian.com/post/mission#:~:text=Understanding%20Models%20Through%20Model%20Mapping).
+
 🌟 **Contrastive Decoding, Stanford: Li et al (2023)**
 [pdf](https://arxiv.org/pdf/2210.15097.pdf),
 [pdf2](https://arxiv.org/pdf/2309.09117.pdf)
@@ -393,7 +404,6 @@ used to improve performance for Black-box models.
 > generations and reasoning ability. To extend this method towards additionally
 > adaptive computation, smaller contrastive models could be applied
 > conditionally depending on the input.
-
 
 🌟 **Speculative Sampling, DeepMind: Chen et al (2023)**
 [pdf](https://arxiv.org/pdf/2302.01318.pdf),
