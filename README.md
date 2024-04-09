@@ -405,6 +405,16 @@ used to improve performance for Black-box models.
 > adaptive computation, smaller contrastive models could be applied
 > conditionally depending on the input.
 
+**EAGLE, Peking/Microsft: Li et al (2024)**
+[pdf](https://arxiv.org/pdf/2401.15077.pdf),
+[PyTorch code](https://github.com/SafeAILab/EAGLE)
+
+> An improvement to speculative decoding which uses the fact that upper
+> layers in the model have good features for multiple tokens ahead to predict
+> future tokens from the current one without using all the layers.
+> This approach is typically 50% faster than previous single-model speculative
+> decoding efforts and 3x faster than vanilla decoding.
+
 🌟 **Speculative Sampling, DeepMind: Chen et al (2023)**
 [pdf](https://arxiv.org/pdf/2302.01318.pdf),
 [pdf2](https://arxiv.org/pdf/2211.17192.pdf),
