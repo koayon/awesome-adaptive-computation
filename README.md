@@ -421,6 +421,10 @@ used to improve performance for Black-box models.
 > [Online Speculative Decoding](https://arxiv.org/pdf/2310.07177.pdf) suggests
 > we can use any excess compute (at inference time) to retrain the small model
 > online on the query distribution with teacher-student distillation.
+> Note that the small model need not be a transformer:
+> [Recurrent Drafter](https://arxiv.org/pdf/2403.09919.pdf) from Apple suggest
+> using a fast RNN for speculative decoding and [large n-gram models](https://arxiv.org/pdf/2401.17377.pdf)
+> could also be used as a non-parametric approach. Indeed [REST](https://www.semanticscholar.org/paper/REST%3A-Retrieval-Based-Speculative-Decoding-He-Zhong/532c2c7a247d9e97d20abec1b2f4612984fdab93) suggest retrieving follow-on tokens from the web for the speculative decoding head.
 
 <!-- The general principle here is that it's easier to evaluate than to generate. -->
 
