@@ -24,7 +24,7 @@ models, explainers and libraries for Machine Learning.
 
 ## About
 
-`Adaptive Computation` is the ability of a machine learning system to adjust its
+`Adaptive Computation` (sometimes called `Dynamic Compute`) is the ability of a machine learning system to adjust its
 `function` and `compute budget` for each example.
 
 <!-- We can think of this as giving models a [System 2](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) mode. -->
