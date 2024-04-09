@@ -13,6 +13,7 @@ models, explainers and libraries for Machine Learning.
 - [Mixture of Experts (Sparse MoE)](#mixture-of-experts-sparse-moe)
 - [Other Modular Architectures](#other-modular-architectures)
 - [Early Exit: End-to-End Adaptive Computation](#early-exit-end-to-end-adaptive-computation)
+- [More Tokens Per Output Token](#more-tokens-per-output-token)
 - [Adaptive Computation for Black-box models](#adaptive-computation-for-black-box-models)
 - [Continual Learning](#continual-learning)
 - [Tools \& Agents](#tools--agents)
@@ -371,6 +372,28 @@ typically done by learning an exit probability at each layer.
 > Introduces the ACT approach for models to learn how many computational steps
 > they should take before returning an output. This approach is built on and
 > refined in many later papers such as PonderNet.
+
+## More Tokens Per Output Token
+
+🌟 **Quiet-STaR, Stanford: Hu et al (2024)**
+[pdf](https://arxiv.org/pdf/2403.09629.pdf),
+
+> One of the core motivations of Adaptive Computation is noting that for
+> difficult tokens we should spend more compute. There have been prompting
+> ways to do this (e.g. Chain of Thought) and recurrent ways to do this (e.g.
+> Universal Transformers) but ideally we'd want the LLM to just start writing
+> down more tokens, using all faculties on difficult tokens, without being told
+> when to apply this technique and in a natural next-token prediction way that
+> takes advantage of its pretraining. Quiet-STaR is exactly that. The model
+> generates hidden `rationale` tokens which it can use to reason but don't get
+> shown to the user (or loss function). This generalises the previous `STaR` work
+> by the same authors and the `Pause Token` results in a way that is much more
+> generally effective.
+
+> This is the real deal folks! I'm extremely excited about this approach.
+> And it's a cracked team too, they start the paper with a quote from
+> Danish philosopher Søren Kierkegaard. An excellent formulation and one of
+> those papers that makes you realise why you got into this field.
 
 ## Adaptive Computation for Black-box models
 
