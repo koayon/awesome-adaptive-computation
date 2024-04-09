@@ -50,7 +50,7 @@ others in the community would benefit from 🤗
 
 ## Mixture of Experts (Sparse MoE)
 
-The MoE paradigm uses a routing layer to choose a limited number of parameters
+The Mixture of Experts (MoE) paradigm uses a routing layer to choose a limited number of parameters
 to apply to a given input rather than using all the available parameters.
 
 This conditional computation allows us model capacity to increase without also
@@ -60,7 +60,7 @@ bigger models are more sample efficient and more compute efficient to train.
 MoE models are also useful for compartmentalising knowledge and avoiding
 negative interference from irrelevant computation.
 [Mixtral-8x7B](https://huggingface.co/mistralai/Mixtral-8x7B-v0.1) is an
-open-weights MoE model which is comparable to much larger models. Google DeepMind similarly show that their [Gemini 1.5 Pro](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf) based on an MoE architecture is competitive with their much larger Gemini 1 Ultra.
+open-weights MoE model which is comparable to much larger models. Google DeepMind similarly show that their [Gemini 1.5 Pro](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf) based on an MoE architecture is competitive with their much larger Gemini 1 Ultra. Databricks/Mosaic [DBRX](https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm) is another powerful MoE model and it seems that MoE is now the go-to architecture for large models.
 
 **MoEs for Deep-RL, Google DeepMind: Obando-Ceron et al (2024)**
 [pdf](https://arxiv.org/pdf/2402.08609.pdf)
