@@ -195,6 +195,7 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 🌟 **Task Level MoEs, Various (2022)**
 [DeMix pdf](https://arxiv.org/pdf/2108.05036.pdf),
 [Task-MoE pdf](https://arxiv.org/pdf/2110.03742.pdf)
+[c-BTM code](https://github.com/kernelmachine/cbtm)
 
 > Instead of routing each token separately these approaches use the same Expert
 > for entire documents based on the task (which is supplied to the network).
@@ -202,10 +203,12 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 > about the tasks, inducing our own inductive bias. Also note that this offers
 > memory footprint benefits at inference time - if inference is for a limited
 > set of tasks, we only need these enough GPU memory for these experts.
-> [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D)
-> and [c-BTM](https://arxiv.org/pdf/2303.14177.pdf) are follow-ups which use
+> [ELMForest - Branch, Train, Merge (BTM)](https://arxiv.org/pdf/2208.03306.pdf%7D),
+> [c-BTM](https://arxiv.org/pdf/2303.14177.pdf) and
+> [Branch, Train, Mix (BTX)](https://arxiv.org/pdf/2403.07816.pdf)
+> are follow-ups which use
 > ensembling approaches from multiple LMs trained independently in a continual
-> learning approach [code](https://github.com/kernelmachine/cbtm)
+> learning approach.
 
 <!-- There are possibly additional benefits to combining task and token level experts. We could input a task and use this to decide which routers that we want to use in our MoE layers see [Multi-gate](https://dl.acm.org/doi/pdf/10.1145/3219819.3220007).
 Alternatively we could concatenate task information to the input of the router network so it can use it if it wants.
@@ -581,7 +584,7 @@ parts of completions.
 
 ## Open Source Libraries
 
-**DSPy, Stanford: Kandpal et al (2023)**
+🌟 **DSPy, Stanford: Kandpal et al (2023)**
 [pdf](https://arxiv.org/pdf/2310.03714.pdf),
 [code](https://github.com/stanfordnlp/dspy)
 
