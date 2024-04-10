@@ -436,6 +436,16 @@ used to improve performance for Black-box models.
 > one will suffice. In order to choose which model to use, they use a new interpretability
 > technique known as [model mapping](https://blog.withmartian.com/post/mission#:~:text=Understanding%20Models%20Through%20Model%20Mapping).
 
+**EAGLE, Peking/Microsft: Li et al (2024)**
+[pdf](https://arxiv.org/pdf/2401.15077.pdf),
+[PyTorch code](https://github.com/SafeAILab/EAGLE)
+
+> An improvement to speculative decoding which uses the fact that upper
+> layers in the model have good features for multiple tokens ahead to predict
+> future tokens from the current one without using all the layers.
+> This approach is typically 50% faster than previous single-model speculative
+> decoding efforts and 3x faster than vanilla decoding.
+
 🌟 **Contrastive Decoding, Stanford: Li et al (2023)**
 [pdf](https://arxiv.org/pdf/2210.15097.pdf),
 [pdf2](https://arxiv.org/pdf/2309.09117.pdf)
@@ -446,16 +456,6 @@ used to improve performance for Black-box models.
 > generations and reasoning ability. To extend this method towards additionally
 > adaptive computation, smaller contrastive models could be applied
 > conditionally depending on the input.
-
-**EAGLE, Peking/Microsft: Li et al (2024)**
-[pdf](https://arxiv.org/pdf/2401.15077.pdf),
-[PyTorch code](https://github.com/SafeAILab/EAGLE)
-
-> An improvement to speculative decoding which uses the fact that upper
-> layers in the model have good features for multiple tokens ahead to predict
-> future tokens from the current one without using all the layers.
-> This approach is typically 50% faster than previous single-model speculative
-> decoding efforts and 3x faster than vanilla decoding.
 
 🌟 **Speculative Sampling, DeepMind: Chen et al (2023)**
 [pdf](https://arxiv.org/pdf/2302.01318.pdf),
@@ -541,6 +541,12 @@ used to improve performance for Black-box models.
 
 One way of varying compute is on some tokens calling out to an external API for
 parts of completions.
+
+🌟 **SWE-Agent: Princeton, Yang et al (2024)**
+[code](https://github.com/princeton-nlp/SWE-agent)
+[demo](https://swe-agent.com/)
+
+> An AI Software Engineer (à la Devin) which takes a GitHub issue and autonomously tries to fix it. Operates fast (couple of minutes) and performs well on the SWE-bench benchmark. One of the first AI agents to actually work in the real world and it's open-source.
 
 🌟 **LLM-Powered Autonomous Agents, OpenAI: Lilian Weng (2023)**
 [blog](https://lilianweng.github.io/posts/2023-06-23-agent/)
