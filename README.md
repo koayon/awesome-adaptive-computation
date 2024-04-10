@@ -437,6 +437,7 @@ used to improve performance for Black-box models.
 > at a single task and to route away from powerful expensive models when a cheaper
 > one will suffice. In order to choose which model to use, they use a new interpretability
 > technique known as [model mapping](https://blog.withmartian.com/post/mission#:~:text=Understanding%20Models%20Through%20Model%20Mapping).
+> Worth paying attention to.
 
 **EAGLE, Peking/Microsft: Li et al (2024)**
 [pdf](https://arxiv.org/pdf/2401.15077.pdf),
