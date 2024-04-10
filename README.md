@@ -650,6 +650,16 @@ parts of completions.
 > and merge model finetuning branches with merging approaches. It's also
 > efficient with low-rank changes to parameter groups.
 
+🌟 **MegaBlocks, Stanford/Databricks (2022)**
+[pdf](https://arxiv.org/pdf/2211.15841.pdf)
+[pytorch code](https://github.com/databricks/megablocks)
+
+
+> A lightweight library for training MoE models which is well integrated with
+> MegaTron-LM. Maintained by Databricks and used by Mistral, it's becoming the
+> standard in MoE training. The core of the library is implementing "dropless-MoE"
+> efficiently.
+
 🌟 **DeepSpeed-MoE, Microsoft: Rajbhandari et al (2022)**
 [blog](https://www.microsoft.com/en-us/research/blog/deepspeed-advancing-moe-inference-and-training-to-power-next-generation-ai-scale/),
 [pdf](https://arxiv.org/pdf/2201.05596.pdf),
