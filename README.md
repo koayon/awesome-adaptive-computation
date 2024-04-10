@@ -542,7 +542,7 @@ used to improve performance for Black-box models.
 One way of varying compute is on some tokens calling out to an external API for
 parts of completions.
 
-🌟 **SWE-Agent: Princeton, Yang et al (2024)**
+**SWE-Agent: Princeton, Yang et al (2024)**
 [code](https://github.com/princeton-nlp/SWE-agent)
 [demo](https://swe-agent.com/)
 
