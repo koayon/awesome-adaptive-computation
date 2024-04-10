@@ -63,6 +63,8 @@ negative interference from irrelevant computation.
 [Mixtral-8x7B](https://huggingface.co/mistralai/Mixtral-8x7B-v0.1) is an
 open-weights MoE model which is comparable to much larger models. Google DeepMind similarly show that their [Gemini 1.5 Pro](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf) based on an MoE architecture is competitive with their much larger Gemini 1 Ultra. Databricks/Mosaic [DBRX](https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm) is another powerful MoE model and it seems that MoE is now the go-to architecture for large models.
 
+[JetMoE](https://research.myshell.ai/jetmoe), based on the [ModuleFormer](https://arxiv.org/pdf/2306.04640.pdf) MoE conception, shows that MoEs can also be effective at smaller scales.
+
 **MoEs for Deep-RL, Google DeepMind: Obando-Ceron et al (2024)**
 [pdf](https://arxiv.org/pdf/2402.08609.pdf)
 
