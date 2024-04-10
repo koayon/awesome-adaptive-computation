@@ -267,7 +267,7 @@ Shazeer et al (2017)** [pdf](https://arxiv.org/pdf/1701.06538.pdf)
 
 ## Other Modular Architectures
 
-**Mixture of Depths, DeepMind: Raposo et al (2023)**
+🌟 **Mixture of Depths, DeepMind: Raposo et al (2023)**
 [pdf](https://arxiv.org/pdf/2404.02258.pdf),
 
 > The traditional Early-Exit formulation allows "easier" tokens to not go
