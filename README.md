@@ -391,7 +391,7 @@ typically done by learning an exit probability at each layer.
 
 ## More Tokens Per Output Token
 
-🌟 **Quiet-STaR, Stanford: Hu et al (2024)**
+🌟 **Quiet-STaR, Stanford: Zelikman et al (2024)**
 [pdf](https://arxiv.org/pdf/2403.09629.pdf),
 
 > One of the core motivations of Adaptive Computation is noting that for
