@@ -267,6 +267,22 @@ Shazeer et al (2017)** [pdf](https://arxiv.org/pdf/1701.06538.pdf)
 
 ## Other Modular Architectures
 
+**Mixture of Depths, DeepMind: Raposo et al (2023)**
+[pdf](https://arxiv.org/pdf/2404.02258.pdf),
+
+> The traditional Early-Exit formulation allows "easier" tokens to not go
+> through the whole network, reducing compute but it has a couple of problems.
+> Firstly, it's not clear that the layers that you want to skip are necessarily
+> the final ones (perhaps an easy token should skip some middle layers instead)
+> and secondly, Early Exit might not be in practise that much faster on GPUs due
+> to the variable compute graph. In an attempt to align Early-Exit work with the
+> Hardware Lottery, the authors suggest enforcing a compute budget but fixing the
+> computational graph allowing dynamic allocation of FLOPs across tokens in the
+> sequence, optimising the allocation along the sequence for different layers
+> across the model depth. Because they opt for an expert-choice routing mechanism,
+> they also introduce novel sampling methods to ensure validity for autoregressive
+> generation which seem broadly applicable to other MoE models.
+
 **Fast FeedForward (FFF), ETH Zurich: Belcak et al (2023)**
 [pdf1](https://arxiv.org/pdf/2308.14711.pdf),
 [pdf2](https://arxiv.org/pdf/2311.10770.pdf),
