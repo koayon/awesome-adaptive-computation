@@ -439,6 +439,8 @@ used to improve performance for Black-box models.
 > technique known as [model mapping](https://blog.withmartian.com/post/mission#:~:text=Understanding%20Models%20Through%20Model%20Mapping).
 > Worth paying attention to.
 
+> Chip Huyen discusses model routing approaches [here](https://huyenchip.com/2024/02/28/predictive-human-preference.html)
+
 **EAGLE, Peking/Microsft: Li et al (2024)**
 [pdf](https://arxiv.org/pdf/2401.15077.pdf),
 [PyTorch code](https://github.com/SafeAILab/EAGLE)
