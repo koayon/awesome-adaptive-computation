@@ -285,6 +285,8 @@ Shazeer et al (2017)** [pdf](https://arxiv.org/pdf/1701.06538.pdf)
 > they also introduce novel sampling methods to ensure validity for autoregressive
 > generation which seem broadly applicable to other MoE models.
 
+> This builds on the [LayerDrop](https://arxiv.org/pdf/1909.11556.pdf) approach to structured dropout.
+
 **Fast FeedForward (FFF), ETH Zurich: Belcak et al (2023)**
 [pdf1](https://arxiv.org/pdf/2308.14711.pdf),
 [pdf2](https://arxiv.org/pdf/2311.10770.pdf),
