@@ -21,6 +21,7 @@ models, explainers and libraries for Machine Learning.
 - [Pre-cursors to Adaptive Computation](#pre-cursors-to-adaptive-computation)
 - [Open Source Libraries](#open-source-libraries)
 - [AI Safety](#ai-safety)
+- [Scaling Laws](#scaling-laws)
 - [Other](#other)
 
 ## About
@@ -697,12 +698,7 @@ from the system's perspective. Inference-time search is one way that a model
 could implement [deceptive alignment](https://arxiv.org/pdf/1906.01820.pdf) for
 example.
 
-## Other
-
-**Buffer Overflow in MoEs, DeepMind: Hayes et al (2024)**
-[pdf](https://arxiv.org/pdf/2402.05526.pdf)
-
-> Typically with token choice routing methods in MoEs, there are implicitly cross-batch dependencies (i.e. the same token could be routed to different experts if in it's batch most of the other tokens also wanted to go to its preferred expert). The authors show that this batch dependency can be used as an attack surface. They present a few solutions - mostly this shouldn't be a problem if batch sizes are very large (as in inference in a big AI lab) but it's an interesting one to watch out for. We might expect ML systems security to be an increasingly large field of research.
+## Scaling Laws
 
 **Sparse Scaling Laws, DeepMind: Frantar et al (2023)**
 [pdf](https://arxiv.org/pdf/2309.08520.pdf)
@@ -713,6 +709,23 @@ example.
 > suggest that sparsity is especially important for larger models when seeing
 > diminishing returns past Chinchilla optimality. See also
 > [Unified Scaling Laws](https://browse.arxiv.org/pdf/2202.01169.pdf)
+
+**Scaling Scaling Laws with Board Games, Andy Jones (2021)**
+[pdf](https://arxiv.org/pdf/2104.03113.pdf)
+
+> [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
+> suggests that there are two general techniques that work well in Machine
+> Learning - search and learning. This paper suggests that these can be traded
+> off against one another - that is, instead of additional learning you could
+> add capable search to achieve similar performance. We can trade off train-time
+> and test-time compute depending on our requirements.
+
+## Other
+
+**Buffer Overflow in MoEs, DeepMind: Hayes et al (2024)**
+[pdf](https://arxiv.org/pdf/2402.05526.pdf)
+
+> Typically with token choice routing methods in MoEs, there are implicitly cross-batch dependencies (i.e. the same token could be routed to different experts if in it's batch most of the other tokens also wanted to go to its preferred expert). The authors show that this batch dependency can be used as an attack surface. They present a few solutions - mostly this shouldn't be a problem if batch sizes are very large (as in inference in a big AI lab) but it's an interesting one to watch out for. We might expect ML systems security to be an increasingly large field of research.
 
 **FLOPs are all you need, Emin Orhan (2023)**
 [blog](https://severelytheoretical.wordpress.com/2023/08/14/flops-are-all-you-need-a-conjecture-about-what-really-makes-deep-learning-work/)
@@ -725,16 +738,6 @@ example.
 [pdf](https://arxiv.org/pdf/2102.04906.pdf)
 
 > A review of Adaptive Computation approaches.
-
-**Scaling Scaling Laws with Board Games, Andy Jones (2021)**
-[pdf](https://arxiv.org/pdf/2104.03113.pdf)
-
-> [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
-> suggests that there are two general techniques that work well in Machine
-> Learning - search and learning. This paper suggests that these can be traded
-> off against one another - that is, instead of additional learning you could
-> add capable search to achieve similar performance. We can trade off train-time
-> and test-time compute depending on our requirements.
 
 <!--
 
