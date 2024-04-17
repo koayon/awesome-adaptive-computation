@@ -712,7 +712,6 @@ example.
 > forward pass compute giving a natural (if imprecise) cleaving of intelligence
 > represented in compute applied and knowledge represented in the parameters.
 
-
 **Sparse Scaling Laws, DeepMind: Frantar et al (2023)**
 [pdf](https://arxiv.org/pdf/2309.08520.pdf)
 
@@ -721,7 +720,10 @@ example.
 > sparsity for a model given the inference FLOPs and training budget. They
 > suggest that sparsity is especially important for larger models when seeing
 > diminishing returns past Chinchilla optimality. See also
-> [Unified Scaling Laws](https://browse.arxiv.org/pdf/2202.01169.pdf)
+> [Unified Scaling Laws](https://browse.arxiv.org/pdf/2202.01169.pdf).
+>
+> Further [Scaling Laws For Fine-Grained MoEs](https://arxiv.org/pdf/2402.07871.pdf)
+> suggest ways to optimally select the trade-off between the number and size of experts.
 
 **Scaling Scaling Laws with Board Games, Andy Jones (2021)**
 [pdf](https://arxiv.org/pdf/2104.03113.pdf)
