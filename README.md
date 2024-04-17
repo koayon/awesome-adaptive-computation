@@ -700,6 +700,19 @@ example.
 
 ## Scaling Laws
 
+**Knowledge Capacity Scaling Laws, Meta: Allen-Zhu & Li (2024)**
+[pdf](https://arxiv.org/pdf/2404.05405.pdf)
+
+> The authors examine the Physics of Language Models and how much
+> data they can store per parameter. They find that typically models can store
+> around 2 bits per parameter, and this doesn't reduce too much with MoE models.
+> This confirms (since MoEs are typically much larger in parameter count) that
+> these models can store a lot more information than traditional models.
+> It also suggests that knowledge capacity is relatively independent of
+> forward pass compute giving a natural (if imprecise) cleaving of intelligence
+> represented in compute applied and knowledge represented in the parameters.
+
+
 **Sparse Scaling Laws, DeepMind: Frantar et al (2023)**
 [pdf](https://arxiv.org/pdf/2309.08520.pdf)
 
