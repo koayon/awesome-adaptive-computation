@@ -430,6 +430,20 @@ Prompting techniques such as
 [Chain of Verification](https://browse.arxiv.org/pdf/2309.11495.pdf) can also be
 used to improve performance for Black-box models.
 
+**Many-Shot In-Context Learning, Google DeepMind: Agarwal et al (2024)**
+[pdf](https://arxiv.org/pdf/2404.11018.pdf),
+
+> It has been long observed that language models can learn how to do a new
+> task from examples of inputs, reasoning chains and outputs. This is known
+> as few-shot Chain of Thought (CoT).
+> Historically, the number of examples has been limited by the context window
+> though. In this work, the authors suggest that using hundreds or thousands of
+> examples (typically model generated) can aid performance and out-of-distribution
+> robustness via the In-Context Learning mechanism. In other words, they formalise
+> another way to turn inference time compute into better performance.
+
+> Can be added to your DSPy program for a long-context models.
+
 🌟 **Martian LLM Router, Martian: Hu et al (2024)**
 [pdf](https://arxiv.org/pdf/2403.12031.pdf),
 [blog](https://withmartian.com/)
