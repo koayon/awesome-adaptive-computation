@@ -714,6 +714,12 @@ example.
 
 ## Scaling Laws
 
+
+**Toward Inference-Optimal MoEs, UCSD: Yun et al (2024)**
+[pdf](https://arxiv.org/pdf/2404.02852)
+
+> The Chinchilla scaling laws focused on how to allocate compute to get the best model for a given amount of training compute. Since then LLama and others have focused on optimising for inference-compute as well as training compute. For MoEs there are additional considerations here - how many experts should you assign for the parameter count given that at inference time cost depends on the active parameters? The authors find that fewer experts are more efficient at inference time but more experts are more efficient at training time.
+
 **Knowledge Capacity Scaling Laws, Meta: Allen-Zhu & Li (2024)**
 [pdf](https://arxiv.org/pdf/2404.05405.pdf)
 
