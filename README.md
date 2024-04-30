@@ -757,6 +757,11 @@ example.
 
 ## Other
 
+**Blending Is All You Need, Cambridge: Lu et al (2024)**
+[pdf](https://arxiv.org/pdf/2401.02994)
+
+> Mark this under "bizarre". They have a multi-modal setup where they completely randomly and uniformly select a model to answer each query in a conversation. The authors report higher user engagement and retention metrics using this approach over each individual model. One hypothesis is that each model can influence models that answer afterwards through the conditioning on previous tokens and there might be some implicit benefits to a model seeing tokens which are slightly off-distribution for what it would have produced. Perhaps they also have different refusal policies too. It's not clear why this should work but this provides a floor for more sophisticated model routing procedures.
+
 **Buffer Overflow in MoEs, DeepMind: Hayes et al (2024)**
 [pdf](https://arxiv.org/pdf/2402.05526.pdf)
 
