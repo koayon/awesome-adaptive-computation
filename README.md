@@ -275,7 +275,13 @@ Shazeer et al (2017)** [pdf](https://arxiv.org/pdf/1701.06538.pdf)
 
 ## Other Modular Architectures
 
-🌟 **MoDE - CLIP Data Experts via Clustering, Meta: Ma et al (2024)**
+**Stylus Diffusion Adapter Selection, UC Berkeley: Luo et al (2024)**
+[pdf](https://arxiv.org/pdf/2404.18928),
+[repo](https://github.com/stylus-diffusion/stylus)
+
+> Diffusion model users often use adapters rather than full finetunes to achieve models which perform well on a particular style. The authors here automatically select and compose relevant adapters for the prompt using a model routing approach. A nice application of inference-time routing which we might expect to become more commonplace in the future.
+
+**MoDE - CLIP Data Experts via Clustering, Meta: Ma et al (2024)**
 [pdf](https://arxiv.org/pdf/2404.16030),
 [pytorch code](https://github.com/facebookresearch/MetaCLIP/tree/main/mode)
 
