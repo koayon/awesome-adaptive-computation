@@ -275,6 +275,12 @@ Shazeer et al (2017)** [pdf](https://arxiv.org/pdf/1701.06538.pdf)
 
 ## Other Modular Architectures
 
+🌟 **MoDE - CLIP Data Experts via Clustering, Meta: Ma et al (2024)**
+[pdf](https://arxiv.org/pdf/2404.16030),
+[pytorch code](https://github.com/facebookresearch/MetaCLIP/tree/main/mode)
+
+> The authors apply a Task-specific MoE based on training parallel CLIP models on restricted domains and ensembling these together. They show increased performance with less compute and note the ability to add in new "experts" for new domains asynchronously and after initial training as a Continual Learning play.
+
 🌟 **Mixture of Depths, DeepMind: Raposo et al (2023)**
 [pdf](https://arxiv.org/pdf/2404.02258.pdf),
 
