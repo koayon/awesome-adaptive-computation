@@ -66,6 +66,11 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 
 [JetMoE](https://research.myshell.ai/jetmoe), based on the [ModuleFormer](https://arxiv.org/pdf/2306.04640.pdf) MoE conception, shows that MoEs can also be effective at smaller scales.
 
+**DeepSeek-v2, DeepSeek (2024)**
+[pdf](https://arxiv.org/pdf/2405.04434)
+
+> A large (236B), performant and open MoE with lots of details about training and checkpoints available. Useful for understanding a modern MoE recipe.
+
 **MoEs for Deep-RL, Google DeepMind: Obando-Ceron et al (2024)**
 [pdf](https://arxiv.org/pdf/2402.08609.pdf)
 
