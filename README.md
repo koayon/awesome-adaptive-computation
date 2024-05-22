@@ -447,6 +447,19 @@ Prompting techniques such as
 [Chain of Verification](https://browse.arxiv.org/pdf/2309.11495.pdf) can also be
 used to improve performance for Black-box models.
 
+🌟 **Jacobi Consistency Large Language Models (CLLMs), SJTU: Kou et al (2024)**
+[pdf](https://arxiv.org/pdf/2403.00835),
+[blog](https://hao-ai-lab.github.io/blogs/cllm/)
+
+> An interesting approach to the multi-token prediction problem. They give a language model a prompt
+> and a random k-tokens to come next. They then run a forward pass: this will give the "correct"
+> next token (i.e. directly after the prompt) but there's some chance it also updates one of the following
+> tokens to being correct as well. They use a consistency loss (similar to in Diffusion models) to improve the trajectory
+> from [k random tokens] --> [k correct tokens] very similar to a diffusion approach. We notes that this can take at most k
+> forward passes but ideally can be done fewer forward passes.
+
+> The aim of the game is to repeatedly put the k tokens through the model until they reach a fixed point (i.e. a forward pass doesn't change them). (Also note that on this final forward pass we also have the k+1th token returned). This is an interesting approach that changes fundamentally the language modelling objective from autoregressive prediction to predicting trajectories for multi-token sequences.
+
 🌟 **Multi-Token Prediction, Meta: Gloeckle et al (2024)**
 [pdf](https://arxiv.org/pdf/2404.19737)
 
