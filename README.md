@@ -447,8 +447,19 @@ Prompting techniques such as
 [Chain of Verification](https://browse.arxiv.org/pdf/2309.11495.pdf) can also be
 used to improve performance for Black-box models.
 
+🌟 **Multi-Token Prediction, Meta: Gloeckle et al (2024)**
+[pdf](https://arxiv.org/pdf/2404.19737)
+
+> Traditionally LLMs predict one token at a time. This is somewhat inhuman and
+> inefficient because often once the start of a word/phrase is predicted, the end
+> is trivial. The authors here treat subsequent token prediction as an auxiliary task
+> and train additional heads to predict further tokens. The real benefit of this approach
+> isn't in inference though but in training. Pre-training with this auxiliary task is more
+> sample efficient and forces the LM to learn better representations for medium-term dependencies.
+> In generative tasks such as coding, these models much outperform traditional LLMs with lower latency.
+
 **Many-Shot In-Context Learning, Google DeepMind: Agarwal et al (2024)**
-[pdf](https://arxiv.org/pdf/2404.11018.pdf),
+[pdf](https://arxiv.org/pdf/2404.11018.pdf)
 
 > It has been long observed that language models can learn how to do a new
 > task from examples of inputs, reasoning chains and outputs. This is known
