@@ -501,6 +501,7 @@ used to improve performance for Black-box models.
 [pdf2](https://arxiv.org/pdf/2211.17192.pdf),
 [blog](https://jaykmody.com/blog/speculative-sampling/),
 [PyTorch code](https://github.com/jaymody/speculative-sampling)
+[PyTorch blog](https://pytorch.org/blog/hitchhikers-guide-speculative-decoding/)
 
 > A smaller model generates multiple tokens autoregressively and then a larger
 > model checks the smaller model against what it would have generated (all in
