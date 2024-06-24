@@ -71,6 +71,14 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 
 > An open-source MoE in the style of Switch Transformer. They detail two training tricks for getting better MoE performance. Firstly they normalise the routing logits before it goes through the softmax in order to reduce the entropy in the router and make the router more decisive. Secondly they have a different auxiliary loss coefficient for each layer and this is tuned during training depending on how many tokens were dropped at that layer. This helps to reduce impact of the auxiliary loss as the router becomes more balanced and confident.
 
+**DynMoE, CUHK: Guo et al (2024)**
+[pdf](https://arxiv.org/pdf/2405.14297)
+[code](https://arxiv.org/pdf/2405.14297)
+
+> One problem with the token choice MoE approach is that every token is allocated the same number of experts. Ideally for true adaptive computation this would be variable depending on how difficult the token is. The authors introduce a routing mechanism which allows for a variable number of experts per token as well as a procedure for dynamically changing the number of experts during training. This allows for better performance with less hyperparameter sweeping.
+>
+> Also see [Dynamic Routing in MoEs](https://arxiv.org/pdf/2403.07652)
+
 **DeepSeek-v2, DeepSeek (2024)**
 [pdf](https://arxiv.org/pdf/2405.04434)
 
