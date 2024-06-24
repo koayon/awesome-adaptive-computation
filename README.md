@@ -66,6 +66,11 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 
 [JetMoE](https://research.myshell.ai/jetmoe), based on the [ModuleFormer](https://arxiv.org/pdf/2306.04640.pdf) MoE conception, shows that MoEs can also be effective at smaller scales.
 
+**Skywork-MoE, Skywork (2024)**
+[pdf](https://github.com/SkyworkAI/Skywork-MoE/blob/main/skywork-moe-tech-report.pdf)
+
+> An open-source MoE in the style of Switch Transformer. They detail two training tricks for getting better MoE performance. Firstly they normalise the routing logits before it goes through the softmax in order to reduce the entropy in the router and make the router more decisive. Secondly they have a different auxiliary loss coefficient for each layer and this is tuned during training depending on how many tokens were dropped at that layer. This helps to reduce impact of the auxiliary loss as the router becomes more balanced and confident.
+
 **DeepSeek-v2, DeepSeek (2024)**
 [pdf](https://arxiv.org/pdf/2405.04434)
 
