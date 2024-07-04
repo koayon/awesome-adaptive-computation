@@ -688,6 +688,11 @@ parts of completions.
 
 ## Pre-cursors to Adaptive Computation
 
+**Dynamic Evaluation**
+[blog](https://gwern.net/doc/ai/nn/dynamic-evaluation/index)
+
+> Dynamic evaluation is an inference-time finetuning approach which which allows for online learning to increase performance on a given task. This was popular for RNN approaches but has fallen out of favour due to wanting simple-to-deploy models over an API and the rise of In-Context Learning. Similar approaches have seen some success on the [ARC challenge](https://arcprize.org/arc).
+
 **Attention and The Transformer, Vaswani et al (2017)**
 [pdf](https://arxiv.org/pdf/1706.03762.pdf)
 [pdf2](https://arxiv.org/pdf/1409.0473.pdf)
