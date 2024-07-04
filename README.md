@@ -13,7 +13,7 @@ models, explainers and libraries for Machine Learning.
 - [Mixture of Experts (Sparse MoE)](#mixture-of-experts-sparse-moe)
 - [Other Modular Architectures](#other-modular-architectures)
 - [Early Exit: End-to-End Adaptive Computation](#early-exit-end-to-end-adaptive-computation)
-- [More Tokens Per Output Token](#more-tokens-per-output-token)
+- [More Compute Per Output Token](#more-compute-per-output-token)
 - [Adaptive Computation for Black-box models](#adaptive-computation-for-black-box-models)
 - [Continual Learning](#continual-learning)
 - [Tools \& Agents](#tools--agents)
@@ -424,7 +424,14 @@ typically done by learning an exit probability at each layer.
 > they should take before returning an output. This approach is built on and
 > refined in many later papers such as PonderNet.
 
-## More Tokens Per Output Token
+## More Compute Per Output Token
+
+**Masked Diffusion Language Models, Cornell: Sahoo et al (2024)**
+[pdf](https://arxiv.org/pdf/2406.07524),
+[pytorch code](https://github.com/kuleshov-group/mdlm)
+[video](https://www.youtube.com/watch?v=WjAUX23vgfg)
+
+> Autoregressive models sample a single token at a time, regardless of how difficult this token is to predict. Diffusion models however have the benefit that the number of steps from the noised input to the final output can be varied which acts as a knob controlling the amount of compute applied. The authors introduce a simplified method for Diffusion Language models based on BERT which achieves better perplexity than previous Diffusion Language models (though not at autoregressive model levels). This avenue provides a different approach to varying compute per output token.
 
 🌟 **Quiet-STaR, Stanford: Zelikman et al (2024)**
 [pdf](https://arxiv.org/pdf/2403.09629.pdf),
