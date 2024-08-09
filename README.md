@@ -474,7 +474,7 @@ Prompting techniques such as
 used to improve performance for Black-box models.
 
 **Online Speculative Decoding, Berkeley: Liu et al (2024)**
-[pdf](https://arxiv.org/pdf/2408.03314),
+[pdf](https://arxiv.org/pdf/2310.07177),
 [pytorch code](https://github.com/LiuXiaoxuanPKU/OSD)
 
 > The authors propose an Active Learning approach to choosing draft models for speculative decoding. In downtime when the GPUs are not maxed out for inference, they use the capacity to instead finetune a draft model on the recent outputs from the large teacher model. In this way the system can respond to distribution shift and still stay performant by accepting more tokens from the draft model. Depending on the distribution shift this can result in a latency reductions going from 1.22x (naive speculative decoding under distribution shift) to 3.06x (their method).
@@ -578,6 +578,7 @@ used to improve performance for Black-box models.
 > [Recurrent Drafter](https://arxiv.org/pdf/2403.09919.pdf) from Apple suggest
 > using a fast RNN for speculative decoding and [large n-gram models](https://arxiv.org/pdf/2401.17377.pdf)
 > could also be used as a non-parametric approach. Indeed [REST](https://www.semanticscholar.org/paper/REST%3A-Retrieval-Based-Speculative-Decoding-He-Zhong/532c2c7a247d9e97d20abec1b2f4612984fdab93) suggest retrieving follow-on tokens from the web for the speculative decoding head.
+> See also [Accelerated Speculative Sampling (ASpS) with Tree Monte Carlo](https://openreview.net/pdf?id=stMhi1Sn2G) for further improvements to this method.
 
 <!-- The general principle here is that it's easier to evaluate than to generate. -->
 
