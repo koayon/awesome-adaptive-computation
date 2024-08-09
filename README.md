@@ -351,6 +351,12 @@ Early Exit approaches ask if we get the output of a neural network without going
 through all the layers, particularly if faced with an easier example. This is
 typically done by learning an exit probability at each layer.
 
+**EE-LLM, Alibaba: Chen et al (2024)**
+[pdf](https://arxiv.org/pdf/2312.04916)
+[pytorch code](https://github.com/pan-x-c/EE-LLM)
+
+> The authors extend Megatron into a library which natively supports the Early Exit paradigm taking full advantage of 3D parallelism. Other contributions include methods to efficiently facilitate backprop even when some layers may be unused and methods to handle the fact that using naive early exit would result in missing KV-caches for some tokens. They find that limiting the Early Exit layers to a few intermediate layers substantially improves performance.
+
 **Sparse Universal Transformer (SUT), MILA: Tan et al (2023)**
 [pdf](https://arxiv.org/pdf/2310.07096.pdf)
 
