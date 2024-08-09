@@ -467,6 +467,11 @@ Prompting techniques such as
 [Chain of Verification](https://browse.arxiv.org/pdf/2309.11495.pdf) can also be
 used to improve performance for Black-box models.
 
+🌟 **Scaling LLM Test-Time Compute, Deepmind: Snell et al (2024)**
+[pdf](https://arxiv.org/pdf/2408.03314),
+
+> They test two strategies for using test-time compute: (1) searching against dense, process-based verifier reward models in a tree-like fashion and (2) utilising Dynamic Evaluation-style updating of the model’s distribution at test time given the prompt. They find that using these strategies they're able to achieve a 4x improvement over using best-of-N with the same compute budget. Even more strikingly, they find a 14x improvement over FLOP-matching with using a larger model. This is a huge win for Adaptive Compute-style approaches. On a different note the paper's motivating setup and styling are well executed which makes the paper a nice read.
+
 🌟 **Jacobi Consistency Large Language Models (CLLMs), SJTU: Kou et al (2024)**
 [pdf](https://arxiv.org/pdf/2403.00835),
 [blog](https://hao-ai-lab.github.io/blogs/cllm/)
