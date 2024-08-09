@@ -467,6 +467,12 @@ Prompting techniques such as
 [Chain of Verification](https://browse.arxiv.org/pdf/2309.11495.pdf) can also be
 used to improve performance for Black-box models.
 
+**Online Speculative Decoding, Berkeley: Liu et al (2024)**
+[pdf](https://arxiv.org/pdf/2408.03314),
+[pytorch code](https://github.com/LiuXiaoxuanPKU/OSD)
+
+> The authors propose an Active Learning approach to choosing draft models for speculative decoding. In downtime when the GPUs are not maxed out for inference, they use the capacity to instead finetune a draft model on the recent outputs from the large teacher model. In this way the system can respond to distribution shift and still stay performant by accepting more tokens from the draft model. Depending on the distribution shift this can result in a latency reductions going from 1.22x (naive speculative decoding under distribution shift) to 3.06x (their method).
+
 🌟 **Scaling LLM Test-Time Compute, Deepmind: Snell et al (2024)**
 [pdf](https://arxiv.org/pdf/2408.03314),
 
