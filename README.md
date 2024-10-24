@@ -66,6 +66,10 @@ open-weights MoE model which is comparable to much larger models. Google DeepMin
 
 [JetMoE](https://research.myshell.ai/jetmoe), based on the [ModuleFormer](https://arxiv.org/pdf/2306.04640.pdf) MoE conception, shows that MoEs can also be effective at smaller scales.
 
+**Exploiting Activation Sparsity with Dense to Dynamic-k Mixture-of-Experts Conversion**, Szatkowski et al. (2024), [pdf](https://arxiv.org/pdf/2310.04361) [code](https://github.com/bartwojcik/D2DMoE)
+
+> While MoE models are mostly used for scaling up the parameter count, recently [MoEfication](https://arxiv.org/abs/2110.01786) has shown that static dense models can be converted to MoEs to improve execution time. D2DMoE makes further progress in improving the efficiency of these dense-to-MoE converted models by: 1) showing that the efficiency of the resulting model can be significantly enhanced by enforcement of activation sparsity in the base model; 2) proposing Expert Contribution Routing, a novel objective for the training of the gating networks, which are now tasked to predict the output norm of each expert for the given input, enabling approximation of each expert’s relative contribution; 3) introducing dynamic-k gating, which allows the model to appropriately distribute its computational budget between easy and hard inputs; 4) extending the proposed conversion scheme to any linear layers such as multi-head attention projections. 
+
 **Skywork-MoE, Skywork (2024)**
 [pdf](https://github.com/SkyworkAI/Skywork-MoE/blob/main/skywork-moe-tech-report.pdf)
 
