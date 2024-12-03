@@ -32,8 +32,8 @@ models, explainers and libraries for Machine Learning.
 <!-- We can think of this as giving models a [System 2](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow) mode. -->
 
 Adaptive Computation techniques include **Mixture of Experts** (decoupling model
-capacity and model compute) and **Early Exiting** (saving compute on easy
-inputs) as well as sampling techniques.
+capacity and model compute), **Early Exiting** (saving compute on easy
+inputs) and **Inference-Time Computation** (search and verification at inference time) as well as sampling techniques.
 
 <!-- [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) states that the two general methods to utilise large amounts of compute are `Learning` and `Search`. Whilst large pre-trained models focus on `learning` at _train time_, Adaptive Computation is about spending more compute at inference time with mechanisms similar to `Search`. -->
 
