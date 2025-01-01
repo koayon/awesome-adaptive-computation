@@ -915,8 +915,8 @@ If you'd like to cite this article, please use:
 ```
 @misc{ayonrinde_2023_awesome_adaptive_computation,
   author = "Kola Ayonrinde",
-  title = "Shazeer Typing",
-  year = 2025,
+  title = "Awesome Adaptive Computations",
+  year = 2023,
   publisher = "GitHub",
   url = "https://github.com/koayon/awesome-adaptive-computation/"
 }
