@@ -908,3 +908,16 @@ Sparsity May Cry (SMC)
 
 Thanks for reading, if you have any suggestions or corrections please submit a
 pull request! And please hit the star button to show your appreciation.
+
+## Citing This Post
+
+If you'd like to cite this article, please use:
+```
+@misc{ayonrinde_2023_awesome_adaptive_computation,
+  author = "Kola Ayonrinde",
+  title = "Shazeer Typing",
+  year = 2025,
+  publisher = "GitHub",
+  url = "https://github.com/koayon/awesome-adaptive-computation/"
+}
+```
